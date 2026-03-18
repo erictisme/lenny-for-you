@@ -55,7 +55,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** `pnpm build` passes. The types, AI provider, and prompts all export correctly.
 
-- [ ] **Task 3: Design theme — identify Lenny's brand and apply to Tailwind** (Priority: 1 — needed before any UI work)
+- [x] **Task 3: Design theme — identify Lenny's brand and apply to Tailwind** (Priority: 1 — needed before any UI work)
 
   **What does "done" look like?**
   The app has a dark-mode design theme inspired by Lenny's Newsletter branding. The `src/app/globals.css` has CSS variables for the Lenny color palette. The root `src/app/layout.tsx` applies the dark theme by default.

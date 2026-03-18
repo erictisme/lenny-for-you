@@ -2,3 +2,4 @@
 Task 1: Created build-index.ts script, generated compact-index.ts (638 items + CATALOG_PROMPT export) and catalog-prompt.txt (638 lines). Added build-index npm script.
 Task 2: Created src/types/index.ts (RankedItem, DeepDiveRequest, RankRequest), src/lib/ai.ts (Gemini provider factory), src/lib/prompts.ts (ranking + deep-dive system prompts).
 Task 4: Created POST /api/rank route with Zod schema validation, Gemini generateObject call using CATALOG_PROMPT, error handling (400/429/500).
+Task 3: Applied Lenny-inspired dark theme to globals.css (slate-navy background, blue-500 primary accent) and layout.tsx (dark class, updated metadata).
