@@ -58,7 +58,7 @@ Testing revealed critical bugs and UX gaps. Fix them before competition submissi
 
   **How to verify?** `pnpm build` passes. The GitHub link is visible on each card.
 
-- [ ] **Task 4: Final build verification**
+- [x] **Task 4: Final build verification**
 
   **What does "done" look like?**
   `pnpm build` passes with zero errors. All previous tasks are committed.
