@@ -7,3 +7,4 @@ Task 5: Added youtube_url to CatalogItem by extracting from podcast frontmatter.
 Task 6: Created /api/synthesize route — reads top 20 articles (2000 chars each), streams a cross-referenced synthesis brief via Gemini. Added SYNTHESIS_SYSTEM_PROMPT. Build passes.
 Task 7: Created /api/batch-summarize route — parallel generateText calls for up to 10 files, returns JSON summaries keyed by filename. Added CARD_SUMMARY_SYSTEM_PROMPT. Build passes.
 Task 8: Rebuilt results page — streaming synthesis brief at top, feed cards with collapsible pre-generated summaries (batch API), Load More button, editable query. Created synthesis-brief.tsx component. Build passes.
+Task 9: Replaced inline BYOK toggle with gear icon + popover. Moved to fixed top-right on landing page. Green dot indicator when key is saved. Build passes.

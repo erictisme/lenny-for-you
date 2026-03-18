@@ -276,7 +276,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** Submit a query → synthesis brief streams in at top → 20 cards appear below with summaries pre-loaded → first card auto-expanded → click "Load More" → 20 more cards appear. Markdown renders everywhere. `pnpm build` passes.
 
-- [ ] **Task 9: Improve BYOK toggle — discreet settings gear** (Priority: 2)
+- [x] **Task 9: Improve BYOK toggle — discreet settings gear** (Priority: 2)
 
   **What does "done" look like?**
   Small gear icon in top-right corner. Clicking opens a clean popover for API key input. No raw "Paste your Gemini key" on the main page.
