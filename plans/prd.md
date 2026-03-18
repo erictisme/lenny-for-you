@@ -287,7 +287,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** On results page, click share button — URL is copied, "Copied!" appears briefly. Toggle BYOK, enter a test key, refresh page — key persists. The key is included in API requests (check Network tab). `pnpm build` passes.
 
-- [ ] **Task 10: OG image and social metadata** (Priority: 3 — polish)
+- [x] **Task 10: OG image and social metadata** (Priority: 3 — polish)
 
   **What does "done" look like?**
   When sharing the app URL on LinkedIn or Twitter, a compelling preview image and description appear.

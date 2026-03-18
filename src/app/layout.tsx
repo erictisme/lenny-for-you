@@ -13,8 +13,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lenny, For You",
-  description: "650 posts. 300 guests. Which ones matter for YOU?",
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000"
+  ),
+  title: "Lenny, For You — Your Personalized Lenny's Newsletter Feed",
+  description:
+    "650 posts. 300 guests. Which ones matter for YOU? Tell me your situation and I'll curate the perfect reading list from Lenny's archive.",
+  openGraph: {
+    type: "website",
+    title: "Lenny, For You — Your Personalized Lenny's Newsletter Feed",
+    description:
+      "650 posts. 300 guests. Which ones matter for YOU? Tell me your situation and I'll curate the perfect reading list from Lenny's archive.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lenny, For You — Your Personalized Lenny's Newsletter Feed",
+    description:
+      "650 posts. 300 guests. Which ones matter for YOU? Tell me your situation and I'll curate the perfect reading list from Lenny's archive.",
+  },
 };
 
 export default function RootLayout({
