@@ -339,7 +339,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** Run `pnpm dev`, test on mobile viewport (Chrome DevTools → toggle device toolbar → iPhone SE 375px). All pages look good, text is readable, buttons are tappable, modal works. Test error states by temporarily breaking the API key. `pnpm build` passes.
 
-- [ ] **Task 12: Final build verification and cleanup** (Priority: 3)
+- [x] **Task 12: Final build verification and cleanup** (Priority: 3)
 
   **What does "done" look like?**
   The app builds successfully with zero errors and zero warnings. All unused imports and dead code are removed. The .gitignore properly excludes .env files and node_modules. A clean git commit exists with all changes.
