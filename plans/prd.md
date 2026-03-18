@@ -220,7 +220,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** Test with curl sending 3 filenames. Should return JSON with 3 summaries. All summaries are personalized. `pnpm build` passes.
 
-- [ ] **Task 8: Rebuild results page — synthesis brief + pre-generated card summaries + Load More** (Priority: 0 — the main UX overhaul)
+- [x] **Task 8: Rebuild results page — synthesis brief + pre-generated card summaries + Load More** (Priority: 0 — the main UX overhaul)
 
   **What does "done" look like?**
   The results page shows:

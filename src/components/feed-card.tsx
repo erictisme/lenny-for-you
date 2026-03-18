@@ -1,26 +1,40 @@
 "use client";
 
+import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TypeBadge } from "@/components/type-badge";
 import { RelevanceBadge } from "@/components/relevance-badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import type { RankedItem } from "@/types";
 
 export function FeedCard({
   item,
   onClick,
   index = 0,
+  summary = null,
+  summaryLoading = false,
+  defaultExpanded = false,
 }: {
   item: RankedItem;
   onClick: () => void;
   index?: number;
+  summary?: string | null;
+  summaryLoading?: boolean;
+  defaultExpanded?: boolean;
 }) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
+
   return (
     <Card
-      className="animate-fade-in-up cursor-pointer shadow-sm transition-shadow hover:shadow-md"
+      className="animate-fade-in-up shadow-sm transition-shadow hover:shadow-md"
       style={{ animationDelay: `${index * 60}ms` }}
-      onClick={onClick}
     >
-      <CardHeader>
+      <CardHeader
+        className="cursor-pointer"
+        onClick={onClick}
+      >
         <div className="flex items-center gap-2">
           <TypeBadge type={item.type} />
           <RelevanceBadge relevance={item.relevance} />
@@ -37,6 +51,40 @@ export function FeedCard({
         <div className="rounded-lg border-l-2 border-primary/50 bg-primary/5 px-4 py-3 text-sm leading-relaxed">
           {item.why_this_matters}
         </div>
+
+        {/* Summary section */}
+        {(summary || summaryLoading) && (
+          <div className="mt-3">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpanded(!expanded);
+              }}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {expanded ? "Hide summary ▲" : "View summary ▼"}
+            </button>
+
+            {expanded && (
+              <div className="mt-2">
+                {summaryLoading && !summary ? (
+                  <div className="space-y-2">
+                    <Skeleton className="h-3 w-full" />
+                    <Skeleton className="h-3 w-5/6" />
+                    <Skeleton className="h-3 w-4/6" />
+                  </div>
+                ) : summary ? (
+                  <div className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground text-sm leading-relaxed">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {summary}
+                    </ReactMarkdown>
+                  </div>
+                ) : null}
+              </div>
+            )}
+          </div>
+        )}
+
         {item.tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">
             {item.tags.map((tag) => (

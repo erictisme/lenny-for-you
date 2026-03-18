@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, useCallback, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { FeedCard } from "@/components/feed-card";
 import { FeedSkeleton } from "@/components/feed-skeleton";
+import { SynthesisBrief } from "@/components/synthesis-brief";
 import { DeepDiveModal } from "@/components/deep-dive-modal";
 import { ShareButton } from "@/components/share-button";
 import { BYOKToggle, useApiKey } from "@/components/byok-toggle";
@@ -29,9 +30,101 @@ function ResultsContent() {
   const [loadingMsgIndex, setLoadingMsgIndex] = useState(0);
   const apiKey = useApiKey();
 
+  // Synthesis state
+  const [synthesisContent, setSynthesisContent] = useState("");
+  const [synthesisLoading, setSynthesisLoading] = useState(false);
+  const [synthesisError, setSynthesisError] = useState<string | null>(null);
+
+  // Batch summary state
+  const [summaries, setSummaries] = useState<Record<string, string | null>>({});
+  const [summariesLoading, setSummariesLoading] = useState(false);
+
+  // Load more state
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const loadedFilenamesRef = useRef<string[]>([]);
+
+  // Edit mode
+  const [editing, setEditing] = useState(false);
+  const [editText, setEditText] = useState("");
+
   const userInput = q
     ? decodeURIComponent(escape(atob(q)))
     : null;
+
+  const fetchSynthesis = useCallback(
+    async (input: string, filenames: string[]) => {
+      setSynthesisLoading(true);
+      setSynthesisError(null);
+      setSynthesisContent("");
+      try {
+        const res = await fetch("/api/synthesize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userInput: input,
+            filenames,
+            ...(apiKey ? { apiKey } : {}),
+          }),
+        });
+        if (!res.ok) {
+          const data = await res.json().catch(() => null);
+          throw new Error(data?.error || "Failed to synthesize");
+        }
+        const reader = res.body?.getReader();
+        if (!reader) throw new Error("No response stream");
+
+        const decoder = new TextDecoder();
+        let accumulated = "";
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          accumulated += decoder.decode(value, { stream: true });
+          setSynthesisContent(accumulated);
+        }
+      } catch (err) {
+        setSynthesisError(
+          err instanceof Error ? err.message : "Something went wrong"
+        );
+      } finally {
+        setSynthesisLoading(false);
+      }
+    },
+    [apiKey]
+  );
+
+  const fetchBatchSummaries = useCallback(
+    async (input: string, filenames: string[]) => {
+      setSummariesLoading(true);
+      // Batch in groups of 10
+      const batches: string[][] = [];
+      for (let i = 0; i < filenames.length; i += 10) {
+        batches.push(filenames.slice(i, i + 10));
+      }
+
+      for (const batch of batches) {
+        try {
+          const res = await fetch("/api/batch-summarize", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              userInput: input,
+              filenames: batch,
+              ...(apiKey ? { apiKey } : {}),
+            }),
+          });
+          if (res.ok) {
+            const data = await res.json();
+            setSummaries((prev) => ({ ...prev, ...data.summaries }));
+          }
+        } catch {
+          // Continue with other batches even if one fails
+        }
+      }
+      setSummariesLoading(false);
+    },
+    [apiKey]
+  );
 
   useEffect(() => {
     if (!userInput) {
@@ -55,7 +148,15 @@ function ResultsContent() {
         }
 
         const data = await res.json();
-        setItems(data.items);
+        const rankedItems: RankedItem[] = data.items;
+        setItems(rankedItems);
+
+        const filenames = rankedItems.map((it) => it.filename);
+        loadedFilenamesRef.current = filenames;
+
+        // Start synthesis and batch summaries in parallel
+        fetchSynthesis(userInput!, filenames);
+        fetchBatchSummaries(userInput!, filenames);
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Something went wrong"
@@ -66,7 +167,7 @@ function ResultsContent() {
     }
 
     fetchRankings();
-  }, [userInput, router, apiKey]);
+  }, [userInput, router, apiKey, fetchSynthesis, fetchBatchSummaries]);
 
   useEffect(() => {
     if (!loading) return;
@@ -75,6 +176,49 @@ function ResultsContent() {
     }, 2500);
     return () => clearInterval(interval);
   }, [loading]);
+
+  const handleLoadMore = async () => {
+    if (!userInput || loadingMore) return;
+    setLoadingMore(true);
+    try {
+      const excludeList = loadedFilenamesRef.current.join(", ");
+      const res = await fetch("/api/rank", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userInput: `${userInput}\n\nIMPORTANT: Do NOT include these already-selected items: [${excludeList}]. Select the NEXT 20 most relevant items.`,
+          ...(apiKey ? { apiKey } : {}),
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to load more");
+      const data = await res.json();
+      const newItems: RankedItem[] = data.items;
+
+      if (newItems.length === 0) {
+        setHasMore(false);
+      } else {
+        setItems((prev) => [...prev, ...newItems]);
+        const newFilenames = newItems.map((it) => it.filename);
+        loadedFilenamesRef.current = [
+          ...loadedFilenamesRef.current,
+          ...newFilenames,
+        ];
+        fetchBatchSummaries(userInput, newFilenames);
+      }
+    } catch {
+      // Silently fail on load more
+    } finally {
+      setLoadingMore(false);
+    }
+  };
+
+  const handleEditSubmit = () => {
+    if (!editText.trim()) return;
+    const encoded = btoa(unescape(encodeURIComponent(editText.trim())));
+    router.push(`/results?q=${encoded}`);
+    setEditing(false);
+  };
 
   if (!userInput) return null;
 
@@ -90,9 +234,51 @@ function ResultsContent() {
             <BYOKToggle />
           </div>
         </div>
-        <p className="mt-3 text-sm text-muted-foreground italic">
-          &ldquo;{userInput}&rdquo;
-        </p>
+
+        {/* User query with edit */}
+        {editing ? (
+          <div className="mt-3">
+            <textarea
+              className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"
+              rows={3}
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  handleEditSubmit();
+                }
+              }}
+            />
+            <div className="mt-2 flex gap-2">
+              <button
+                onClick={handleEditSubmit}
+                className="rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground"
+              >
+                Search again
+              </button>
+              <button
+                onClick={() => setEditing(false)}
+                className="text-sm text-muted-foreground"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        ) : (
+          <p className="mt-3 text-sm text-muted-foreground italic">
+            &ldquo;{userInput}&rdquo;
+            <button
+              onClick={() => {
+                setEditText(userInput);
+                setEditing(true);
+              }}
+              className="ml-2 text-primary underline underline-offset-4 not-italic"
+            >
+              Edit
+            </button>
+          </p>
+        )}
       </header>
 
       {loading && (
@@ -123,16 +309,42 @@ function ResultsContent() {
       )}
 
       {!loading && !error && (
-        <div className="space-y-4">
-          {items.map((item, i) => (
-            <FeedCard
-              key={item.filename}
-              item={item}
-              index={i}
-              onClick={() => setSelectedItem(item)}
-            />
-          ))}
-        </div>
+        <>
+          {/* Synthesis Brief */}
+          <SynthesisBrief
+            content={synthesisContent}
+            loading={synthesisLoading}
+            error={synthesisError}
+          />
+
+          {/* Feed Cards */}
+          <div className="space-y-4">
+            {items.map((item, i) => (
+              <FeedCard
+                key={item.filename}
+                item={item}
+                index={i}
+                onClick={() => setSelectedItem(item)}
+                summary={summaries[item.filename] ?? null}
+                summaryLoading={summariesLoading && !(item.filename in summaries)}
+                defaultExpanded={i === 0}
+              />
+            ))}
+          </div>
+
+          {/* Load More */}
+          {hasMore && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={handleLoadMore}
+                disabled={loadingMore}
+                className="rounded-lg bg-primary px-6 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+              >
+                {loadingMore ? "Loading…" : "Load 20 more articles"}
+              </button>
+            </div>
+          )}
+        </>
       )}
 
       <DeepDiveModal
