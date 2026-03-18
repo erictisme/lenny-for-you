@@ -195,7 +195,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** Run `pnpm dev`, open http://localhost:3000. See a dark-themed landing page with headline, textarea, and submit button. Type text and click submit — should navigate to `/results?q=...` (the results page won't exist yet, that's OK — just verify the URL changes). `pnpm build` passes.
 
-- [ ] **Task 7: Results feed page — display ranked articles** (Priority: 2)
+- [x] **Task 7: Results feed page — display ranked articles** (Priority: 2)
 
   **What does "done" look like?**
   The results page (`src/app/results/page.tsx`) reads the user's input from URL searchParams, calls `/api/rank`, and displays a feed of 20 personalized cards with loading states.

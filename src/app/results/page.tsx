@@ -1,0 +1,121 @@
+"use client";
+
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { FeedCard } from "@/components/feed-card";
+import { FeedSkeleton } from "@/components/feed-skeleton";
+import type { RankedItem } from "@/types";
+
+function ResultsContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const q = searchParams.get("q");
+
+  const [items, setItems] = useState<RankedItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const userInput = q
+    ? decodeURIComponent(escape(atob(q)))
+    : null;
+
+  useEffect(() => {
+    if (!userInput) {
+      router.replace("/");
+      return;
+    }
+
+    async function fetchRankings() {
+      try {
+        const res = await fetch("/api/rank", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userInput }),
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => null);
+          throw new Error(
+            data?.error || `Request failed (${res.status})`
+          );
+        }
+
+        const data = await res.json();
+        setItems(data.items);
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : "Something went wrong"
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchRankings();
+  }, [userInput, router]);
+
+  if (!userInput) return null;
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-12">
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold tracking-tight">
+          Your Personalized Lenny Feed
+        </h1>
+        <p className="mt-3 text-sm text-muted-foreground italic">
+          &ldquo;{userInput}&rdquo;
+        </p>
+      </header>
+
+      {loading && (
+        <div>
+          <p className="mb-6 text-sm text-muted-foreground">
+            Analyzing 650 pieces of Lenny&apos;s archive for you...
+          </p>
+          <FeedSkeleton />
+        </div>
+      )}
+
+      {error && (
+        <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-6 text-center">
+          <p className="text-destructive">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 text-sm text-primary underline underline-offset-4"
+          >
+            Try again
+          </button>
+        </div>
+      )}
+
+      {!loading && !error && (
+        <div className="space-y-4">
+          {items.map((item) => (
+            <FeedCard
+              key={item.filename}
+              item={item}
+              onClick={() => console.log("deep-dive:", item.filename)}
+            />
+          ))}
+        </div>
+      )}
+
+      <div className="mt-12 text-center">
+        <button
+          onClick={() => router.push("/")}
+          className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+        >
+          Start over
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function ResultsPage() {
+  return (
+    <Suspense>
+      <ResultsContent />
+    </Suspense>
+  );
+}
