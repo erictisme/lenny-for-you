@@ -41,11 +41,35 @@ export function SynthesisBrief({
       )}
 
       {content && (
-        <div className="prose prose-base max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-blockquote:border-primary/50">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {content}
-          </ReactMarkdown>
-        </div>
+        <>
+          <div className="prose prose-base max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-blockquote:border-primary/50">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {content}
+            </ReactMarkdown>
+          </div>
+
+          <div className="mt-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+            <p className="text-sm font-medium mb-2">
+              Want to go deeper? Run this in your terminal:
+            </p>
+            <div className="flex items-center gap-2">
+              <code className="flex-1 rounded bg-foreground/5 px-3 py-2 text-xs font-mono text-foreground/80 select-all">
+                claude /lenny &quot;your situation here&quot;
+              </code>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText('claude /lenny "your situation here"');
+                }}
+                className="shrink-0 rounded-md border border-primary/30 px-3 py-2 text-xs font-medium text-primary hover:bg-primary/10 transition-colors"
+              >
+                Copy
+              </button>
+            </div>
+            <p className="mt-2 text-[10px] text-muted-foreground">
+              Requires <a href="https://claude.ai/claude-code" target="_blank" rel="noopener noreferrer" className="underline">Claude Code</a> + <a href="https://lennysdata.com" target="_blank" rel="noopener noreferrer" className="underline">Lenny MCP</a>
+            </p>
+          </div>
+        </>
       )}
     </section>
   );

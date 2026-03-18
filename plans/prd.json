@@ -1,0 +1,110 @@
+[
+  {
+    "id": "skill-marketplace",
+    "goal": "Generate a theme-based coaching journey skill for MARKETPLACE. Search content/index.json for articles matching keywords: marketplace, supply and demand, chicken-and-egg, two-sided, take-rate. Read ALL matching articles from content/newsletters/ and content/podcasts/. Extract key frameworks across ALL of them. Design a 5-7 module coaching journey where concepts build on each other. Write the skill to skills/lenny-marketplace.md following the skill template in CLAUDE.md. The skill must use mcp__lennysdata tools at runtime to load articles. Cross-reference articles — find the THREAD that connects them, don't just summarize each separately. Use the articles' own language and cite authors/guests by name.",
+    "exit_criteria": "skills/lenny-marketplace.md exists with: ## The Curriculum (4+ ordered modules with source article filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks from the articles), ## Source Articles (10+ real filenames from content/), ## Coaching Session Instructions with specific Opening question, per-concept flow using mcp__lennysdata__read_content, and Closing steps. Best For line is specific (not generic).",
+    "passes": false
+  },
+  {
+    "id": "skill-pricing",
+    "goal": "Generate a theme-based coaching journey skill for PRICING. Search content/index.json for articles matching: pricing, price, monetize, willingness-to-pay, take-rate, freemium, revenue model. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-pricing.md following the skill template in CLAUDE.md. Cross-reference articles to find the thread. Use articles' own language, cite authors/guests by name.",
+    "exit_criteria": "skills/lenny-pricing.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (8+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls. Best For is specific.",
+    "passes": false
+  },
+  {
+    "id": "skill-retention",
+    "goal": "Generate a theme-based coaching journey skill for RETENTION. Search content/index.json for: retention, churn, cohort, engagement, activation, habit. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-retention.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-retention.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (10+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-growth-loops",
+    "goal": "Generate a theme-based coaching journey skill for GROWTH LOOPS. Search content/index.json for: growth loop, referral, viral, word of mouth, flywheel, network effect. Read ALL matching articles. Extract key frameworks. Design a 4-6 module coaching journey. Write to skills/lenny-growth-loops.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-growth-loops.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (8+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-product-market-fit",
+    "goal": "Generate a theme-based coaching journey skill for PRODUCT-MARKET FIT. Search content/index.json for: product-market fit, pmf, market fit. This is a smaller set (~6 articles) so read ALL of them carefully. Extract key frameworks. Design a 4-6 module coaching journey. Write to skills/lenny-product-market-fit.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-product-market-fit.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (4+ real frameworks), ## Source Articles (5+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-metrics",
+    "goal": "Generate a theme-based coaching journey skill for METRICS. Search content/index.json for: north star, metric, kpi, okr, measure, cohort, analytics. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-metrics.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-metrics.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (10+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-founder-journey",
+    "goal": "Generate a theme-based coaching journey skill for FOUNDER JOURNEY. Search content/index.json for: startup idea, validate, pivot, fundraise, seed round, first-time founder, art of the pivot. Include the Art of the Pivot series (parts 1-2). Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-founder-journey.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-founder-journey.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (8+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-hiring",
+    "goal": "Generate a theme-based coaching journey skill for HIRING. Search content/index.json for: hiring, interview, recruit, work trial, hire your first, talent. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-hiring.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-hiring.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (15+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-career",
+    "goal": "Generate a theme-based coaching journey skill for CAREER GROWTH. Search content/index.json for: career, promotion, senior, staff, getting ahead, career ladder, level up. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-career.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-career.md exists with: ## The Curriculum (5+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (15+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-leadership",
+    "goal": "Generate a theme-based coaching journey skill for LEADERSHIP & MANAGEMENT. Search content/index.json for: managing, manager, one-on-one, leadership, managing up, culture, team. Read ALL matching articles. Extract key frameworks. Design a 6-8 module coaching journey (this is a large theme). Write to skills/lenny-leadership.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-leadership.md exists with: ## The Curriculum (5+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (20+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-product-strategy",
+    "goal": "Generate a theme-based coaching journey skill for PRODUCT STRATEGY. Search content/index.json for: roadmap, prioritization, strategy, vision, big bet, product sense, product thinking. Read ALL matching articles. Extract key frameworks. Design a 6-8 module coaching journey (this is the largest theme). Write to skills/lenny-product-strategy.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-product-strategy.md exists with: ## The Curriculum (5+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (20+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-ai-products",
+    "goal": "Generate a theme-based coaching journey skill for BUILDING AI PRODUCTS. Search content/index.json for: ai product, ai agent, eval, llm, claude code, vibe coding, artificial intelligence. MUST include 'Everyone should be using Claude Code more' article and Dan Shipper podcast episode. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-ai-products.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-ai-products.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (10+ real filenames including Claude Code article and Dan Shipper podcast), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-b2b-sales",
+    "goal": "Generate a theme-based coaching journey skill for B2B SALES & GTM. Search content/index.json for: sales, enterprise, b2b, pipeline, outbound, go-to-market, first 10 customers, PLG, product-led. Read ALL matching articles. Extract key frameworks. Design a 5-7 module coaching journey. Write to skills/lenny-b2b-sales.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-b2b-sales.md exists with: ## The Curriculum (5+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (15+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-user-research",
+    "goal": "Generate a theme-based coaching journey skill for USER RESEARCH. Search content/index.json for: user research, customer interview, survey, feedback, user insight, talking to users. This is a smaller set (~8 articles) so read ALL of them carefully. Extract key frameworks. Design a 4-6 module coaching journey. Write to skills/lenny-user-research.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-user-research.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (4+ real frameworks), ## Source Articles (6+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-seo-content",
+    "goal": "Generate a theme-based coaching journey skill for SEO & CONTENT GROWTH. Search content/index.json for: seo, content marketing, content-driven, organic growth, content strategy. This is a smaller set (~7 articles) so read ALL of them carefully. Extract key frameworks. Design a 4-6 module coaching journey. Write to skills/lenny-seo-content.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-seo-content.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (4+ real frameworks), ## Source Articles (5+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-consumer-business",
+    "goal": "Generate a theme-based coaching journey skill for CONSUMER BUSINESS. MUST find and include the entire 'How to kickstart and scale a consumer business' series (Steps 2-6, 5 articles). Also search for: consumer, Duolingo, consumer product, viral consumer, consumer growth. Read ALL matching articles. The curriculum MUST cover all 5 steps of the kickstart series in order. Write to skills/lenny-consumer-business.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-consumer-business.md exists with: ## The Curriculum (5+ ordered modules covering all 5 steps of the kickstart series), ## Key Frameworks Cheat Sheet (5+ real frameworks), ## Source Articles (5+ real filenames including the kickstart series articles), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-onboarding",
+    "goal": "Generate a theme-based coaching journey skill for ONBOARDING. Search content/index.json for: onboarding, first-time user, activation, first experience, setup flow, aha moment, welcome, signup. Read ALL matching articles. Extract key frameworks. Design a 4-6 module coaching journey. Write to skills/lenny-onboarding.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-onboarding.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (4+ real frameworks), ## Source Articles (7+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  },
+  {
+    "id": "skill-negotiation-comms",
+    "goal": "Generate a theme-based coaching journey skill for NEGOTIATION & COMMUNICATION. Search content/index.json for: negotiation, difficult conversation, influence, communicate, feedback, comp, salary, conflict. Read ALL matching articles. Extract key frameworks. Design a 4-6 module coaching journey. Write to skills/lenny-negotiation-comms.md following the skill template in CLAUDE.md. Cross-reference articles, use their own language, cite authors/guests.",
+    "exit_criteria": "skills/lenny-negotiation-comms.md exists with: ## The Curriculum (4+ ordered modules with source filenames), ## Key Frameworks Cheat Sheet (4+ real frameworks), ## Source Articles (7+ real filenames), ## Coaching Session Instructions with specific Opening question and mcp__lennysdata__read_content calls.",
+    "passes": false
+  }
+]

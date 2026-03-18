@@ -1,6 +1,6 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 
-export const MODEL_ID = "gemini-2.0-flash";
+export const MODEL_ID = "gemini-2.5-flash";
 
 export function getGoogleProvider(apiKey?: string) {
   return createGoogleGenerativeAI({

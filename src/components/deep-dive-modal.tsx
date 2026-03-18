@@ -78,7 +78,7 @@ export function DeepDiveModal({
 
   return (
     <Dialog open={open} onOpenChange={(val) => !val && onClose()}>
-      <DialogContent className="max-w-2xl w-full max-h-[80vh] flex flex-col max-sm:max-w-[calc(100%-1rem)] max-sm:max-h-[95vh]">
+      <DialogContent className="max-w-4xl w-full max-h-[80vh] flex flex-col max-sm:max-w-[calc(100%-1rem)] max-sm:max-h-[95vh]">
         <DialogHeader>
           <div className="flex items-center gap-2">
             <TypeBadge type={type} />

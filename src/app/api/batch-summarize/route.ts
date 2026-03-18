@@ -40,7 +40,7 @@ function resolveFilePath(filename: string): string | null {
   for (const dir of ["newsletters", "podcasts"]) {
     const dirPath = path.join(process.cwd(), "content", dir);
     if (!fs.existsSync(dirPath)) continue;
-    const match = fs.readdirSync(dirPath).find((f) => f.includes(slug));
+    const match = fs.readdirSync(dirPath).find((f) => f.toLowerCase().includes(slug.toLowerCase()));
     if (match) return path.join(dirPath, match);
   }
 

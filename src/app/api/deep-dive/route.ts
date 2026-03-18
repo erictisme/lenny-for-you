@@ -65,7 +65,7 @@ export async function POST(request: Request) {
         if (!fs.existsSync(dirPath)) continue;
 
         const files = fs.readdirSync(dirPath);
-        const match = files.find((f) => f.includes(slug));
+        const match = files.find((f) => f.toLowerCase().includes(slug.toLowerCase()));
         if (match) {
           filePath = path.join(dirPath, match);
           normalizedFilename = `${dir}/${match}`;

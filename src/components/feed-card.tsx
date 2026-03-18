@@ -85,6 +85,25 @@ export function FeedCard({
           </div>
         )}
 
+        {/* Try in Claude Code */}
+        <div className="mt-3 flex items-center gap-2">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigator.clipboard.writeText(`claude /lenny "${item.title}"`);
+              const btn = e.currentTarget;
+              btn.textContent = "Copied!";
+              setTimeout(() => { btn.textContent = "Try in Claude Code"; }, 2000);
+            }}
+            className="text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-md px-2.5 py-1"
+          >
+            Try in Claude Code
+          </button>
+          <span className="text-[10px] text-muted-foreground">
+            Requires Claude Code + Lenny MCP
+          </span>
+        </div>
+
         {item.tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">
             {item.tags.map((tag) => (
