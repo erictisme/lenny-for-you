@@ -1,3 +1,4 @@
 # Ralph DEFAULT run Wed Mar 18 10:28:45 +08 2026
 Task 1: Installed react-markdown, remark-gfm, shadcn collapsible & popover. Build passes.
 Task 2: Lenny brand redesign — Spectral serif font, coral #f47c55 primary, light mode, updated badges/cards for white bg. Build passes.
+Task 3: Fixed "Invalid filename" bug — added trimming, .md suffix, singular→plural prefix normalization, and fuzzy slug matching. Build passes.

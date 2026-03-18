@@ -74,7 +74,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** `pnpm dev` → white background, coral accents, Spectral serif font, looks like Lenny's site. `pnpm build` passes.
 
-- [ ] **Task 3: Fix "Invalid filename" bug in deep-dive API** (Priority: 0 — core feature is broken)
+- [x] **Task 3: Fix "Invalid filename" bug in deep-dive API** (Priority: 0 — core feature is broken)
 
   **What does "done" look like?**
   Clicking any feed card successfully loads content without "Invalid filename" errors.
