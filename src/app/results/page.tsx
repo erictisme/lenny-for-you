@@ -310,6 +310,25 @@ function ResultsContent() {
 
       {!loading && !error && (
         <>
+          {/* Skills CTA */}
+          <div className="mb-6 rounded-lg border border-border/50 bg-muted/30 px-4 py-3">
+            <p className="text-sm font-medium text-foreground">
+              Want to go deeper?{" "}
+              <a
+                href="https://github.com/erictisme/lenny-skills"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-4"
+              >
+                Install Lenny coaching skills
+              </a>{" "}
+              for interactive 1-on-1 sessions with any article.
+            </p>
+            <code className="mt-2 block text-xs text-muted-foreground bg-background/50 rounded px-2 py-1.5 select-all">
+              git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh
+            </code>
+          </div>
+
           {/* Synthesis Brief */}
           <SynthesisBrief
             content={synthesisContent}
