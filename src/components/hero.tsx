@@ -1,8 +1,9 @@
 export function Hero() {
   return (
     <section className="py-20 text-center">
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-        650 posts. 300 guests.
+      <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
+        <span className="text-primary font-extrabold">650</span> posts.{" "}
+        <span className="text-primary font-extrabold">300</span> guests.
         <br />
         Which ones matter for{" "}
         <span className="text-primary">you</span>?

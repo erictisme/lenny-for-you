@@ -1,2 +1,3 @@
 # Ralph DEFAULT run Wed Mar 18 14:49:02 +08 2026
 Task 1: Fixed article-not-found bug — changed CATALOG_PROMPT first field from i.id (number) to i.filename in both compact-index.ts and build-index.ts, plus catalog-prompt.txt generation.
+Task 2: Made hero text larger (text-5xl/sm:text-7xl) and highlighted numbers "650" and "300" with primary color + extrabold.

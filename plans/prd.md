@@ -24,7 +24,7 @@ Testing revealed critical bugs and UX gaps. Fix them before competition submissi
 
   **How to verify?** `pnpm build` passes. Inspect the CATALOG_PROMPT constant — first field of each line is a real filename from content/.
 
-- [ ] **Task 2: Make hero text more prominent**
+- [x] **Task 2: Make hero text more prominent**
 
   **What does "done" look like?**
   The "650 posts. 300 guests." heading is roughly 2x larger than current size. The numbers stand out visually. The page feels like it has a clear, bold headline.
