@@ -5,3 +5,4 @@ Task 3: Fixed "Invalid filename" bug — added trimming, .md suffix, singular→
 Task 4: Replaced Sheet (side drawer) with centered Dialog + backdrop blur. Added ReactMarkdown + remarkGfm for rendered content. Build passes.
 Task 5: Added youtube_url to CatalogItem by extracting from podcast frontmatter. Modal now shows correct links — Substack for newsletters, YouTube for podcasts. Build passes.
 Task 6: Created /api/synthesize route — reads top 20 articles (2000 chars each), streams a cross-referenced synthesis brief via Gemini. Added SYNTHESIS_SYSTEM_PROMPT. Build passes.
+Task 7: Created /api/batch-summarize route — parallel generateText calls for up to 10 files, returns JSON summaries keyed by filename. Added CARD_SUMMARY_SYSTEM_PROMPT. Build passes.

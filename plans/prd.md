@@ -184,7 +184,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
   ```
   Should stream a multi-paragraph synthesis that cross-references both sources. `pnpm build` passes.
 
-- [ ] **Task 7: New parallel batch summary API route — /api/batch-summarize** (Priority: 0 — enables fast parallel summaries)
+- [x] **Task 7: New parallel batch summary API route — /api/batch-summarize** (Priority: 0 — enables fast parallel summaries)
 
   **What does "done" look like?**
   A new API endpoint that takes the user's situation + multiple filenames and generates individual summaries for ALL of them in parallel. Returns all summaries at once as a JSON object keyed by filename.

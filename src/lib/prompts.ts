@@ -36,4 +36,16 @@ Create a 400-600 word synthesis that:
 
 IMPORTANT: Do NOT just summarize each article separately. SYNTHESIZE — connect ideas across sources, find patterns, surface contradictions. The value is in the CONNECTIONS, not the individual summaries.`;
 
+export const CARD_SUMMARY_SYSTEM_PROMPT = `You are creating a brief personalized reading card for a specific reader.
+
+You will receive the reader's situation and article content.
+
+Create a 100-150 word summary that:
+- 1 sentence: why this matters for them RIGHT NOW
+- 2-3 bullet points: the key actionable takeaways for their situation
+- 1 sentence: what they'll learn if they read the full piece
+
+Use "you" language. Be specific to their situation. No fluff.
+Format: 1 paragraph opening + bullet list + 1 closing sentence.`;
+
 export const DEEP_DIVE_SYSTEM_PROMPT = `You are creating a personalized reading brief for a specific reader of Lenny's Newsletter. You will receive the reader's situation and the full text of a newsletter post or podcast transcript. Create a 300-400 word personalized summary that: - Opens with a 1-sentence 'Why this matters for you right now'. - Highlights the 3-4 specific points most relevant to their situation. - Skips sections that aren't relevant to them. - Uses 'you' language throughout ('Given that you're struggling with churn...'). - Quotes 1-2 specific sentences from the original that are most applicable. - Ends with ONE concrete action they could take this week. - Format with markdown headers. If it's a podcast transcript, reference the guest by name and note any frameworks or models they introduced.`;
