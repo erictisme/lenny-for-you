@@ -72,11 +72,6 @@ export function DeepDiveModal({
     fetchDeepDive();
   }, [open, filename, userInput, apiKey]);
 
-  const slug = filename
-    ?.replace(/^newsletters\//, "")
-    .replace(/^podcasts\//, "")
-    .replace(/\.md$/, "");
-
   return (
     <Dialog open={open} onOpenChange={(val) => !val && onClose()}>
       <DialogContent className="max-w-6xl w-full max-h-[80vh] flex flex-col max-sm:max-w-[calc(100%-1rem)] max-sm:max-h-[95vh]">
@@ -114,18 +109,9 @@ export function DeepDiveModal({
           )}
         </div>
 
-        {slug && (
+        {filename && (
           <DialogFooter>
-            {type === "newsletter" ? (
-              <a
-                href={`https://www.lennysnewsletter.com/p/${slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-primary underline underline-offset-4"
-              >
-                Read full article on Lenny&apos;s Newsletter
-              </a>
-            ) : youtubeUrl ? (
+            {youtubeUrl && (
               <a
                 href={youtubeUrl}
                 target="_blank"
@@ -134,16 +120,15 @@ export function DeepDiveModal({
               >
                 Watch on YouTube
               </a>
-            ) : (
-              <a
-                href="https://www.lennyspodcast.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-primary underline underline-offset-4"
-              >
-                Visit Lenny&apos;s Podcast
-              </a>
             )}
+            <a
+              href="https://www.lennysnewsletter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-primary underline underline-offset-4"
+            >
+              Visit Lenny&apos;s Newsletter
+            </a>
           </DialogFooter>
         )}
       </DialogContent>
