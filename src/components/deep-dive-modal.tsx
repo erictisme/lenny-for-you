@@ -39,6 +39,7 @@ export function DeepDiveModal({
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [cliBtnText, setCliBtnText] = useState("Learn interactively in Claude Code");
 
   useEffect(() => {
     if (!open || !filename) return;
@@ -111,6 +112,18 @@ export function DeepDiveModal({
 
         {filename && (
           <DialogFooter>
+            <button
+              onClick={() => {
+                const sanitized = userInput ? userInput.replace(/"/g, "'").slice(0, 200) + (userInput.length > 200 ? "..." : "") : "";
+                const copyStr = `claude /lenny-learn "${filename}${sanitized ? ` | ${sanitized}` : ""}"`;
+                navigator.clipboard.writeText(copyStr);
+                setCliBtnText("Copied!");
+                setTimeout(() => setCliBtnText("Learn interactively in Claude Code"), 2000);
+              }}
+              className="text-sm text-primary underline underline-offset-4"
+            >
+              {cliBtnText}
+            </button>
             {youtubeUrl && (
               <a
                 href={youtubeUrl}

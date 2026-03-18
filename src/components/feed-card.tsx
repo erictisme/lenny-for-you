@@ -16,6 +16,7 @@ export function FeedCard({
   summary = null,
   summaryLoading = false,
   defaultExpanded = false,
+  userInput,
 }: {
   item: RankedItem;
   onClick: () => void;
@@ -23,6 +24,7 @@ export function FeedCard({
   summary?: string | null;
   summaryLoading?: boolean;
   defaultExpanded?: boolean;
+  userInput?: string;
 }) {
   const [expanded, setExpanded] = useState(defaultExpanded);
 
@@ -90,14 +92,16 @@ export function FeedCard({
           <button
             onClick={(e) => {
               e.stopPropagation();
-              navigator.clipboard.writeText(`claude /lenny "${item.title}"`);
+              const sanitized = userInput ? userInput.replace(/"/g, "'").slice(0, 200) + (userInput.length > 200 ? "..." : "") : "";
+              const copyStr = `claude /lenny-learn "${item.filename}${sanitized ? ` | ${sanitized}` : ""}"`;
+              navigator.clipboard.writeText(copyStr);
               const btn = e.currentTarget;
               btn.textContent = "Copied!";
-              setTimeout(() => { btn.textContent = "Try in Claude Code"; }, 2000);
+              setTimeout(() => { btn.textContent = "Learn this in Claude Code"; }, 2000);
             }}
             className="text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-md px-2.5 py-1"
           >
-            Try in Claude Code
+            Learn this in Claude Code
           </button>
           <span className="text-[10px] text-muted-foreground">
             Opens a coaching session about this article in your terminal

@@ -347,6 +347,7 @@ function ResultsContent() {
                 summary={summaries[item.filename] ?? null}
                 summaryLoading={summariesLoading && !(item.filename in summaries)}
                 defaultExpanded={i === 0}
+                userInput={userInput}
               />
             ))}
           </div>
