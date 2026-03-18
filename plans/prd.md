@@ -128,7 +128,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
   ```
   Should return JSON with 20 items, each having filename, title, type, why_this_matters, and relevance fields. NOTE: This test requires GOOGLE_GENERATIVE_AI_API_KEY in .env.local — if not set, the test will fail with an auth error, which is expected. The build must still pass.
 
-- [ ] **Task 5: Deep-dive API route — /api/deep-dive** (Priority: 1)
+- [x] **Task 5: Deep-dive API route — /api/deep-dive** (Priority: 1)
 
   **What does "done" look like?**
   A POST endpoint at `/api/deep-dive` that accepts `{ filename: string, userInput: string, apiKey?: string }`, reads the full markdown content of the specified file, sends it to Gemini with the user's context, and streams back a personalized summary.
