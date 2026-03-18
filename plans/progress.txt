@@ -8,3 +8,4 @@ Task 6: Created /api/synthesize route — reads top 20 articles (2000 chars each
 Task 7: Created /api/batch-summarize route — parallel generateText calls for up to 10 files, returns JSON summaries keyed by filename. Added CARD_SUMMARY_SYSTEM_PROMPT. Build passes.
 Task 8: Rebuilt results page — streaming synthesis brief at top, feed cards with collapsible pre-generated summaries (batch API), Load More button, editable query. Created synthesis-brief.tsx component. Build passes.
 Task 9: Replaced inline BYOK toggle with gear icon + popover. Moved to fixed top-right on landing page. Green dot indicator when key is saved. Build passes.
+Task 10: Final polish — lint clean, no console.logs in app code, no unused imports, mobile responsive already handled. Build + lint pass.

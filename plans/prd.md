@@ -294,7 +294,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** No "API key" text in page body. Gear in corner. Popover works. Key persists. `pnpm build` passes.
 
-- [ ] **Task 10: Final polish, responsive, and commit** (Priority: 3)
+- [x] **Task 10: Final polish, responsive, and commit** (Priority: 3)
 
   **What does "done" look like?**
   Clean build. Polished UI on desktop and mobile. All features working.
