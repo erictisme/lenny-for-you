@@ -82,7 +82,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** Run `pnpm dev`, open http://localhost:3000. The page should have a dark background with light text. `pnpm build` passes.
 
-- [ ] **Task 4: Ranking API route — /api/rank** (Priority: 0 — core functionality)
+- [x] **Task 4: Ranking API route — /api/rank** (Priority: 0 — core functionality)
 
   **What does "done" look like?**
   A POST endpoint at `/api/rank` that accepts `{ userInput: string, apiKey?: string }`, sends the compact catalog + user input to Gemini, and returns a JSON array of 20 `RankedItem` objects with personalized descriptions.
