@@ -92,7 +92,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** Submit a query, click 5+ different cards (mix of newsletters and podcasts). All should load. `pnpm build` passes.
 
-- [ ] **Task 4: Fix deep-dive modal — centered dialog with blur + rendered markdown** (Priority: 0)
+- [x] **Task 4: Fix deep-dive modal — centered dialog with blur + rendered markdown** (Priority: 0)
 
   **What does "done" look like?**
   Deep-dive opens as a centered modal with blurred backdrop. Content renders as proper formatted text (no raw markdown hashes/asterisks).

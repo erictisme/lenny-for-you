@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetFooter,
-} from "@/components/ui/sheet";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 import { TypeBadge } from "@/components/type-badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -73,23 +75,20 @@ export function DeepDiveModal({
     .replace(/\.md$/, "");
 
   return (
-    <Sheet open={open} onOpenChange={(val) => !val && onClose()}>
-      <SheetContent
-        side="right"
-        className="w-full overflow-y-auto sm:max-w-lg max-sm:w-screen max-sm:max-w-full"
-      >
-        <SheetHeader>
+    <Dialog open={open} onOpenChange={(val) => !val && onClose()}>
+      <DialogContent className="max-w-2xl w-full max-h-[80vh] flex flex-col max-sm:max-w-[calc(100%-1rem)] max-sm:max-h-[95vh]">
+        <DialogHeader>
           <div className="flex items-center gap-2">
             <TypeBadge type={type} />
             <span className="text-xs text-muted-foreground">{date}</span>
           </div>
-          <SheetTitle className="text-lg leading-snug">{title}</SheetTitle>
-          <SheetDescription className="sr-only">
+          <DialogTitle className="text-lg leading-snug">{title}</DialogTitle>
+          <DialogDescription className="sr-only">
             Personalized deep-dive summary
-          </SheetDescription>
-        </SheetHeader>
+          </DialogDescription>
+        </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto px-4">
+        <div className="flex-1 overflow-y-auto px-1">
           {loading && (
             <div className="space-y-3">
               <Skeleton className="h-4 w-full" />
@@ -108,14 +107,16 @@ export function DeepDiveModal({
           )}
 
           {content && (
-            <div className="prose prose-invert prose-sm max-w-none whitespace-pre-wrap leading-relaxed">
-              {content}
+            <div className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-blockquote:border-primary/50">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {content}
+              </ReactMarkdown>
             </div>
           )}
         </div>
 
         {slug && (
-          <SheetFooter>
+          <DialogFooter>
             <a
               href={`https://www.lennysnewsletter.com/p/${slug}`}
               target="_blank"
@@ -124,9 +125,9 @@ export function DeepDiveModal({
             >
               Read full article on Lenny&apos;s Newsletter
             </a>
-          </SheetFooter>
+          </DialogFooter>
         )}
-      </SheetContent>
-    </Sheet>
+      </DialogContent>
+    </Dialog>
   );
 }
