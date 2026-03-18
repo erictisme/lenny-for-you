@@ -6,3 +6,4 @@ Task 3: Applied Lenny-inspired dark theme to globals.css (slate-navy background,
 Task 5: Created POST /api/deep-dive route with fs-based content reading, path traversal protection, streamText streaming response.
 Task 6: Created hero.tsx, profile-input.tsx, footer.tsx components. Replaced boilerplate page.tsx with landing page.
 Task 7: Created type-badge, relevance-badge, feed-card, feed-skeleton components and results/page.tsx with loading/error states.
+Task 8: Created deep-dive-modal.tsx (Sheet-based side panel) and wired it into results page with selectedItem state.

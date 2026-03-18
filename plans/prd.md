@@ -232,7 +232,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** Run `pnpm dev`, navigate to `/results?q={base64 encoded test input}`. Should show skeleton loading, then 20 cards with personalized descriptions (requires API key). Without API key, should show error state gracefully. `pnpm build` passes.
 
-- [ ] **Task 8: Deep-dive modal — personalized article summary** (Priority: 2)
+- [x] **Task 8: Deep-dive modal — personalized article summary** (Priority: 2)
 
   **What does "done" look like?**
   Clicking any feed card opens a modal/dialog that shows a streaming personalized summary of that article.

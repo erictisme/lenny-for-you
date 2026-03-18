@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { FeedCard } from "@/components/feed-card";
 import { FeedSkeleton } from "@/components/feed-skeleton";
+import { DeepDiveModal } from "@/components/deep-dive-modal";
 import type { RankedItem } from "@/types";
 
 function ResultsContent() {
@@ -14,6 +15,7 @@ function ResultsContent() {
   const [items, setItems] = useState<RankedItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<RankedItem | null>(null);
 
   const userInput = q
     ? decodeURIComponent(escape(atob(q)))
@@ -94,11 +96,21 @@ function ResultsContent() {
             <FeedCard
               key={item.filename}
               item={item}
-              onClick={() => console.log("deep-dive:", item.filename)}
+              onClick={() => setSelectedItem(item)}
             />
           ))}
         </div>
       )}
+
+      <DeepDiveModal
+        open={!!selectedItem}
+        onClose={() => setSelectedItem(null)}
+        filename={selectedItem?.filename ?? null}
+        title={selectedItem?.title ?? ""}
+        type={selectedItem?.type ?? "newsletter"}
+        date={selectedItem?.date ?? ""}
+        userInput={userInput}
+      />
 
       <div className="mt-12 text-center">
         <button
