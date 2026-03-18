@@ -11440,5 +11440,5 @@ export const CATALOG: CatalogItem[] = [
 
 export const CATALOG_PROMPT = CATALOG.map(
   (i) =>
-    `${i.id}|${i.type}|${i.title}|${i.tags.join(",")}|${i.date}|${i.description}|${i.guest || ""}`
+    `${i.filename}|${i.type}|${i.title}|${i.tags.join(",")}|${i.date}|${i.description}|${i.guest || ""}`
 ).join("\n");

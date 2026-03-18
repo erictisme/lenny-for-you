@@ -101,7 +101,7 @@ export const CATALOG: CatalogItem[] = ${JSON.stringify(items, null, 2)};
 
 export const CATALOG_PROMPT = CATALOG.map(
   (i) =>
-    \`\${i.id}|\${i.type}|\${i.title}|\${i.tags.join(",")}|\${i.date}|\${i.description}|\${i.guest || ""}\`
+    \`\${i.filename}|\${i.type}|\${i.title}|\${i.tags.join(",")}|\${i.date}|\${i.description}|\${i.guest || ""}\`
 ).join("\\n");
 `;
 
@@ -112,7 +112,7 @@ fs.writeFileSync(path.join(dataDir, "compact-index.ts"), tsContent);
 // Write catalog-prompt.txt
 const promptLines = items.map(
   (i) =>
-    `${i.id}|${i.type}|${i.title}|${i.tags.join(",")}|${i.date}|${i.description}|${i.guest || ""}`
+    `${i.filename}|${i.type}|${i.title}|${i.tags.join(",")}|${i.date}|${i.description}|${i.guest || ""}`
 );
 fs.writeFileSync(path.join(dataDir, "catalog-prompt.txt"), promptLines.join("\n") + "\n");
 

@@ -1,11 +1,2 @@
-# Ralph DEFAULT run Wed Mar 18 10:28:45 +08 2026
-Task 1: Installed react-markdown, remark-gfm, shadcn collapsible & popover. Build passes.
-Task 2: Lenny brand redesign — Spectral serif font, coral #f47c55 primary, light mode, updated badges/cards for white bg. Build passes.
-Task 3: Fixed "Invalid filename" bug — added trimming, .md suffix, singular→plural prefix normalization, and fuzzy slug matching. Build passes.
-Task 4: Replaced Sheet (side drawer) with centered Dialog + backdrop blur. Added ReactMarkdown + remarkGfm for rendered content. Build passes.
-Task 5: Added youtube_url to CatalogItem by extracting from podcast frontmatter. Modal now shows correct links — Substack for newsletters, YouTube for podcasts. Build passes.
-Task 6: Created /api/synthesize route — reads top 20 articles (2000 chars each), streams a cross-referenced synthesis brief via Gemini. Added SYNTHESIS_SYSTEM_PROMPT. Build passes.
-Task 7: Created /api/batch-summarize route — parallel generateText calls for up to 10 files, returns JSON summaries keyed by filename. Added CARD_SUMMARY_SYSTEM_PROMPT. Build passes.
-Task 8: Rebuilt results page — streaming synthesis brief at top, feed cards with collapsible pre-generated summaries (batch API), Load More button, editable query. Created synthesis-brief.tsx component. Build passes.
-Task 9: Replaced inline BYOK toggle with gear icon + popover. Moved to fixed top-right on landing page. Green dot indicator when key is saved. Build passes.
-Task 10: Final polish — lint clean, no console.logs in app code, no unused imports, mobile responsive already handled. Build + lint pass.
+# Ralph DEFAULT run Wed Mar 18 14:49:02 +08 2026
+Task 1: Fixed article-not-found bug — changed CATALOG_PROMPT first field from i.id (number) to i.filename in both compact-index.ts and build-index.ts, plus catalog-prompt.txt generation.
