@@ -26,7 +26,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** `pnpm build` passes.
 
-- [ ] **Task 2: Redesign with Lenny's actual brand identity** (Priority: 0 — everything looks wrong without this)
+- [x] **Task 2: Redesign with Lenny's actual brand identity** (Priority: 0 — everything looks wrong without this)
 
   **What does "done" look like?**
   The app uses Lenny's real brand colors, font, and aesthetic. Light mode default. Looks like it belongs in Lenny's ecosystem.

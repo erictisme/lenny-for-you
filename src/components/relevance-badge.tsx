@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 
 const styles = {
-  essential: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-  valuable: "bg-green-500/20 text-green-300 border-green-500/30",
-  perspective: "bg-blue-500/20 text-blue-300 border-blue-500/30",
+  essential: "bg-amber-50 text-amber-700 border-amber-200",
+  valuable: "bg-green-50 text-green-700 border-green-200",
+  perspective: "bg-blue-50 text-blue-700 border-blue-200",
 } as const;
 
 export function RelevanceBadge({

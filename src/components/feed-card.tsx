@@ -16,7 +16,7 @@ export function FeedCard({
 }) {
   return (
     <Card
-      className="animate-fade-in-up cursor-pointer transition-colors hover:ring-primary/40"
+      className="animate-fade-in-up cursor-pointer shadow-sm transition-shadow hover:shadow-md"
       style={{ animationDelay: `${index * 60}ms` }}
       onClick={onClick}
     >
