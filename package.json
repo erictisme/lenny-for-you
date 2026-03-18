@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build-index": "npx tsx src/scripts/build-index.ts"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.43",
