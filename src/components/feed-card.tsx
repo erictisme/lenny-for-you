@@ -8,13 +8,16 @@ import type { RankedItem } from "@/types";
 export function FeedCard({
   item,
   onClick,
+  index = 0,
 }: {
   item: RankedItem;
   onClick: () => void;
+  index?: number;
 }) {
   return (
     <Card
-      className="cursor-pointer transition-colors hover:ring-primary/40"
+      className="animate-fade-in-up cursor-pointer transition-colors hover:ring-primary/40"
+      style={{ animationDelay: `${index * 60}ms` }}
       onClick={onClick}
     >
       <CardHeader>

@@ -311,7 +311,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** `pnpm build` passes. Run `pnpm dev` and check that `http://localhost:3000/opengraph-image` returns an image. Check page source for correct meta tags.
 
-- [ ] **Task 11: Responsive design and polish** (Priority: 3 — polish)
+- [x] **Task 11: Responsive design and polish** (Priority: 3 — polish)
 
   **What does "done" look like?**
   The app looks great and works well on mobile (375px viewport), tablet, and desktop. Smooth animations. Good error handling throughout.

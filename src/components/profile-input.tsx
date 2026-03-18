@@ -28,7 +28,7 @@ export function ProfileInput() {
         onClick={handleSubmit}
         disabled={!input.trim()}
         size="lg"
-        className="w-full text-base"
+        className="w-full text-base transition-transform hover:scale-[1.02] active:scale-[0.98]"
       >
         Find My Feed
       </Button>

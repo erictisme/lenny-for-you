@@ -5,7 +5,16 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { FeedCard } from "@/components/feed-card";
 import { FeedSkeleton } from "@/components/feed-skeleton";
 import { DeepDiveModal } from "@/components/deep-dive-modal";
+import { ShareButton } from "@/components/share-button";
+import { BYOKToggle, useApiKey } from "@/components/byok-toggle";
 import type { RankedItem } from "@/types";
+
+const LOADING_MESSAGES = [
+  "Reading your situation…",
+  "Scanning 650 articles…",
+  "Finding your matches…",
+  "Ranking by relevance…",
+];
 
 function ResultsContent() {
   const searchParams = useSearchParams();
@@ -16,6 +25,8 @@ function ResultsContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<RankedItem | null>(null);
+  const [loadingMsgIndex, setLoadingMsgIndex] = useState(0);
+  const apiKey = useApiKey();
 
   const userInput = q
     ? decodeURIComponent(escape(atob(q)))
@@ -32,7 +43,7 @@ function ResultsContent() {
         const res = await fetch("/api/rank", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userInput }),
+          body: JSON.stringify({ userInput, ...(apiKey ? { apiKey } : {}) }),
         });
 
         if (!res.ok) {
@@ -54,16 +65,30 @@ function ResultsContent() {
     }
 
     fetchRankings();
-  }, [userInput, router]);
+  }, [userInput, router, apiKey]);
+
+  useEffect(() => {
+    if (!loading) return;
+    const interval = setInterval(() => {
+      setLoadingMsgIndex((i) => (i + 1) % LOADING_MESSAGES.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [loading]);
 
   if (!userInput) return null;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Your Personalized Lenny Feed
-        </h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold tracking-tight">
+            Your Personalized Lenny Feed
+          </h1>
+          <div className="flex items-center gap-2">
+            <ShareButton />
+            <BYOKToggle />
+          </div>
+        </div>
         <p className="mt-3 text-sm text-muted-foreground italic">
           &ldquo;{userInput}&rdquo;
         </p>
@@ -71,8 +96,8 @@ function ResultsContent() {
 
       {loading && (
         <div>
-          <p className="mb-6 text-sm text-muted-foreground">
-            Analyzing 650 pieces of Lenny&apos;s archive for you...
+          <p className="mb-6 text-sm text-muted-foreground transition-opacity duration-300">
+            {LOADING_MESSAGES[loadingMsgIndex]}
           </p>
           <FeedSkeleton />
         </div>
@@ -80,7 +105,13 @@ function ResultsContent() {
 
       {error && (
         <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-6 text-center">
-          <p className="text-destructive">{error}</p>
+          <p className="text-destructive">
+            {error.includes("429")
+              ? "Too many requests. Try again in a few minutes."
+              : error.includes("fetch") || error.includes("network") || error.includes("Failed")
+                ? "Couldn\u2019t reach the server. Check your connection and try again."
+                : error}
+          </p>
           <button
             onClick={() => window.location.reload()}
             className="mt-4 text-sm text-primary underline underline-offset-4"
@@ -92,10 +123,11 @@ function ResultsContent() {
 
       {!loading && !error && (
         <div className="space-y-4">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <FeedCard
               key={item.filename}
               item={item}
+              index={i}
               onClick={() => setSelectedItem(item)}
             />
           ))}
@@ -110,6 +142,7 @@ function ResultsContent() {
         type={selectedItem?.type ?? "newsletter"}
         date={selectedItem?.date ?? ""}
         userInput={userInput}
+        apiKey={apiKey}
       />
 
       <div className="mt-12 text-center">

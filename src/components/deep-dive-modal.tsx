@@ -20,6 +20,7 @@ export function DeepDiveModal({
   type,
   date,
   userInput,
+  apiKey,
 }: {
   open: boolean;
   onClose: () => void;
@@ -28,6 +29,7 @@ export function DeepDiveModal({
   type: "podcast" | "newsletter";
   date: string;
   userInput: string;
+  apiKey?: string | null;
 }) {
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -45,7 +47,7 @@ export function DeepDiveModal({
         const res = await fetch("/api/deep-dive", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ filename, userInput }),
+          body: JSON.stringify({ filename, userInput, ...(apiKey ? { apiKey } : {}) }),
         });
 
         if (!res.ok) {
@@ -63,7 +65,7 @@ export function DeepDiveModal({
     }
 
     fetchDeepDive();
-  }, [open, filename, userInput]);
+  }, [open, filename, userInput, apiKey]);
 
   const slug = filename
     ?.replace(/^newsletters\//, "")
@@ -74,7 +76,7 @@ export function DeepDiveModal({
     <Sheet open={open} onOpenChange={(val) => !val && onClose()}>
       <SheetContent
         side="right"
-        className="w-full overflow-y-auto sm:max-w-lg"
+        className="w-full overflow-y-auto sm:max-w-lg max-sm:w-screen max-sm:max-w-full"
       >
         <SheetHeader>
           <div className="flex items-center gap-2">

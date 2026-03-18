@@ -9,3 +9,4 @@ Task 7: Created type-badge, relevance-badge, feed-card, feed-skeleton components
 Task 8: Created deep-dive-modal.tsx (Sheet-based side panel) and wired it into results page with selectedItem state.
 Task 9: Verified share-button.tsx, byok-toggle.tsx (with useApiKey hook) already exist and are integrated into landing page, results page, and deep-dive modal.
 Task 10: Created opengraph-image.tsx (edge runtime, 1200x630 dark OG image), updated layout.tsx metadata (openGraph + twitter + metadataBase), added results/layout.tsx with page title.
+Task 11: Added fade-in-up stagger animation on feed cards, rotating loading messages, mobile-friendly Sheet, hover scale on submit button, improved error messages for rate limits and network errors.
