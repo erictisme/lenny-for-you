@@ -1,360 +1,315 @@
-# Lenny, For You — PRD
+# Lenny, For You — Round 2 PRD (Redesign + Synthesis)
 
-A personalized feed that reranks Lenny's entire 650-piece archive based on WHO YOU ARE.
+Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, synthesized AI brief, parallel summaries, and UX fixes.
 
-User flow: Landing page → single text box ("tell me about your situation") → personalized feed of top 20 articles with "why this matters for you" → click any card for personalized deep-dive summary.
+**The new experience:**
+1. User describes their situation
+2. AI ranks top 20 articles → generates a **synthesized brief** pulling insights from ALL 20 sources into one cohesive "What Lenny's archive says about YOUR situation" (2-3 paragraphs, cross-referencing multiple guests/articles)
+3. Below the brief: ranked article cards, each with a pre-generated expandable summary (all generated in parallel)
+4. "Load More" button fetches and summarizes the next batch
 
 ---
 
 ## Tasks
 
-- [x] **Task 1: Build the compact index from content/index.json** (Priority: 0 — architecture dependency, everything else needs this)
+- [x] **Task 1: Install dependencies for round 2** (Priority: 0 — needed by multiple tasks)
 
   **What does "done" look like?**
-  Two generated files exist and are correct:
-  1. `src/data/compact-index.ts` — exports a TypeScript array called `CATALOG` containing all 638 items. Each item has: `{ id: number, type: "podcast" | "newsletter", filename: string, title: string, tags: string[], date: string, description: string, guest: string | null }`. The data comes from `content/index.json`.
-  2. `src/data/catalog-prompt.txt` — a plain text file with one line per item in this format: `{id}|{type}|{title}|{tags joined by comma}|{date}|{description}|{guest or ""}`. This file must contain exactly 638 lines (or however many items are in index.json).
+  New packages installed: `react-markdown`, `remark-gfm`. Shadcn components added: `collapsible`, `popover`. Build passes.
 
   **Steps:**
-  1. Create `src/scripts/build-index.ts` — a Node.js script (run with `npx tsx src/scripts/build-index.ts`)
-  2. Read `content/index.json` which has `{ "schema_version": "2.0", "podcasts": [...], "newsletters": [...] }`. Each podcast has: title, filename, tags, word_count, date, description, guest. Each newsletter has: title, filename, tags, word_count, date, subtitle (use subtitle as description).
-  3. Merge both arrays, assign sequential IDs starting from 0, normalize into the common format above.
-  4. Write `src/data/compact-index.ts` with: `export const CATALOG = [...]` and `export type CatalogItem = { id: number; type: "podcast" | "newsletter"; filename: string; title: string; tags: string[]; date: string; description: string; guest: string | null; }`
-  5. Write `src/data/catalog-prompt.txt` with one item per line in the pipe-delimited format.
-  6. Add a `"build-index"` script to package.json: `"build-index": "npx tsx src/scripts/build-index.ts"`
-  7. Run the script and verify output.
+  1. Run `pnpm add react-markdown remark-gfm`
+  2. Run `pnpm dlx shadcn@latest add collapsible popover -y`
+  3. Verify `pnpm build` passes
 
-  **What should it NOT touch?** Do not modify content/index.json or any content files. Do not install tsx globally — use npx.
+  **What should it NOT touch?** Nothing else.
 
-  **How to verify?** Run `npx tsx src/scripts/build-index.ts`. Check that `src/data/compact-index.ts` exports an array with 638 items. Check that `src/data/catalog-prompt.txt` has 638 lines. Then run `pnpm build` to confirm the TypeScript compiles.
+  **How to verify?** `pnpm build` passes.
 
-- [x] **Task 2: Create TypeScript types and AI provider setup** (Priority: 0 — architecture dependency)
+- [ ] **Task 2: Redesign with Lenny's actual brand identity** (Priority: 0 — everything looks wrong without this)
 
   **What does "done" look like?**
-  Three files exist and compile:
-  1. `src/types/index.ts` — all shared types
-  2. `src/lib/ai.ts` — Gemini provider factory
-  3. `src/lib/prompts.ts` — prompt templates
+  The app uses Lenny's real brand colors, font, and aesthetic. Light mode default. Looks like it belongs in Lenny's ecosystem.
+
+  **Lenny's actual brand (from lennysnewsletter.com):**
+  - **Primary accent:** `#f47c55` (warm coral/orange) — THE Lenny color
+  - **Accent hover:** `#f26a3d` (darker coral)
+  - **Text primary:** `#363737` (dark charcoal)
+  - **Text secondary:** `#868787` (medium gray)
+  - **Background:** `#ffffff` (white)
+  - **Secondary backgrounds:** `#f0f0f0`, `#f7f7f7`
+  - **Font:** Spectral (Google Font, serif, weights 400 and 600) — editorial feel
+  - **Aesthetic:** Clean editorial, generous whitespace, warm coral accents against neutral tones
 
   **Steps:**
-  1. Create `src/types/index.ts` with these interfaces:
-     ```
-     RankedItem { filename: string; title: string; type: "podcast" | "newsletter"; guest: string | null; date: string; tags: string[]; why_this_matters: string; relevance: "essential" | "valuable" | "perspective" }
-     DeepDiveRequest { filename: string; userInput: string; apiKey?: string }
-     RankRequest { userInput: string; apiKey?: string }
-     ```
-  2. Create `src/lib/ai.ts`:
-     - Import `createGoogleGenerativeAI` from `@ai-sdk/google`
-     - Export a function `getGoogleProvider(apiKey?: string)` that creates a Google AI provider. If `apiKey` is provided, use it. Otherwise use `process.env.GOOGLE_GENERATIVE_AI_API_KEY`.
-     - Export the model name as a constant: `export const MODEL_ID = "gemini-2.0-flash"` (fast, cheap, good for structured output)
-  3. Create `src/lib/prompts.ts`:
-     - Export `RANKING_SYSTEM_PROMPT`: "You are a content curator for Lenny's Newsletter — the most popular product management newsletter in the world (350+ posts, 289 podcast transcripts). You will receive: 1. A person's situation (their role, stage, challenges) 2. A catalog of 638 content items (title, type, tags, date, description). Your job: Select the 20 most relevant items for THIS SPECIFIC PERSON. Rules: - Match their CURRENT challenges, not general interests. - Apply Dalton Caldwell's insight: most advice is stage-specific. Pre-PMF founders don't need scaling advice. Enterprise PMs don't need 'find your first user' content. - Prioritize: (1) direct relevance to stated challenges, (2) stage-appropriate advice, (3) foundational frameworks they'd benefit from, (4) diversity of content types (mix newsletters + podcasts). - For each item, write a 1-2 sentence 'why_this_matters' that directly references THEIR situation using 'you' language. - Include a 'relevance' field: 'essential' (directly addresses their problem), 'valuable' (strong adjacent knowledge), or 'perspective' (broadens their thinking). Order by relevance (most relevant first)."
-     - Export `DEEP_DIVE_SYSTEM_PROMPT`: "You are creating a personalized reading brief for a specific reader of Lenny's Newsletter. You will receive the reader's situation and the full text of a newsletter post or podcast transcript. Create a 300-400 word personalized summary that: - Opens with a 1-sentence 'Why this matters for you right now'. - Highlights the 3-4 specific points most relevant to their situation. - Skips sections that aren't relevant to them. - Uses 'you' language throughout ('Given that you're struggling with churn...'). - Quotes 1-2 specific sentences from the original that are most applicable. - Ends with ONE concrete action they could take this week. - Format with markdown headers. If it's a podcast transcript, reference the guest by name and note any frameworks or models they introduced."
-
-  **What should it NOT touch?** Do not modify shadcn components, do not modify content files, do not create API routes yet.
-
-  **How to verify?** `pnpm build` passes. The types, AI provider, and prompts all export correctly.
-
-- [x] **Task 3: Design theme — identify Lenny's brand and apply to Tailwind** (Priority: 1 — needed before any UI work)
-
-  **What does "done" look like?**
-  The app has a dark-mode design theme inspired by Lenny's Newsletter branding. The `src/app/globals.css` has CSS variables for the Lenny color palette. The root `src/app/layout.tsx` applies the dark theme by default.
-
-  **Steps:**
-  1. Inspect Lenny's branding. Lenny's Newsletter uses these colors (from his Substack and lennysdata.com):
-     - Primary blue: approximately `#3B82F6` or similar (his link color / accent)
-     - Background: use a rich dark navy/charcoal, something like `#0F172A` (slate-900) or `#1E293B` (slate-800) — editorial, not pure black
-     - Text: off-white `#F8FAFC` (slate-50)
-     - Muted text: `#94A3B8` (slate-400)
-     - Cards: slightly lighter than background, like `#1E293B` with subtle border
-     - Accent for "essential" relevance: warm amber/gold
-     - Accent for "podcast" badge: purple/indigo
-     - Accent for "newsletter" badge: blue/teal
-  2. Update `src/app/globals.css` — set CSS custom properties under `:root` and a dark class. Configure the shadcn theme variables for the dark palette. The dark theme should be the DEFAULT (add `dark` class to html element or use `@media (prefers-color-scheme: dark)`, but better to just make dark the only theme).
+  1. Add Google Font "Spectral" (serif, weights 400 and 600) to `src/app/layout.tsx` using `next/font/google`. Keep Geist for small UI elements. Use Spectral for headlines and body prose.
+  2. Completely rewrite `src/app/globals.css`:
+     - Remove the current dark purple-blue OkLCH theme entirely
+     - Set CSS variables for **light mode** (Lenny's brand is light):
+       - `--background: 0 0% 100%` (white)
+       - `--foreground: 210 2% 21%` (#363737)
+       - `--primary: 16 88% 64%` (#f47c55 coral)
+       - `--primary-foreground: 0 0% 100%` (white)
+       - `--muted: 0 0% 97%` (#f7f7f7)
+       - `--muted-foreground: 0 0% 53%` (#868787)
+       - `--card: 0 0% 100%`
+       - `--card-foreground: 210 2% 21%`
+       - `--border: 0 0% 90%` (#e5e5e5)
+       - `--accent: 16 88% 64%` (coral)
+       - `--ring: 16 88% 64%`
+     - NOTE: shadcn uses HSL format for CSS variables. Convert the hex colors to HSL.
+     - Keep `@keyframes fadeInUp` animation
   3. Update `src/app/layout.tsx`:
-     - Add `className="dark"` to the `<html>` tag
-     - Set page metadata: title "Lenny, For You", description "650 posts. 300 guests. Which ones matter for YOU?"
-     - Use a clean sans-serif font (Inter or Geist — Geist is already included by Next.js default)
-     - Set `<body>` background to the dark background color
-  4. Verify the default page renders with the dark theme applied (dark background, light text).
+     - **Remove** `className="dark"` from `<html>` tag
+     - Apply Spectral font class to `<body>` for editorial feel
+     - Keep existing metadata
+  4. Update all badge components to work on white background:
+     - `src/components/type-badge.tsx`: Podcast badge uses coral tones. Newsletter badge uses a warm gray/blue tone.
+     - `src/components/relevance-badge.tsx`: Essential=amber, Valuable=green, Perspective=blue — all readable on white.
+  5. Update `src/components/hero.tsx`: the "you" accent text uses coral `#f47c55`
+  6. Update `src/components/feed-card.tsx`: left-border accent uses coral. Card has subtle shadow on white background instead of ring.
+  7. Update `src/components/footer.tsx`: ensure readable on white
 
-  **What should it NOT touch?** Do not build any custom components yet. Just set up the theme in globals.css and layout.tsx.
+  **What should it NOT touch?** No functionality changes. Only visual styling.
 
-  **How to verify?** Run `pnpm dev`, open http://localhost:3000. The page should have a dark background with light text. `pnpm build` passes.
+  **How to verify?** `pnpm dev` → white background, coral accents, Spectral serif font, looks like Lenny's site. `pnpm build` passes.
 
-- [x] **Task 4: Ranking API route — /api/rank** (Priority: 0 — core functionality)
+- [ ] **Task 3: Fix "Invalid filename" bug in deep-dive API** (Priority: 0 — core feature is broken)
 
   **What does "done" look like?**
-  A POST endpoint at `/api/rank` that accepts `{ userInput: string, apiKey?: string }`, sends the compact catalog + user input to Gemini, and returns a JSON array of 20 `RankedItem` objects with personalized descriptions.
+  Clicking any feed card successfully loads content without "Invalid filename" errors.
 
   **Steps:**
-  1. Create `src/app/api/rank/route.ts`
-  2. Import: `generateObject` from `ai`, the Google provider from `src/lib/ai.ts`, the prompts from `src/lib/prompts.ts`, the catalog prompt text, and `z` from `zod`
-  3. Read the catalog prompt text. Since this is edge runtime and can't use `fs`, import it as a string. Best approach: in `src/data/compact-index.ts` (already generated in Task 1), also export a `CATALOG_PROMPT` string constant containing the pre-formatted catalog text. If this wasn't done in Task 1, update the build-index script to also export this string.
-  4. Define a Zod schema for the response:
+  1. Fix `src/app/api/deep-dive/route.ts` filename handling:
+     - Trim whitespace: `let normalizedFilename = filename.trim()`
+     - If doesn't end with ".md", append ".md"
+     - Normalize prefixes: "newsletter/" → "newsletters/", "podcast/" → "podcasts/"
+     - If file not found at exact path, try fuzzy match: extract the slug (last segment without .md), search `content/newsletters/` and `content/podcasts/` for any file containing that slug
+  2. Keep all existing security checks (no ".." traversal)
+  3. Return clear error message if truly not found: `"Article not found: ${normalizedFilename}"`
+
+  **What should it NOT touch?** Do not modify the ranking API or prompts.
+
+  **How to verify?** Submit a query, click 5+ different cards (mix of newsletters and podcasts). All should load. `pnpm build` passes.
+
+- [ ] **Task 4: Fix deep-dive modal — centered dialog with blur + rendered markdown** (Priority: 0)
+
+  **What does "done" look like?**
+  Deep-dive opens as a centered modal with blurred backdrop. Content renders as proper formatted text (no raw markdown hashes/asterisks).
+
+  **Steps:**
+  1. Rewrite `src/components/deep-dive-modal.tsx`:
+     - Replace `Sheet` (side drawer) with shadcn `Dialog`
+     - Dialog overlay: add `backdrop-blur-sm` class
+     - Dialog content: `max-w-2xl w-full max-h-[80vh]` with scrollable body
+     - On mobile: nearly full-screen
+  2. Use `ReactMarkdown` from `react-markdown` with `remarkGfm` plugin for content rendering:
+     ```jsx
+     <ReactMarkdown remarkPlugins={[remarkGfm]} className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground prose-blockquote:border-primary/50">
+       {content}
+     </ReactMarkdown>
      ```
-     const RankedItemSchema = z.object({
-       filename: z.string(),
-       title: z.string(),
-       type: z.enum(["podcast", "newsletter"]),
-       guest: z.string().nullable(),
-       date: z.string(),
-       tags: z.array(z.string()),
-       why_this_matters: z.string(),
-       relevance: z.enum(["essential", "valuable", "perspective"]),
-     })
-     const ResponseSchema = z.object({ items: z.array(RankedItemSchema).length(20) })
+  3. Keep: loading skeleton, error state, header with badges/title/date, footer with article link
+  4. Ensure prose styles work with the new Lenny light theme (dark text on white)
+
+  **What should it NOT touch?** Do not modify the API route logic (only the frontend component).
+
+  **How to verify?** Click card → centered modal with blur. Markdown renders as formatted text (## = heading, ** = bold, - = list). No raw syntax visible. `pnpm build` passes.
+
+- [ ] **Task 5: Add youtube_url to catalog and fix article links** (Priority: 1)
+
+  **What does "done" look like?**
+  Newsletter cards link to correct Substack article. Podcast cards link to YouTube video.
+
+  **Steps:**
+  1. Update `src/scripts/build-index.ts`:
+     - For podcast entries: read the actual markdown file's YAML frontmatter to extract `youtube_url`
+     - Use a simple regex or string parsing to extract the `youtube_url:` field from frontmatter (no need for a YAML parser — just match `youtube_url: "..."` or `youtube_url: ...`)
+     - Add `youtube_url` field to each podcast CatalogItem (null for newsletters)
+  2. Update `CatalogItem` type in the build script to include `youtube_url: string | null`
+  3. Re-run the build-index script: `npx tsx src/scripts/build-index.ts`
+  4. Update `src/components/deep-dive-modal.tsx`:
+     - Accept optional `youtubeUrl` prop
+     - For newsletters: "Read full article on Lenny's Newsletter" → `https://www.lennysnewsletter.com/p/{slug}`
+     - For podcasts with youtubeUrl: "Watch on YouTube" → youtube URL
+     - For podcasts without: "Visit Lenny's Podcast" → `https://www.lennyspodcast.com/`
+  5. Update results page to pass youtubeUrl from CATALOG when opening modal
+
+  **What should it NOT touch?** Do not modify ranking API or prompts. Do not modify content files.
+
+  **How to verify?** Click newsletter card → link opens Substack. Click podcast card → link opens YouTube. `pnpm build` passes.
+
+- [ ] **Task 6: New synthesis API route — /api/synthesize** (Priority: 0 — the key differentiator)
+
+  **What does "done" look like?**
+  A new API endpoint that takes the user's situation + the top 20 ranked items, reads ALL 20 articles, and generates a synthesized 3-4 paragraph brief that pulls insights from multiple sources into one cohesive answer to the user's situation. This is NOT a summary of individual articles — it's a NEW piece of content that cross-references and connects ideas from different guests and posts.
+
+  **Steps:**
+  1. Create `src/app/api/synthesize/route.ts`
+  2. POST handler accepts: `{ userInput: string, filenames: string[], apiKey?: string }`
+     - `filenames` is an array of the top 20 ranked article filenames
+  3. Read ALL 20 markdown files from the content directory
+  4. For each file, extract just the first 2000 characters of content (to fit within token limits — 20 files × 2000 chars = ~40K chars = ~10K tokens). Strip YAML frontmatter before extracting.
+  5. Create a synthesis prompt (add to `src/lib/prompts.ts`):
      ```
-  5. POST handler:
-     - Parse request body for `userInput` and optional `apiKey`
-     - Validate `userInput` is non-empty string, max 1000 chars
-     - Create Gemini provider using `getGoogleProvider(apiKey)`
-     - Call `generateObject` with:
-       - model: `provider(MODEL_ID)`
-       - schema: ResponseSchema
-       - system: RANKING_SYSTEM_PROMPT
-       - prompt: `"Here is the content catalog:\n\n${CATALOG_PROMPT}\n\nHere is the person's situation:\n\n${userInput}"`
-     - Return `NextResponse.json(result.object)`
-  6. Add error handling: catch API errors, return appropriate status codes (400 for bad input, 500 for AI errors, 429 for rate limit)
-  7. Do NOT use edge runtime yet if it causes issues with imports. Use standard Node.js runtime first, optimize later.
+     SYNTHESIS_SYSTEM_PROMPT = `You are creating a personalized synthesis brief for a reader of Lenny's Newsletter.
 
-  **What should it NOT touch?** Do not build any UI. Do not modify content files. Do not create the deep-dive route yet.
+     You will receive:
+     1. The reader's situation
+     2. Excerpts from the 20 most relevant articles and podcast transcripts from Lenny's archive
 
-  **How to verify?** `pnpm build` passes. Test with curl:
+     Create a 400-600 word synthesis that:
+     - Opens with a direct, empathetic acknowledgment of their situation in 1-2 sentences
+     - Identifies 3-4 KEY THEMES across the sources that are most relevant to their challenges
+     - For each theme, synthesize insights from 2-3 DIFFERENT sources, connecting ideas that the reader wouldn't get from reading any single article. Name the specific guests or articles.
+     - Include 1-2 places where sources DISAGREE or offer different perspectives — this is gold
+     - End with a prioritized "Start here" recommendation: which 1-2 articles to read FIRST and why
+     - Use "you" language throughout
+     - Format with markdown headers for each theme
+     - This must feel like a wise mentor who has read everything and is giving YOU personalized counsel — not like a summary
+
+     IMPORTANT: Do NOT just summarize each article separately. SYNTHESIZE — connect ideas across sources, find patterns, surface contradictions. The value is in the CONNECTIONS, not the individual summaries.`
+     ```
+  6. Call `streamText` with the synthesis prompt, all 20 excerpts, and the user input
+  7. Return streaming response
+  8. Use Node.js runtime (needs `fs` for file reading)
+
+  **What should it NOT touch?** Do not modify existing API routes. Do not modify the ranking logic.
+
+  **How to verify?** Test with curl:
   ```
-  curl -X POST http://localhost:3000/api/rank \
+  curl -X POST http://localhost:3000/api/synthesize \
     -H "Content-Type: application/json" \
-    -d '{"userInput": "I am a PM at a Series A B2B SaaS struggling with churn and pricing"}'
+    -d '{"userInput": "PM at pre-PMF B2B SaaS struggling with pricing", "filenames": ["newsletters/the-ultimate-guide-to-willingness-to-pay.md", "podcasts/madhavan-ramanujam.md"]}'
   ```
-  Should return JSON with 20 items, each having filename, title, type, why_this_matters, and relevance fields. NOTE: This test requires GOOGLE_GENERATIVE_AI_API_KEY in .env.local — if not set, the test will fail with an auth error, which is expected. The build must still pass.
+  Should stream a multi-paragraph synthesis that cross-references both sources. `pnpm build` passes.
 
-- [x] **Task 5: Deep-dive API route — /api/deep-dive** (Priority: 1)
-
-  **What does "done" look like?**
-  A POST endpoint at `/api/deep-dive` that accepts `{ filename: string, userInput: string, apiKey?: string }`, reads the full markdown content of the specified file, sends it to Gemini with the user's context, and streams back a personalized summary.
-
-  **Steps:**
-  1. Create `src/app/api/deep-dive/route.ts`
-  2. Import: `streamText` from `ai`, the Google provider, the deep-dive prompt
-  3. POST handler:
-     - Parse request body for `filename`, `userInput`, optional `apiKey`
-     - Validate `filename` starts with "podcasts/" or "newsletters/" and ends with ".md" (security: prevent path traversal)
-     - Read the markdown file. Since we need `fs` access and edge runtime doesn't support it, use Node.js runtime (`export const runtime = 'nodejs'`). Read from `path.join(process.cwd(), 'content', filename)` using `fs.readFileSync`.
-     - If file not found, return 404
-     - Call `streamText` with:
-       - model: `provider(MODEL_ID)`
-       - system: DEEP_DIVE_SYSTEM_PROMPT
-       - prompt: `"Reader's situation: ${userInput}\n\n---\n\nFull article content:\n\n${content}"`
-     - Return the streaming response using `result.toDataStreamResponse()`
-  4. Add error handling for missing files, AI errors
-
-  **What should it NOT touch?** Do not build UI. Do not modify the ranking route.
-
-  **How to verify?** `pnpm build` passes. Test with curl (requires API key in .env.local):
-  ```
-  curl -X POST http://localhost:3000/api/deep-dive \
-    -H "Content-Type: application/json" \
-    -d '{"filename": "newsletters/14-habits-of-highly-effective-product-managers.md", "userInput": "I am a new PM trying to level up"}'
-  ```
-  Should stream back a personalized markdown summary.
-
-- [x] **Task 6: Landing page — hero section + text input** (Priority: 2)
+- [ ] **Task 7: New parallel batch summary API route — /api/batch-summarize** (Priority: 0 — enables fast parallel summaries)
 
   **What does "done" look like?**
-  The home page (`src/app/page.tsx`) shows a beautiful dark-themed landing page with:
-  - A compelling headline and subheadline
-  - A single large textarea for the user to describe their situation
-  - A submit button that navigates to `/results?q=<base64-encoded-input>`
-  - A footer with credits
+  A new API endpoint that takes the user's situation + multiple filenames and generates individual summaries for ALL of them in parallel. Returns all summaries at once as a JSON object keyed by filename.
 
   **Steps:**
-  1. Create `src/components/hero.tsx`:
-     - Large headline: "650 posts. 300 guests." on first line, "Which ones matter for **you**?" on second line (bold "you")
-     - Subheadline below (muted text): "Tell me about your situation and I'll find the pieces of Lenny's archive that matter most for you right now."
-     - Center-aligned, generous padding (py-20 or more)
-     - The word "you" in the headline should be styled with the accent/primary color
-  2. Create `src/components/profile-input.tsx`:
-     - A `<textarea>` (shadcn Textarea component) with 4 rows
-     - Placeholder: "I'm a PM at a Series A B2B SaaS. We have 50 customers but struggling with churn. I need to figure out pricing and build a growth engine..."
-     - A submit button below: "Find My Feed" (shadcn Button, primary/accent color, full width or auto width centered)
-     - On submit: base64-encode the textarea value, navigate to `/results?q={encoded}`
-     - Disable button if textarea is empty
-     - Use `useRouter` from `next/navigation` for programmatic navigation
-     - This is a client component (`"use client"`)
-  3. Create `src/components/footer.tsx`:
-     - Small text: "Built by a non-coder with Claude Code"
-     - Link to Eric's LinkedIn (use a placeholder URL like `https://linkedin.com/in/erictansongyi` — Eric will update)
-     - "Powered by Lenny's Newsletter data" with link to lennysdata.com
-     - Muted text color, centered, bottom padding
-  4. Update `src/app/page.tsx`:
-     - Import and render Hero, ProfileInput, Footer
-     - Clean layout: max-w-2xl mx-auto, centered content
-     - Remove all default Next.js boilerplate content
+  1. Create `src/app/api/batch-summarize/route.ts`
+  2. POST handler accepts: `{ userInput: string, filenames: string[], apiKey?: string }`
+  3. For each filename in parallel (using `Promise.all`):
+     - Read the markdown file from content directory
+     - Call `generateText` (not streaming — we need all results at once) with the DEEP_DIVE_SYSTEM_PROMPT
+     - Collect the result
+  4. Return JSON: `{ summaries: { [filename]: string } }`
+  5. Add a shorter summary prompt variant to `src/lib/prompts.ts`:
+     ```
+     CARD_SUMMARY_SYSTEM_PROMPT = `You are creating a brief personalized reading card for a specific reader.
 
-  **What should it NOT touch?** Do not build the results page. Do not modify API routes. Do not modify globals.css or layout.tsx (theme was set in Task 3).
+     You will receive the reader's situation and article content.
 
-  **How to verify?** Run `pnpm dev`, open http://localhost:3000. See a dark-themed landing page with headline, textarea, and submit button. Type text and click submit — should navigate to `/results?q=...` (the results page won't exist yet, that's OK — just verify the URL changes). `pnpm build` passes.
+     Create a 100-150 word summary that:
+     - 1 sentence: why this matters for them RIGHT NOW
+     - 2-3 bullet points: the key actionable takeaways for their situation
+     - 1 sentence: what they'll learn if they read the full piece
 
-- [x] **Task 7: Results feed page — display ranked articles** (Priority: 2)
+     Use "you" language. Be specific to their situation. No fluff.
+     Format: 1 paragraph opening + bullet list + 1 closing sentence.`
+     ```
+  6. Use this shorter prompt for batch summaries (faster, cheaper than full deep-dive)
+  7. Use Node.js runtime (needs `fs`)
+  8. Limit to max 10 files per request (to control costs and timeouts)
+  9. Timeout handling: if any individual summary fails, return what succeeded + error flags
+
+  **What should it NOT touch?** Do not modify existing API routes.
+
+  **How to verify?** Test with curl sending 3 filenames. Should return JSON with 3 summaries. All summaries are personalized. `pnpm build` passes.
+
+- [ ] **Task 8: Rebuild results page — synthesis brief + pre-generated card summaries + Load More** (Priority: 0 — the main UX overhaul)
 
   **What does "done" look like?**
-  The results page (`src/app/results/page.tsx`) reads the user's input from URL searchParams, calls `/api/rank`, and displays a feed of 20 personalized cards with loading states.
+  The results page shows:
+  1. A "synthesis brief" section at the top — a 3-4 paragraph AI-generated cross-reference synthesis that streams in first
+  2. Below: 20 feed cards, each with a pre-generated expandable summary already loaded
+  3. A "Load More" button at the bottom to fetch the next batch of articles
 
   **Steps:**
-  1. Create `src/components/type-badge.tsx`:
-     - Small badge component: "Newsletter" (blue/teal) or "Podcast" (purple/indigo)
-     - Use shadcn Badge with custom variant colors
-  2. Create `src/components/relevance-badge.tsx`:
-     - "Essential" (amber/gold), "Valuable" (green), "Perspective" (blue)
-     - Small, subtle badge
-  3. Create `src/components/feed-card.tsx`:
-     - shadcn Card component
-     - Layout: TypeBadge + RelevanceBadge in top row, title (large text), date + guest name (if podcast) in muted text, "Why this matters for you" text in slightly highlighted/accent style, tags as small muted pills at bottom
-     - The "why this matters" text is the key visual element — make it stand out (slightly different background, or left border accent, or italic)
-     - Card should be clickable (onClick handler passed as prop)
-     - Hover state: subtle border color change or shadow
-  4. Create `src/components/feed-skeleton.tsx`:
-     - 6 skeleton cards matching the feed-card layout using shadcn Skeleton
-     - Animate with pulse
-  5. Create `src/app/results/page.tsx`:
-     - Client component (`"use client"`)
-     - Read `q` from `useSearchParams()` — base64 decode to get userInput
-     - If no `q` param, redirect to `/`
-     - On mount, call `POST /api/rank` with `{ userInput }`
-     - States: loading (show skeletons + "Analyzing 650 pieces of Lenny's archive for you..." message), loaded (show cards), error (show error message + "Try again" button)
-     - Wrap in Suspense boundary for searchParams
-     - Header section: "Your Personalized Lenny Feed" title, with the user's input shown as a muted quote below
-     - Grid or list layout for cards (single column, max-w-3xl, centered — list is better for readability)
-     - Each card's onClick should open the deep-dive modal (but modal is built in Task 8 — for now, just log the filename to console)
-     - "Start over" link at bottom that navigates back to `/`
+  1. Rewrite `src/app/results/page.tsx` with this flow:
+     **Phase 1 — Rank (existing):**
+     - Decode userInput from URL params
+     - Call `/api/rank` → get 20 ranked items
+     - Show ranking skeleton while loading
 
-  **What should it NOT touch?** Do not build the deep-dive modal. Do not modify the landing page or API routes.
+     **Phase 2 — Synthesize (new, starts immediately after ranking):**
+     - Call `/api/synthesize` with userInput + all 20 filenames
+     - Stream the synthesis brief into a prominent section at the top of the page
+     - This section has a header like "What Lenny's archive says about your situation" and renders markdown with ReactMarkdown
+     - Show a pulsing skeleton while loading
 
-  **How to verify?** Run `pnpm dev`, navigate to `/results?q={base64 encoded test input}`. Should show skeleton loading, then 20 cards with personalized descriptions (requires API key). Without API key, should show error state gracefully. `pnpm build` passes.
+     **Phase 3 — Batch summarize (new, starts in parallel with synthesis):**
+     - Call `/api/batch-summarize` with userInput + first 10 filenames
+     - Then call again with filenames 11-20
+     - Store summaries in state keyed by filename
+     - Each FeedCard receives its pre-generated summary
 
-- [x] **Task 8: Deep-dive modal — personalized article summary** (Priority: 2)
+  2. Update `src/components/feed-card.tsx`:
+     - Add collapsible section below "why this matters"
+     - New props: `summary: string | null`, `summaryLoading: boolean`
+     - If summary is loaded: show a toggle button "View summary ▼" / "Hide summary ▲"
+     - When expanded: render summary with ReactMarkdown
+     - If summary is loading: show small skeleton
+     - The first card auto-expands its summary
+     - Card title/header area still clickable to open full deep-dive modal
+
+  3. Create `src/components/synthesis-brief.tsx`:
+     - A prominent section with a heading "What Lenny's archive says about your situation"
+     - Renders the streaming synthesis with ReactMarkdown
+     - Styled differently from cards: slightly larger text, no card border, maybe a subtle top border or background tint
+     - Loading state: animated skeleton with message "Cross-referencing 20 articles for your situation..."
+     - Below the synthesis text, show small "Sources" list: the titles of articles referenced, clickable to scroll to that card
+
+  4. Add "Load More" button at the bottom:
+     - When clicked: call `/api/rank` again but with a prompt modification asking for items 21-40 (append to the prompt: "Do NOT include these already-selected items: [list of 20 filenames]. Select the NEXT 20 most relevant items.")
+     - Then call `/api/batch-summarize` for the new items
+     - Append new cards below existing ones
+     - Button text: "Load 20 more articles"
+     - Hide button if no more results returned
+
+  5. The user's query shown at top in a styled quote with an "Edit" button that reveals a textarea for re-prompting (simple: click edit → textarea appears pre-filled → submit updates URL and re-fetches everything)
+
+  **What should it NOT touch?** Do not modify the API route files created in Tasks 6 and 7. Just call them from the frontend.
+
+  **How to verify?** Submit a query → synthesis brief streams in at top → 20 cards appear below with summaries pre-loaded → first card auto-expanded → click "Load More" → 20 more cards appear. Markdown renders everywhere. `pnpm build` passes.
+
+- [ ] **Task 9: Improve BYOK toggle — discreet settings gear** (Priority: 2)
 
   **What does "done" look like?**
-  Clicking any feed card opens a modal/dialog that shows a streaming personalized summary of that article.
+  Small gear icon in top-right corner. Clicking opens a clean popover for API key input. No raw "Paste your Gemini key" on the main page.
 
   **Steps:**
-  1. Create `src/components/deep-dive-modal.tsx`:
-     - Use shadcn Dialog (or Sheet for a side panel — Sheet might be better UX for reading)
-     - Props: `open: boolean`, `onClose: () => void`, `filename: string | null`, `userInput: string`
-     - When opened with a filename:
-       - Show loading skeleton
-       - Call `POST /api/deep-dive` with `{ filename, userInput }`
-       - Use the Vercel AI SDK's `useChat` hook or manual fetch with streaming to display the response as it streams in
-       - For streaming: use `fetch` and read the stream. The `ai` package exports `useCompletion` hook which handles this — use it.
-       - Actually, simplest approach: just use regular fetch, await the full response, render the markdown. Streaming is a nice-to-have — skip it for reliability.
-     - Header: article title (derive from filename or pass as prop from the card), type badge, date
-     - Body: rendered markdown summary (use a simple markdown renderer — just split by `##` headers and render as HTML, or use `dangerouslySetInnerHTML` with basic markdown-to-HTML conversion. Or install `react-markdown` if needed. Simplest: just render the text with whitespace preserved and bold/headers handled via CSS/regex.)
-     - Footer: "Read full article on Lenny's Newsletter" link (construct as `https://www.lennysnewsletter.com/p/{slug}` — derive slug from filename by removing `newsletters/` prefix and `.md` suffix)
-     - Close button
-  2. Update `src/app/results/page.tsx`:
-     - Add state for selected card: `const [selectedFilename, setSelectedFilename] = useState<string | null>(null)`
-     - Pass onClick to each FeedCard that sets selectedFilename
-     - Render DeepDiveModal with open={!!selectedFilename}, filename={selectedFilename}, userInput, onClose={() => setSelectedFilename(null)}
+  1. Rewrite `src/components/byok-toggle.tsx`:
+     - Small gear SVG icon, fixed in top-right or in a header bar
+     - Popover (shadcn) with: title "Settings", label "API Key (optional)", description "Use your own Google AI key", password input, save button
+     - Green dot indicator when key saved
+  2. Remove old BYOK toggle from landing page body
+  3. Place gear icon in layout or as fixed-position element on both pages
+  4. Keep localStorage persistence and `useApiKey()` hook
 
-  **What should it NOT touch?** Do not modify API routes. Do not modify the landing page. Do not change the feed card component beyond adding the onClick.
+  **What should it NOT touch?** Do not modify API routes.
 
-  **How to verify?** Run `pnpm dev`, go to results page with a valid query, wait for cards to load, click a card. Modal/sheet should open, show loading, then display a personalized summary. Close button works. `pnpm build` passes.
+  **How to verify?** No "API key" text in page body. Gear in corner. Popover works. Key persists. `pnpm build` passes.
 
-- [x] **Task 9: Share button and BYOK toggle** (Priority: 3 — polish)
+- [ ] **Task 10: Final polish, responsive, and commit** (Priority: 3)
 
   **What does "done" look like?**
-  1. A share button on the results page that copies the current URL to clipboard with a toast notification.
-  2. A small settings/gear icon that reveals an input field for users to paste their own Gemini API key.
+  Clean build. Polished UI on desktop and mobile. All features working.
 
   **Steps:**
-  1. Create `src/components/share-button.tsx`:
-     - A button with a share/link icon (use a simple SVG or emoji)
-     - onClick: `navigator.clipboard.writeText(window.location.href)` then show a brief "Copied!" toast (can use a simple state-based tooltip that fades after 2 seconds, no need for a toast library)
-     - Style: subtle, secondary button style
-  2. Create `src/components/byok-toggle.tsx`:
-     - A small gear/key icon button
-     - onClick: toggles visibility of an input field below it
-     - Input field: type="password", placeholder "Paste your Gemini API key"
-     - onChange: save to localStorage key `lenny-for-you-api-key`
-     - On page load: check localStorage for existing key, show a green dot/checkmark if key exists
-     - Export a hook: `useApiKey()` that returns the stored key (or null)
-  3. Add ShareButton to the results page header area
-  4. Add BYOKToggle to the landing page (near the footer or in a corner) and results page
-  5. Update the results page fetch calls: if `useApiKey()` returns a key, include it as `apiKey` in the request body
-  6. Update the deep-dive modal similarly
+  1. Mobile (375px): synthesis brief readable, cards stack properly, modal nearly full-screen, textarea usable
+  2. Loading states: all have friendly messages and smooth skeletons
+  3. Text contrast: all text readable on white background
+  4. Error states: friendly messages with retry buttons
+  5. Card animations: fade-in stagger works with light theme
+  6. `pnpm build` — zero errors
+  7. `pnpm lint` — fix any issues
+  8. Remove console.logs, unused imports, dead code
+  9. Git commit: "feat: round 2 — Lenny brand, synthesis brief, parallel summaries, Load More"
 
-  **What should it NOT touch?** Do not modify API routes. Do not modify the theme or layout.
+  **What should it NOT touch?** Do not add new features.
 
-  **How to verify?** On results page, click share button — URL is copied, "Copied!" appears briefly. Toggle BYOK, enter a test key, refresh page — key persists. The key is included in API requests (check Network tab). `pnpm build` passes.
-
-- [x] **Task 10: OG image and social metadata** (Priority: 3 — polish)
-
-  **What does "done" look like?**
-  When sharing the app URL on LinkedIn or Twitter, a compelling preview image and description appear.
-
-  **Steps:**
-  1. Create `src/app/opengraph-image.tsx` using Next.js OG image generation (ImageResponse from `next/og`):
-     - 1200x630px image
-     - Dark background matching the app theme
-     - Large text: "Lenny, For You"
-     - Subtitle: "650 posts. 300 guests. Personalized for you."
-     - Clean, minimal design
-  2. Update metadata in `src/app/layout.tsx`:
-     - title: "Lenny, For You — Your Personalized Lenny's Newsletter Feed"
-     - description: "650 posts. 300 guests. Which ones matter for YOU? Tell me your situation and I'll curate the perfect reading list from Lenny's archive."
-     - openGraph: type "website", title, description, images (the generated OG image)
-     - twitter: card "summary_large_image", title, description
-  3. Also add metadata for the results page in `src/app/results/page.tsx` or a `layout.tsx` in the results folder:
-     - title: "My Personalized Lenny Feed"
-
-  **What should it NOT touch?** Do not modify any components or API routes.
-
-  **How to verify?** `pnpm build` passes. Run `pnpm dev` and check that `http://localhost:3000/opengraph-image` returns an image. Check page source for correct meta tags.
-
-- [x] **Task 11: Responsive design and polish** (Priority: 3 — polish)
-
-  **What does "done" look like?**
-  The app looks great and works well on mobile (375px viewport), tablet, and desktop. Smooth animations. Good error handling throughout.
-
-  **Steps:**
-  1. Test and fix mobile layout:
-     - Landing page: textarea should be full width, button full width on mobile
-     - Results page: cards should stack in single column (they probably already do)
-     - Deep-dive modal/sheet: should be full-screen on mobile (Sheet with `side="bottom"` or Dialog with full-width on small screens)
-     - Font sizes: ensure readability on mobile (min 16px for body text to prevent iOS zoom)
-  2. Add subtle animations:
-     - Feed cards: fade in with stagger effect when results load (use CSS `@keyframes fadeIn` with `animation-delay` based on index)
-     - Modal: slide up animation (shadcn Dialog/Sheet already has this)
-     - Button: subtle hover scale
-  3. Error handling:
-     - API errors: show a friendly message with "Try again" button, not raw error text
-     - Empty input: disable submit button, show hint text
-     - Network errors: catch fetch failures, show offline-friendly message
-     - Rate limit: if API returns 429, show "Too many requests. Try again in a few minutes."
-  4. Loading states:
-     - Ensure skeleton loaders match the actual card dimensions
-     - Add a progress message that changes: "Reading your situation...", "Scanning 650 articles...", "Finding your matches..." (rotate every 2-3 seconds during loading)
-
-  **What should it NOT touch?** Do not modify API routes or AI prompts. Do not add new features — only polish existing ones.
-
-  **How to verify?** Run `pnpm dev`, test on mobile viewport (Chrome DevTools → toggle device toolbar → iPhone SE 375px). All pages look good, text is readable, buttons are tappable, modal works. Test error states by temporarily breaking the API key. `pnpm build` passes.
-
-- [x] **Task 12: Final build verification and cleanup** (Priority: 3)
-
-  **What does "done" look like?**
-  The app builds successfully with zero errors and zero warnings. All unused imports and dead code are removed. The .gitignore properly excludes .env files and node_modules. A clean git commit exists with all changes.
-
-  **Steps:**
-  1. Run `pnpm build` — must pass with zero errors
-  2. Run `pnpm lint` — fix any linting errors
-  3. Check for unused imports in all files
-  4. Ensure `.env.local` is in `.gitignore` (it should be by default)
-  5. Ensure `content/` directory is NOT in `.gitignore` (it needs to be deployed)
-  6. Verify `node_modules/` and `.next/` are in `.gitignore`
-  7. Clean up any TODO comments or console.log statements
-  8. Verify the landing page → results → deep-dive flow works end-to-end (may require API key)
-  9. Git add all files and commit with message: "feat: lenny-for-you — personalized Lenny's Newsletter feed"
-
-  **What should it NOT touch?** Do not add new features. Do not modify the design. Just clean up and verify.
-
-  **How to verify?** `pnpm build` passes with zero errors. `pnpm lint` passes. `git status` shows a clean working tree after commit. The app runs locally with `pnpm dev` and all pages render correctly.
+  **How to verify?** `pnpm build` && `pnpm lint` pass. Visual check desktop + mobile. All flows work. Git commit clean.
