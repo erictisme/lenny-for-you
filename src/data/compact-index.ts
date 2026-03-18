@@ -7,6 +7,7 @@ export type CatalogItem = {
   date: string;
   description: string;
   guest: string | null;
+  youtube_url: string | null;
 };
 
 export const CATALOG: CatalogItem[] = [
@@ -25,7 +26,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-03-01",
     "description": "It's not just designers who are feeling like, \"Oh yeah, we have to keep up with engineers.\" I think even engineers are like, \"How do we keep up with ourselves?\", covering product design, AI product work, and engineering tradeoffs.",
-    "guest": "Jenny Wen"
+    "guest": "Jenny Wen",
+    "youtube_url": null
   },
   {
     "id": 1,
@@ -42,7 +44,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-02-26",
     "description": "And the reason we pulled this thing together, the goal was, what is happening in the industry and how can we help customers make sure that they can make the most of it, covering AI product work, team leadership, and product design.",
-    "guest": "Jeetu Patel"
+    "guest": "Jeetu Patel",
+    "youtube_url": null
   },
   {
     "id": 2,
@@ -59,7 +62,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-02-19",
     "description": "This is the world now.\" What's the next big shift to how software is written that either your team is already operating in or you think will head towards, covering engineering tradeoffs, product design, and AI product work.",
-    "guest": "Boris Cherny"
+    "guest": "Boris Cherny",
+    "youtube_url": null
   },
   {
     "id": 3,
@@ -76,7 +80,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-02-15",
     "description": "Brian Halligan co-founded HubSpot, ran it as CEO for about 15 years, and now coaches Sequoia’s fastest-growing founders as their in-house CEO coach.",
-    "guest": "Brian Halligan"
+    "guest": "Brian Halligan",
+    "youtube_url": "https://www.youtube.com/watch?v=3UyitfSbY6c"
   },
   {
     "id": 4,
@@ -93,7 +98,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-02-12",
     "description": "If you talk to a lot of engineers, the thing that annoys them the most is after you've written your beautiful code, how do you get it into production, covering engineering tradeoffs, AI product work, and team leadership.",
-    "guest": "Sherwin Wu V2"
+    "guest": "Sherwin Wu V2",
+    "youtube_url": null
   },
   {
     "id": 5,
@@ -110,7 +116,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-02-08",
     "description": "Lazar Jovanovic is a full-time professional vibe coder at Lovable. His job is to build both internal tools and customer-facing products purely using AI, while not having a coding background.",
-    "guest": "Lazar Jovanovic"
+    "guest": "Lazar Jovanovic",
+    "youtube_url": "https://www.youtube.com/watch?v=0XNkUdzxiZI"
   },
   {
     "id": 6,
@@ -126,7 +133,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-02-01",
     "description": "Working with difficult adults, covering product design, team leadership, and practical product lessons.",
-    "guest": "Dr. Becky Kennedy"
+    "guest": "Dr. Becky Kennedy",
+    "youtube_url": "https://www.youtube.com/watch?v=Auxs8ZsHRI4"
   },
   {
     "id": 7,
@@ -143,7 +151,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-29",
     "description": "Marc Andreessen is a founder, investor, and co-founder of Netscape, as well as co-founder of the venture capital firm Andreessen Horowitz (a16z). In this conversation, we dig into why we’re living through a unique and one of the most incredible times in history, and what comes next.",
-    "guest": "Marc Andreessen"
+    "guest": "Marc Andreessen",
+    "youtube_url": "https://www.youtube.com/watch?v=87Pm0SGTtN8"
   },
   {
     "id": 8,
@@ -160,7 +169,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-25",
     "description": "Jason’s five-step framework: logo retention, pricing, NRR, marketing channels, target market.",
-    "guest": "Jason Cohen"
+    "guest": "Jason Cohen",
+    "youtube_url": "https://www.youtube.com/watch?v=8xLquwfx6p0"
   },
   {
     "id": 9,
@@ -177,7 +187,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-18",
     "description": "The complete AI workflow that lets non-technical people build real products in Cursor.",
-    "guest": "Zevi Arnovitz"
+    "guest": "Zevi Arnovitz",
+    "youtube_url": "https://www.youtube.com/watch?v=1em64iUFt3U"
   },
   {
     "id": 10,
@@ -194,7 +205,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-15",
     "description": "Silicon Valley’s missing etiquette playbook, covering startup building, product design, and operator lessons.",
-    "guest": "Sam Lessin"
+    "guest": "Sam Lessin",
+    "youtube_url": "https://www.youtube.com/watch?v=KtKJ3A6DWTs"
   },
   {
     "id": 11,
@@ -211,7 +223,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-12",
     "description": "How to set up and use Codex in VS Code and terminal environments for both simple and complex coding tasks.",
-    "guest": "Alexander Embiricos"
+    "guest": "Alexander Embiricos",
+    "youtube_url": "https://www.youtube.com/watch?v=xeZDHGjG5zM"
   },
   {
     "id": 12,
@@ -228,7 +241,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-11",
     "description": "But if you make a bunch of practitioners sit together and ask them, \"Is it important to build an actionable feedback loop for AI products?\" I think all of them will agree, covering AI product work, product design, and team leadership.",
-    "guest": "Aishwarya Naresh Reganti + Kiriti Badam"
+    "guest": "Aishwarya Naresh Reganti + Kiriti Badam",
+    "youtube_url": null
   },
   {
     "id": 13,
@@ -245,7 +259,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-04",
     "description": "Molly Graham has worked for some of tech’s most effective leaders, including Mark Zuckerberg, Sheryl Sandberg, Chamath Palihapitiya, and Bret Taylor. Today she leads Glue Club, a community for leaders navigating rapid scale, growth, and change.",
-    "guest": "Molly Graham"
+    "guest": "Molly Graham",
+    "youtube_url": "https://www.youtube.com/watch?v=twzLDx9iers"
   },
   {
     "id": 14,
@@ -262,7 +277,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2026-01-01",
     "description": "We replaced our sales team with 20 AI agents—here’s what happened, covering B2B products, startup building, and team leadership.",
-    "guest": "Jason M Lemkin"
+    "guest": "Jason M Lemkin",
+    "youtube_url": "https://www.youtube.com/watch?v=I-R1bc1rlFs"
   },
   {
     "id": 15,
@@ -279,7 +295,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-28",
     "description": "Matt MacInnis is the chief product officer and former longtime COO at Rippling, a unified workforce management platform valued at over $16 billion.",
-    "guest": "Matt MacInnis"
+    "guest": "Matt MacInnis",
+    "youtube_url": "https://www.youtube.com/watch?v=O_W76LR77Vw"
   },
   {
     "id": 16,
@@ -296,7 +313,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-18",
     "description": "Who would've thought that a head of growth, who is traditionally seen as data, metrics, spreadsheets, drive KPIs is like, \"Okay, how do we make this more lovable, covering growth systems, product design, and pricing decisions.",
-    "guest": "Elena Verna 4.0"
+    "guest": "Elena Verna 4.0",
+    "youtube_url": null
   },
   {
     "id": 17,
@@ -313,7 +331,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-07",
     "description": "Edwin Chen is the founder and CEO of Surge AI, the company that teaches AI what’s good and bad, powering frontier labs with elite data, environments, and evaluations. Surge surpassed $1 billion in revenue with under 100 employees last year, completely bootstrapped—the fastest company in history to reach this milestone.",
-    "guest": "Edwin Chen"
+    "guest": "Edwin Chen",
+    "youtube_url": "https://www.youtube.com/watch?v=dduQeaqmpnI"
   },
   {
     "id": 18,
@@ -330,7 +349,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-04",
     "description": "Why LinkedIn is turning PMs into AI-powered \"full stack builders”, covering product design, team leadership, and AI product work.",
-    "guest": "Tomer Cohen"
+    "guest": "Tomer Cohen",
+    "youtube_url": "https://www.youtube.com/watch?v=R-zCfLQD_84"
   },
   {
     "id": 19,
@@ -347,7 +367,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-30",
     "description": "Jeanne DeWitt Grosser built world-class GTM teams at Stripe, Google, and, most recently, Vercel, where she serves as COO and oversees marketing, sales, customer success, revenue operations, and field engineering. She transformed Stripe’s early sales organization from the ground up and advises founders on GTM strategy.",
-    "guest": "Jeanne Grosser"
+    "guest": "Jeanne Grosser",
+    "youtube_url": "https://www.youtube.com/watch?v=RmnWHz8HD74"
   },
   {
     "id": 20,
@@ -364,7 +385,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-23",
     "description": "A guide to difficult conversations, building high-trust teams, and designing a life you love, covering team leadership, product design, and consumer products.",
-    "guest": "Rachel Lockett"
+    "guest": "Rachel Lockett",
+    "youtube_url": "https://www.youtube.com/watch?v=1GDVum5IarI"
   },
   {
     "id": 21,
@@ -381,7 +403,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-20",
     "description": "Mental models for building products people love ft. Stewart Butterfield, covering product design, B2B products, and consumer products.",
-    "guest": "Stewart Butterfield"
+    "guest": "Stewart Butterfield",
+    "youtube_url": "https://www.youtube.com/watch?v=kLe-zy5r0Mk"
   },
   {
     "id": 22,
@@ -398,7 +421,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-16",
     "description": "Jobs, robots & why world models are next, covering AI product work, product design, and consumer products.",
-    "guest": "Dr. Fei Fei Li"
+    "guest": "Dr. Fei Fei Li",
+    "youtube_url": "https://www.youtube.com/watch?v=Ctjiatnd6Xk"
   },
   {
     "id": 23,
@@ -415,7 +439,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-13",
     "description": "Inside the rise of Gamma, covering strategic decision-making, product design, and growth systems.",
-    "guest": "Grant Lee"
+    "guest": "Grant Lee",
+    "youtube_url": "https://www.youtube.com/watch?v=3H0ngGU5pbM"
   },
   {
     "id": 24,
@@ -432,7 +457,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-09",
     "description": "Jen Abel is GM of Enterprise at State Affairs and co-founded Jellyfish, a consultancy that helps founders learn zero-to-one enterprise sales. She’s one of the smartest people I’ve ever met on learning enterprise sales, and in this follow-up to our first chat two years ago (covering the zero to $1 million ARR.",
-    "guest": "Jen Abel"
+    "guest": "Jen Abel",
+    "youtube_url": "https://www.youtube.com/watch?v=37fKFWdrMyA"
   },
   {
     "id": 25,
@@ -449,7 +475,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-02",
     "description": "The woman behind Canva shares how she built a $42B company from nothing, covering product design, strategic decision-making, and startup building.",
-    "guest": "Melanie Perkins"
+    "guest": "Melanie Perkins",
+    "youtube_url": "https://www.youtube.com/watch?v=-LywX3T5Scc"
   },
   {
     "id": 26,
@@ -466,7 +493,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-26",
     "description": "Dhanji R. Prasanna is the chief technology officer at Block (formerly Square), where he’s managed more than 4,000 engineers over the past two years. Under his leadership, Block has become one of the most AI-native large companies in the world.",
-    "guest": "Dhanji R. Prasanna"
+    "guest": "Dhanji R. Prasanna",
+    "youtube_url": "https://www.youtube.com/watch?v=JMeXWVw0r3E"
   },
   {
     "id": 27,
@@ -483,7 +511,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-23",
     "description": "Al Engineering 101 with Chip Huyen (Nvidia, Stanford, Netflix), covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Chip Huyen"
+    "guest": "Chip Huyen",
+    "youtube_url": "https://www.youtube.com/watch?v=qbvY0dQgSJ4"
   },
   {
     "id": 28,
@@ -500,7 +529,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-19",
     "description": "Nicole Forsgren created the most widely used frameworks for measuring developer productivity—DORA and SPACE. She wrote the foundational book Accelerate and is about to release her newest book, Frictionless , a practical guide for helping teams move faster in the AI era.",
-    "guest": "Nicole Forsgren"
+    "guest": "Nicole Forsgren",
+    "youtube_url": "https://www.youtube.com/watch?v=SWcDfPVTizQ"
   },
   {
     "id": 29,
@@ -517,7 +547,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-10",
     "description": "Robby Stein is VP of Product at Google, where he oversees the core products of Google Search—including the new AI Overviews, AI Mode, search ranking, Google Lens, and more.",
-    "guest": "Robby Stein"
+    "guest": "Robby Stein",
+    "youtube_url": "https://www.youtube.com/watch?v=kOnsqqVbIeY"
   },
   {
     "id": 30,
@@ -534,7 +565,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-09",
     "description": "Jason Droege is the CEO of Scale AI, a company that provides foundational training data to every major AI lab. He previously co-founded Scour with Travis Kalanick and built Uber Eats from idea to $20 billion in revenue.",
-    "guest": "Jason Droege"
+    "guest": "Jason Droege",
+    "youtube_url": "https://www.youtube.com/watch?v=W99jdYZOlN0"
   },
   {
     "id": 31,
@@ -551,7 +583,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-05",
     "description": "Finding hidden growth opportunities in your product, covering growth systems, measurement and analysis, and product design.",
-    "guest": "Albert Cheng"
+    "guest": "Albert Cheng",
+    "youtube_url": "https://www.youtube.com/watch?v=2BKmNmnEj9w"
   },
   {
     "id": 32,
@@ -568,7 +601,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-29",
     "description": "Why Tinder’s CPO starts with JSON, not design, covering team leadership, startup building, and product design.",
-    "guest": "Ravi Mehta"
+    "guest": "Ravi Mehta",
+    "youtube_url": "https://www.youtube.com/watch?v=_yQMGHHl49g"
   },
   {
     "id": 33,
@@ -585,7 +619,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-25",
     "description": "Why AI evals are the hottest new skill for product builders, covering AI product work, product design, and measurement and analysis.",
-    "guest": "Hamel Husain & Shreya Shankar"
+    "guest": "Hamel Husain & Shreya Shankar",
+    "youtube_url": "https://www.youtube.com/watch?v=BsWxPI9UM4c"
   },
   {
     "id": 34,
@@ -602,7 +637,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-18",
     "description": "Why experts writing AI evals is creating the fastest-growing companies in history, covering AI product work, product design, and strategic decision-making.",
-    "guest": "Brendan Foody"
+    "guest": "Brendan Foody",
+    "youtube_url": "https://www.youtube.com/watch?v=ja6fWTDPQl4"
   },
   {
     "id": 35,
@@ -619,7 +655,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-14",
     "description": "Getting ChatGPT to recommend your product, covering AI product work, product design, and practical product lessons.",
-    "guest": "Ethan Smith"
+    "guest": "Ethan Smith",
+    "youtube_url": "https://www.youtube.com/watch?v=iT7kq-R3Gjc"
   },
   {
     "id": 36,
@@ -636,7 +673,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-11",
     "description": "Why founders fail and why you need to run toward fear (a16z co-founder), covering team leadership, product design, and product strategy and execution.",
-    "guest": "Ben Horowitz"
+    "guest": "Ben Horowitz",
+    "youtube_url": "https://www.youtube.com/watch?v=KPxTekxQjzc"
   },
   {
     "id": 37,
@@ -653,7 +691,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-08",
     "description": "How Devin replaces your junior engineers with infinite AI interns that never sleep, covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Scott Wu"
+    "guest": "Scott Wu",
+    "youtube_url": "https://www.youtube.com/watch?v=7m_xKFqSxTo"
   },
   {
     "id": 38,
@@ -670,7 +709,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-31",
     "description": "How we restructured Airtable’s entire org for AI, covering AI product work, product design, and strategic decision-making.",
-    "guest": "Howie Liu"
+    "guest": "Howie Liu",
+    "youtube_url": "https://www.youtube.com/watch?v=GT0jtVjRy2E"
   },
   {
     "id": 39,
@@ -687,7 +727,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-28",
     "description": "Products as organisms, the death of org charts, and why agents will outnumber employees by 2026, covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Asha Sharma"
+    "guest": "Asha Sharma",
+    "youtube_url": "https://www.youtube.com/watch?v=J9UWaltU-7Q"
   },
   {
     "id": 40,
@@ -704,7 +745,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-24",
     "description": "Inside the expert network training every frontier AI model, covering AI product work, product design, and team leadership.",
-    "guest": "Garrett Lord"
+    "guest": "Garrett Lord",
+    "youtube_url": "https://www.youtube.com/watch?v=0qdR-XwHJ9o"
   },
   {
     "id": 41,
@@ -721,7 +763,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-21",
     "description": "How Intercom rose from the ashes by betting everything on AI, covering AI product work, pricing decisions, and product design.",
-    "guest": "Eoghan McCabe"
+    "guest": "Eoghan McCabe",
+    "youtube_url": "https://www.youtube.com/watch?v=0_opWSfmN8M"
   },
   {
     "id": 42,
@@ -738,7 +781,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-14",
     "description": "The one question that saves product careers, covering team leadership, product design, and product strategy and execution.",
-    "guest": "Matt LeMay"
+    "guest": "Matt LeMay",
+    "youtube_url": "https://www.youtube.com/watch?v=ts9ZvlkeWGs"
   },
   {
     "id": 43,
@@ -755,7 +799,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-09",
     "description": "The fastest-growing product in history, covering AI product work, product design, and go-to-market execution.",
-    "guest": "Nick Turley"
+    "guest": "Nick Turley",
+    "youtube_url": "https://www.youtube.com/watch?v=ixY2PvQJ0To"
   },
   {
     "id": 44,
@@ -772,7 +817,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-03",
     "description": "Brian Chesky's secret mentor who died 9 times, started the Burning Man board, and built the world's first midlife wisdom school, covering team leadership, product design, and startup building.",
-    "guest": "Chip Conley"
+    "guest": "Chip Conley",
+    "youtube_url": "https://www.youtube.com/watch?v=R5_ypwiRIyo"
   },
   {
     "id": 45,
@@ -789,7 +835,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-31",
     "description": "The future of careers, coding, agents, and more, covering product design, team leadership, and product strategy and execution.",
-    "guest": "Bret Taylor"
+    "guest": "Bret Taylor",
+    "youtube_url": "https://www.youtube.com/watch?v=qImgGtnNbx0"
   },
   {
     "id": 46,
@@ -806,7 +853,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-27",
     "description": "Lessons from 400+ companies and 50 unicorns, covering pricing decisions, strategic decision-making, and product design.",
-    "guest": "Madhavan Ramanujam"
+    "guest": "Madhavan Ramanujam",
+    "youtube_url": "https://www.youtube.com/watch?v=NR85H55eYkM"
   },
   {
     "id": 47,
@@ -823,7 +871,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-20",
     "description": "Ultimately, people think about this as probably going to hit a wall because if the model isn't good enough to see its own mistakes, then how could it improve, covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Benjamin Mann"
+    "guest": "Benjamin Mann",
+    "youtube_url": null
   },
   {
     "id": 48,
@@ -840,7 +889,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-17",
     "description": "5 products, 7-figure revenue, 100% AI-written code, covering AI product work, engineering tradeoffs, and product design.",
-    "guest": "Dan Shipper"
+    "guest": "Dan Shipper",
+    "youtube_url": "https://www.youtube.com/watch?v=crMrVozp_h8"
   },
   {
     "id": 49,
@@ -857,7 +907,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-03",
     "description": "I’ve run 75+ businesses. Here’s why you’re probably chasing the wrong idea., covering product design, startup building, and AI product work.",
-    "guest": "Andrew Wilkinson"
+    "guest": "Andrew Wilkinson",
+    "youtube_url": "https://www.youtube.com/watch?v=VxAwUb86MUE"
   },
   {
     "id": 50,
@@ -874,7 +925,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-29",
     "description": "Naming expert shares the process behind creating billion-dollar brand names like Azure, Vercel, Windsurf, Sonos, Blackberry, and Impossible Burger, covering strategic decision-making, team leadership, and product design.",
-    "guest": "David Placek"
+    "guest": "David Placek",
+    "youtube_url": "https://www.youtube.com/watch?v=adyIaTopO6g"
   },
   {
     "id": 51,
@@ -891,7 +943,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-22",
     "description": "The quiet architect behind the world’s most popular products, covering AI product work, product design, and team leadership.",
-    "guest": "Peter Deng"
+    "guest": "Peter Deng",
+    "youtube_url": "https://www.youtube.com/watch?v=8TpakBfsmcQ"
   },
   {
     "id": 52,
@@ -908,7 +961,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-19",
     "description": "What works and what doesn’t, covering AI product work, engineering tradeoffs, and team leadership.",
-    "guest": "Sander Schulhoff"
+    "guest": "Sander Schulhoff",
+    "youtube_url": "https://www.youtube.com/watch?v=eKuFqQKYRrA"
   },
   {
     "id": 53,
@@ -925,7 +979,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-15",
     "description": "A playbook for building resilient, high-performing teams, covering team leadership, product design, and career development.",
-    "guest": "Hilary Gridley"
+    "guest": "Hilary Gridley",
+    "youtube_url": "https://www.youtube.com/watch?v=xm5QAzAlqEY"
   },
   {
     "id": 54,
@@ -942,7 +997,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-12",
     "description": "35 years of product design wisdom from Apple, Disney, Pinterest, and beyond, covering product design, team leadership, and startup building.",
-    "guest": "Bob Baxley"
+    "guest": "Bob Baxley",
+    "youtube_url": "https://www.youtube.com/watch?v=X-83gvgVaWc"
   },
   {
     "id": 55,
@@ -959,7 +1015,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-05",
     "description": "Anthropic’s CPO on what comes next, covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Mike Krieger"
+    "guest": "Mike Krieger",
+    "youtube_url": "https://www.youtube.com/watch?v=DKrBGOFs0GY"
   },
   {
     "id": 56,
@@ -976,7 +1033,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-25",
     "description": "Growth tactics from OpenAI and Stripe’s first marketer, covering strategic decision-making, AI product work, and B2B products.",
-    "guest": "Krithika Shankarraman"
+    "guest": "Krithika Shankarraman",
+    "youtube_url": "https://www.youtube.com/watch?v=QaDsk4iH1aw"
   },
   {
     "id": 57,
@@ -993,7 +1051,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-22",
     "description": "Unconventional product lessons from Binance, N26, Google, more, covering team leadership, product strategy and execution, and AI product work.",
-    "guest": "Mayur Kamat"
+    "guest": "Mayur Kamat",
+    "youtube_url": "https://www.youtube.com/watch?v=UVyfuSBwbNA"
   },
   {
     "id": 58,
@@ -1010,7 +1069,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-18",
     "description": "If you aren’t prototyping with AI, you’re doing it wrong, covering AI product work, product design, and B2B products.",
-    "guest": "Aparna Chennapragada"
+    "guest": "Aparna Chennapragada",
+    "youtube_url": "https://www.youtube.com/watch?v=HbbfXAWcuUo"
   },
   {
     "id": 59,
@@ -1027,7 +1087,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-15",
     "description": "Dmitry Zlokazov is the head of product at Revolut, the $45 billion fintech giant operating in over 50 countries, serving more than 50 million customers, and producing some of the world’s top product leaders.",
-    "guest": "Dmitry Zlokazov"
+    "guest": "Dmitry Zlokazov",
+    "youtube_url": "https://www.youtube.com/watch?v=-kPpd21bFrE"
   },
   {
     "id": 60,
@@ -1044,7 +1105,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-11",
     "description": "How Palantir built the ultimate founder factory, covering product design, startup building, and team leadership.",
-    "guest": "Nabeel S. Qureshi"
+    "guest": "Nabeel S. Qureshi",
+    "youtube_url": "https://www.youtube.com/watch?v=xQkSenlJvwA"
   },
   {
     "id": 61,
@@ -1061,7 +1123,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-08",
     "description": "How have I been complicit in creating the conditions I say I don’t want?, covering product design, team leadership, and consumer products.",
-    "guest": "Jerry Colonna"
+    "guest": "Jerry Colonna",
+    "youtube_url": "https://www.youtube.com/watch?v=PJE7etZQ9us"
   },
   {
     "id": 62,
@@ -1078,7 +1141,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-01",
     "description": "Michael Truell is the co-founder and CEO of Anysphere, the company behind Cursor—the fastest-growing AI code editor in the world, reaching $300 million in annual recurring revenue just two years after its launch.",
-    "guest": "Michael Truell"
+    "guest": "Michael Truell",
+    "youtube_url": "https://www.youtube.com/watch?v=En5cSXgGvZM"
   },
   {
     "id": 63,
@@ -1095,7 +1159,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-27",
     "description": "Radical transparency, impact over output, and their path to $1B ARR, covering team leadership, product design, and engineering tradeoffs.",
-    "guest": "Daniel Lereya"
+    "guest": "Daniel Lereya",
+    "youtube_url": "https://www.youtube.com/watch?v=L9qqwV8_rvY"
   },
   {
     "id": 64,
@@ -1112,7 +1177,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-20",
     "description": "Building a magical AI code editor used by over 1 million developers in four months: The untold story of Windsurf, covering engineering tradeoffs, product design, and AI product work.",
-    "guest": "Varun Mohan"
+    "guest": "Varun Mohan",
+    "youtube_url": "https://www.youtube.com/watch?v=5Z0RCxDZdrE"
   },
   {
     "id": 65,
@@ -1129,7 +1195,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-13",
     "description": "Inside v0’s mission to create a hundred million builders, covering product design, AI product work, and engineering tradeoffs.",
-    "guest": "Guillermo Rauch"
+    "guest": "Guillermo Rauch",
+    "youtube_url": "https://www.youtube.com/watch?v=-QsTmu2CqhA"
   },
   {
     "id": 66,
@@ -1146,7 +1213,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-10",
     "description": "How AI changes must-have skills, moats, coding, startup playbooks, more, covering AI product work, product design, and go-to-market execution.",
-    "guest": "Kevin Weil"
+    "guest": "Kevin Weil",
+    "youtube_url": "https://www.youtube.com/watch?v=scsW6_2SPC4"
   },
   {
     "id": 67,
@@ -1163,7 +1231,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-06",
     "description": "Specific frameworks to improve your clarity, influence, and impact, covering product design, startup building, and career development.",
-    "guest": "Wes Kao"
+    "guest": "Wes Kao",
+    "youtube_url": "https://www.youtube.com/watch?v=BIvVGhy_VxU"
   },
   {
     "id": 68,
@@ -1180,7 +1249,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-30",
     "description": "A better way to plan, build, and ship products, covering product design, team leadership, and engineering tradeoffs.",
-    "guest": "Ryan Singer"
+    "guest": "Ryan Singer",
+    "youtube_url": "https://www.youtube.com/watch?v=GF-yUANql0c"
   },
   {
     "id": 69,
@@ -1197,7 +1267,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-27",
     "description": "Gaurav Misra is the co-founder and CEO of Captions, an AI-powered video creation company and one of the most successful consumer AI products in the world today. Previously he was a product leader at Snap, where he created the design engineering function and spent years helping develop features used by hundreds of.",
-    "guest": "Gaurav Misra"
+    "guest": "Gaurav Misra",
+    "youtube_url": "https://www.youtube.com/watch?v=PDobJV8wh1g"
   },
   {
     "id": 70,
@@ -1214,7 +1285,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-23",
     "description": "Rahul Vohra is the founder and CEO of Superhuman. Prior to Superhuman, Rahul founded Rapportive, the first Gmail plug-in to scale to millions of users, which he sold to LinkedIn in 2012.",
-    "guest": "Rahul Vohra"
+    "guest": "Rahul Vohra",
+    "youtube_url": "https://www.youtube.com/watch?v=0igjSRZyX-w"
   },
   {
     "id": 71,
@@ -1231,7 +1303,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-13",
     "description": "Eric Simons is the founder and CEO of StackBlitz, the company behind Bolt—the #1 web-based AI coding agent and one of the fastest-growing products in history. After nearly shutting down, StackBlitz launched Bolt on Twitter and exploded from zero to $40 million ARR and 1 million monthly active users in about five.",
-    "guest": "Eric Simons"
+    "guest": "Eric Simons",
+    "youtube_url": "https://www.youtube.com/watch?v=L22DtAHLmzs"
   },
   {
     "id": 72,
@@ -1248,7 +1321,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-09",
     "description": "Anton Osika is the co-founder and CEO of Lovable, which is building what they call “the last piece of software”—an AI-powered tool that turns descriptions into working products without requiring any coding knowledge.",
-    "guest": "Anton Osika"
+    "guest": "Anton Osika",
+    "youtube_url": "https://www.youtube.com/watch?v=DZtGxNs9AVg"
   },
   {
     "id": 73,
@@ -1265,7 +1339,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-06",
     "description": "Ivan Zhao is the co-founder and CEO of Notion. Ivan shares the untold story of Notion, from nearly running out of database space during Covid to finding product-market fit after several “lost years,” and the hard-won lessons along the way.",
-    "guest": "Ivan Zhao"
+    "guest": "Ivan Zhao",
+    "youtube_url": "https://www.youtube.com/watch?v=IIPKMixTMfE"
   },
   {
     "id": 74,
@@ -1282,7 +1357,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-02",
     "description": "Why products like Meta’s Llama are “fake open source”.",
-    "guest": "Matt Mullenweg"
+    "guest": "Matt Mullenweg",
+    "youtube_url": "https://www.youtube.com/watch?v=Fves5chVZRA"
   },
   {
     "id": 75,
@@ -1299,7 +1375,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-27",
     "description": "An inside look at X’s Community Notes, covering consumer products, product design, and AI product work.",
-    "guest": "Keith Coleman & Jay Baxter"
+    "guest": "Keith Coleman & Jay Baxter",
+    "youtube_url": "https://www.youtube.com/watch?v=8dgyqYHLcCI"
   },
   {
     "id": 76,
@@ -1316,7 +1393,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-09",
     "description": "Why soft skills are the future of work, covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Karina Nguyen"
+    "guest": "Karina Nguyen",
+    "youtube_url": "https://www.youtube.com/watch?v=DeskgjrLxxs"
   },
   {
     "id": 77,
@@ -1333,7 +1411,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-02",
     "description": "Yeah, again, I only lived one life, so I can't Monte Carlo all the decisions I make and just figure out which ones ended up being load baring, right, covering product design, career development, and growth systems.",
-    "guest": "Tobi Lutke"
+    "guest": "Tobi Lutke",
+    "youtube_url": null
   },
   {
     "id": 78,
@@ -1350,7 +1429,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-30",
     "description": "Linear’s secret to building beloved B2B products, covering product design, B2B products, and team leadership.",
-    "guest": "Nan Yu"
+    "guest": "Nan Yu",
+    "youtube_url": "https://www.youtube.com/watch?v=nTr21kgCFF4"
   },
   {
     "id": 79,
@@ -1367,7 +1447,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-26",
     "description": "The difference between “small s” and “big S” strategy.",
-    "guest": "Chandra Janakiraman"
+    "guest": "Chandra Janakiraman",
+    "youtube_url": "https://www.youtube.com/watch?v=WFLH8Af2f30"
   },
   {
     "id": 80,
@@ -1384,7 +1465,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-16",
     "description": "Break out of autopilot and creating the life you want, covering product design, career development, and B2B products.",
-    "guest": "Graham Weaver"
+    "guest": "Graham Weaver",
+    "youtube_url": "https://www.youtube.com/watch?v=UpGR9P0Ufts"
   },
   {
     "id": 81,
@@ -1401,7 +1483,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-09",
     "description": "Drew Houston (Dropbox), covering product design, startup building, and go-to-market execution.",
-    "guest": "Drew Houston"
+    "guest": "Drew Houston",
+    "youtube_url": "https://www.youtube.com/watch?v=egdYKLBswgk"
   },
   {
     "id": 82,
@@ -1418,7 +1501,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-05",
     "description": "Giving hard feedback, navigating defensiveness, the three questions you should end every meeting with, more, covering team leadership, career development, and product design.",
-    "guest": "Alisa Cohn"
+    "guest": "Alisa Cohn",
+    "youtube_url": "https://www.youtube.com/watch?v=bvF0ZM8DjuI"
   },
   {
     "id": 83,
@@ -1435,7 +1519,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-29",
     "description": "Why great AI products are all about the data, covering product strategy and execution, team leadership, and AI product work.",
-    "guest": "Shaun Clowes"
+    "guest": "Shaun Clowes",
+    "youtube_url": "https://www.youtube.com/watch?v=yVS1gTAQYSU"
   },
   {
     "id": 84,
@@ -1452,7 +1537,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-22",
     "description": "Number two is I need to find more fuel in the company to fuel this idea because this is clearly a breakthrough product, so how do I get everyone focused on it, covering B2B products, product design, and team leadership.",
-    "guest": "Marc Benioff"
+    "guest": "Marc Benioff",
+    "youtube_url": "https://www.youtube.com/watch?v=tOGK1nlHdFo"
   },
   {
     "id": 85,
@@ -1469,7 +1555,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-19",
     "description": "How Shopify builds a high-intensity culture, covering product design, engineering tradeoffs, and career development.",
-    "guest": "Farhan Thawar"
+    "guest": "Farhan Thawar",
+    "youtube_url": "https://www.youtube.com/watch?v=C_lhMOjG7PE"
   },
   {
     "id": 86,
@@ -1486,7 +1573,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-15",
     "description": "Duolingo streaks, covering growth systems, product design, and measurement and analysis.",
-    "guest": "Jackson Shuttleworth"
+    "guest": "Jackson Shuttleworth",
+    "youtube_url": "https://www.youtube.com/watch?v=_CCwoQZH5hI"
   },
   {
     "id": 87,
@@ -1503,7 +1591,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-08",
     "description": "Seth Godin's best tactics for building remarkable products, strategies, brands and more, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Seth Godin"
+    "guest": "Seth Godin",
+    "youtube_url": "https://www.youtube.com/watch?v=UyWTDmDjNy4"
   },
   {
     "id": 88,
@@ -1520,7 +1609,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-05",
     "description": "How a great founder becomes a great CEO, covering startup building, product design, and team leadership.",
-    "guest": "Jonathan Lowenhar"
+    "guest": "Jonathan Lowenhar",
+    "youtube_url": "https://www.youtube.com/watch?v=s0jn7eE33nk"
   },
   {
     "id": 89,
@@ -1537,7 +1627,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-21",
     "description": "Behind the product: Replit, covering product design, AI product work, and engineering tradeoffs.",
-    "guest": "Amjad Masad"
+    "guest": "Amjad Masad",
+    "youtube_url": "https://www.youtube.com/watch?v=Bp_h674oIhw"
   },
   {
     "id": 90,
@@ -1554,7 +1645,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-17",
     "description": "The fastest-growing startup in history, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Raaz Herzberg"
+    "guest": "Raaz Herzberg",
+    "youtube_url": "https://www.youtube.com/watch?v=vnW3zIkrOvY"
   },
   {
     "id": 91,
@@ -1571,7 +1663,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-07",
     "description": "Why Shopify bans KPIs, optimizes for churn, prioritizes intuition, and builds toward a 100-year vision, covering measurement and analysis, growth systems, and product design.",
-    "guest": "Archie Abrams"
+    "guest": "Archie Abrams",
+    "youtube_url": "https://www.youtube.com/watch?v=Vlph3dn4jnU"
   },
   {
     "id": 92,
@@ -1588,7 +1681,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-31",
     "description": "How is it doing?\" And you want to be able to say, you are the PM leader, you want to be able to say something smart, and something that makes you look competent, covering cross-functional alignment, product design, and product strategy and execution.",
-    "guest": "Shreyas Doshi Live"
+    "guest": "Shreyas Doshi Live",
+    "youtube_url": null
   },
   {
     "id": 93,
@@ -1605,7 +1699,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-31",
     "description": "4 questions Shreyas Doshi wishes he’d asked himself sooner, covering team leadership, product design, and engineering tradeoffs.",
-    "guest": "Shreyas Doshi"
+    "guest": "Shreyas Doshi",
+    "youtube_url": "https://www.youtube.com/watch?v=atS060bNpE0"
   },
   {
     "id": 94,
@@ -1622,7 +1717,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-27",
     "description": "Meta’s Head of Product (and 29th employee) on working with Mark Zuckerberg, early growth tactics, why PMs are like conductors, and more, covering product strategy and execution, team leadership, and strategic decision-making.",
-    "guest": "Naomi Gleit"
+    "guest": "Naomi Gleit",
+    "youtube_url": "https://www.youtube.com/watch?v=sTYuKgzZoL8"
   },
   {
     "id": 95,
@@ -1639,7 +1735,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-20",
     "description": "The hidden power of typography and logos, covering product design, team leadership, and go-to-market execution.",
-    "guest": "Jessica Hische"
+    "guest": "Jessica Hische",
+    "youtube_url": "https://www.youtube.com/watch?v=tLLqE6Ia8-U"
   },
   {
     "id": 96,
@@ -1656,7 +1753,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-17",
     "description": "Becoming more strategic, navigating difficult colleagues, harnessing founder mode, and more, covering startup building, team leadership, and strategic decision-making.",
-    "guest": "Anneka Gupta"
+    "guest": "Anneka Gupta",
+    "youtube_url": "https://www.youtube.com/watch?v=E3dUveqt9Bw"
   },
   {
     "id": 97,
@@ -1672,7 +1770,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-13",
     "description": "Why most public speaking advice is wrong—and how to finally overcome your speaking anxiety, covering product design, operator lessons, and consumer products.",
-    "guest": "Tristan de Montebello"
+    "guest": "Tristan de Montebello",
+    "youtube_url": "https://www.youtube.com/watch?v=BQM3Yq93nVc"
   },
   {
     "id": 98,
@@ -1689,7 +1788,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-06",
     "description": "Leading without fear, finding your life’s objective function, and getting better at vision and strategy, covering team leadership, product design, and pricing decisions.",
-    "guest": "John Mark Nickels"
+    "guest": "John Mark Nickels",
+    "youtube_url": "https://www.youtube.com/watch?v=W7o40qcYHlM"
   },
   {
     "id": 99,
@@ -1706,7 +1806,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-03",
     "description": "Thinking like a gardener not a builder, organizing teams like slime mold, the adjacent possible, and other unconventional product advice, covering product design, AI product work, and team leadership.",
-    "guest": "Alex Komoroske"
+    "guest": "Alex Komoroske",
+    "youtube_url": "https://www.youtube.com/watch?v=PoWRYBWSqpU"
   },
   {
     "id": 100,
@@ -1723,7 +1824,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-29",
     "description": "Liquidity, growth levers, quality, and more, covering strategic decision-making, product design, and growth systems.",
-    "guest": "Benjamin Lauzier"
+    "guest": "Benjamin Lauzier",
+    "youtube_url": "https://www.youtube.com/watch?v=CYwgStMln6U"
   },
   {
     "id": 101,
@@ -1740,7 +1842,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-26",
     "description": "Lessons in product leadership and AI strategy from Glean, Google, Amazon, and Slack, covering team leadership, product design, and career development.",
-    "guest": "Tamar Yehoshua"
+    "guest": "Tamar Yehoshua",
+    "youtube_url": "https://www.youtube.com/watch?v=ZoSeOltKqQk"
   },
   {
     "id": 102,
@@ -1757,7 +1860,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-19",
     "description": "Rethinking SEO in the age of AI, covering AI product work, go-to-market execution, and growth systems.",
-    "guest": "Eli Schwartz"
+    "guest": "Eli Schwartz",
+    "youtube_url": "https://www.youtube.com/watch?v=Z71yGshPTwk"
   },
   {
     "id": 103,
@@ -1774,7 +1878,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-15",
     "description": "The things engineers are desperate for PMs to understand, covering team leadership, product design, and engineering tradeoffs.",
-    "guest": "Camille Fournier"
+    "guest": "Camille Fournier",
+    "youtube_url": "https://www.youtube.com/watch?v=hZSh0rs20uI"
   },
   {
     "id": 104,
@@ -1791,7 +1896,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-12",
     "description": "Negotiation tactics, job search councils, and more, covering strategic decision-making, career development, and consumer products.",
-    "guest": "Phyl Terry"
+    "guest": "Phyl Terry",
+    "youtube_url": "https://www.youtube.com/watch?v=OH3nzRdwYPA"
   },
   {
     "id": 105,
@@ -1808,7 +1914,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-05",
     "description": "The original growth hacker reveals his secrets, covering growth systems, strategic decision-making, and product design.",
-    "guest": "Sean Ellis"
+    "guest": "Sean Ellis",
+    "youtube_url": "https://www.youtube.com/watch?v=VjJ6xcv7e8s"
   },
   {
     "id": 106,
@@ -1825,7 +1932,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-25",
     "description": "Nikita Bier’s playbook for winning at consumer apps (co-founder of TBH, Gas, advisor, investor), covering product design, consumer products, and go-to-market execution.",
-    "guest": "Nikita Bier"
+    "guest": "Nikita Bier",
+    "youtube_url": "https://www.youtube.com/watch?v=bhnfZhJWCWY"
   },
   {
     "id": 107,
@@ -1842,7 +1950,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-18",
     "description": "Automating user insights, unselling job candidates, logging every decision, more, covering product design, product strategy and execution, and team leadership.",
-    "guest": "Kevin Yien"
+    "guest": "Kevin Yien",
+    "youtube_url": "https://www.youtube.com/watch?v=xOTO98MXG9o"
   },
   {
     "id": 108,
@@ -1859,7 +1968,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-11",
     "description": "Improve strategy, influence, and decision-making by understanding your brain, covering product design, team leadership, and measurement and analysis.",
-    "guest": "Evan LaPointe"
+    "guest": "Evan LaPointe",
+    "youtube_url": "https://www.youtube.com/watch?v=GECtyEj9UPA"
   },
   {
     "id": 109,
@@ -1876,7 +1986,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-08",
     "description": "How embracing emotions will accelerate your career, covering measurement and analysis, product design, and team leadership.",
-    "guest": "Joe Hudson"
+    "guest": "Joe Hudson",
+    "youtube_url": "https://www.youtube.com/watch?v=DYkE1gf37ts"
   },
   {
     "id": 110,
@@ -1893,7 +2004,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-04",
     "description": "Lessons from scaling Uber and Opendoor, covering product design, team leadership, and go-to-market execution.",
-    "guest": "Brian Tolkin"
+    "guest": "Brian Tolkin",
+    "youtube_url": "https://www.youtube.com/watch?v=sRukk520Fds"
   },
   {
     "id": 111,
@@ -1910,7 +2022,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-28",
     "description": "Performance marketing, covering strategic decision-making, growth systems, and product design.",
-    "guest": "Timothy Davis"
+    "guest": "Timothy Davis",
+    "youtube_url": "https://www.youtube.com/watch?v=zNJyb3R_Pnc"
   },
   {
     "id": 112,
@@ -1927,7 +2040,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-25",
     "description": "5 essential questions to craft a winning strategy, covering strategic decision-making, product design, and team leadership.",
-    "guest": "Roger Martin"
+    "guest": "Roger Martin",
+    "youtube_url": "https://www.youtube.com/watch?v=y7SN4FK8noY"
   },
   {
     "id": 113,
@@ -1944,7 +2058,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-14",
     "description": "Building a world-class data org, covering team leadership, measurement and analysis, and product design.",
-    "guest": "Jess Lachs"
+    "guest": "Jess Lachs",
+    "youtube_url": "https://www.youtube.com/watch?v=D4PDb_C8Dww"
   },
   {
     "id": 114,
@@ -1961,7 +2076,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-11",
     "description": "Craft, metrics, and customer obsession, covering product design, engineering tradeoffs, and strategic decision-making.",
-    "guest": "Jeff Weinstein"
+    "guest": "Jeff Weinstein",
+    "youtube_url": "https://www.youtube.com/watch?v=qbZQjprTnrU"
   },
   {
     "id": 115,
@@ -1978,7 +2094,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-07",
     "description": "Finding a breakthrough startup idea, covering startup building, product design, and career development.",
-    "guest": "Mike Maples Jr"
+    "guest": "Mike Maples Jr",
+    "youtube_url": "https://www.youtube.com/watch?v=h9o6gPQA6LA"
   },
   {
     "id": 116,
@@ -1995,7 +2112,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-30",
     "description": "Intuition, simplicity, and the future of design, covering product design, team leadership, and engineering tradeoffs.",
-    "guest": "Dylan Field"
+    "guest": "Dylan Field",
+    "youtube_url": "https://www.youtube.com/watch?v=yJQYBjto41s"
   },
   {
     "id": 117,
@@ -2012,7 +2130,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-27",
     "description": "Y Combinator’s secret weapon, covering startup building, consumer products, and product design.",
-    "guest": "Jessica Livingston"
+    "guest": "Jessica Livingston",
+    "youtube_url": "https://www.youtube.com/watch?v=h9MUuhsDJOM"
   },
   {
     "id": 118,
@@ -2029,7 +2148,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-23",
     "description": "Making an impact through authenticity and curiosity, covering product design, engineering tradeoffs, and go-to-market execution.",
-    "guest": "Ami Vora"
+    "guest": "Ami Vora",
+    "youtube_url": "https://www.youtube.com/watch?v=6UHAop9fhNU"
   },
   {
     "id": 119,
@@ -2046,7 +2166,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-16",
     "description": "Why large companies with so many advantages still fail at creating new products.",
-    "guest": "Tanguy Crusson"
+    "guest": "Tanguy Crusson",
+    "youtube_url": "https://www.youtube.com/watch?v=cZqpqb5qR5A"
   },
   {
     "id": 120,
@@ -2063,7 +2184,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-13",
     "description": "Grow your influence and advance your career, covering product design, career development, and startup building.",
-    "guest": "Jeffrey Pfeffer"
+    "guest": "Jeffrey Pfeffer",
+    "youtube_url": "https://www.youtube.com/watch?v=etVCBDRXUH8"
   },
   {
     "id": 121,
@@ -2080,7 +2202,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-09",
     "description": "Lessons from a two-time unicorn builder, 50-time startup advisor, and 20-time company board member, covering startup building, product design, and career development.",
-    "guest": "Uri Levine"
+    "guest": "Uri Levine",
+    "youtube_url": "https://www.youtube.com/watch?v=Cj4ORGGEJcA"
   },
   {
     "id": 122,
@@ -2097,7 +2220,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-02",
     "description": "Coaches not managers, giving away your Legos, and running profitably, covering team leadership, product design, and strategic decision-making.",
-    "guest": "Cam Adams"
+    "guest": "Cam Adams",
+    "youtube_url": "https://www.youtube.com/watch?v=wgrJNHlYUA8"
   },
   {
     "id": 123,
@@ -2114,7 +2238,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-30",
     "description": "Insights from 2.5m sales conversations, covering B2B products, product design, and team leadership.",
-    "guest": "Matt Dixon"
+    "guest": "Matt Dixon",
+    "youtube_url": "https://www.youtube.com/watch?v=cUzEgRetmC4"
   },
   {
     "id": 124,
@@ -2131,7 +2256,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-26",
     "description": "Unorthodox frameworks for growing your product, career, and impact, covering team leadership, growth systems, and product strategy and execution.",
-    "guest": "Bangaly Kaba"
+    "guest": "Bangaly Kaba",
+    "youtube_url": "https://www.youtube.com/watch?v=Ub9UkWByFIQ"
   },
   {
     "id": 125,
@@ -2148,7 +2274,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-19",
     "description": "Kenneth Berger coaches startup leaders on how to prevent burnout, advocate for their desired lifestyle, and make a meaningful impact on the world. He’s spent more than 20 years in the tech industry, is a former founder backed by top investors, and was the first product manager at Slack.",
-    "guest": "Kenneth Berger"
+    "guest": "Kenneth Berger",
+    "youtube_url": "https://www.youtube.com/watch?v=KSCjl_VIdak"
   },
   {
     "id": 126,
@@ -2165,7 +2292,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-16",
     "description": "Be fundamentally different, not incrementally better, covering product design, go-to-market execution, and strategic decision-making.",
-    "guest": "Jag Duggal"
+    "guest": "Jag Duggal",
+    "youtube_url": "https://www.youtube.com/watch?v=8A7wXK2MncQ"
   },
   {
     "id": 127,
@@ -2182,7 +2310,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-12",
     "description": "A framework for PM skill development, covering team leadership, strategic decision-making, and product strategy and execution.",
-    "guest": "Vikrama Dhiman"
+    "guest": "Vikrama Dhiman",
+    "youtube_url": "https://www.youtube.com/watch?v=ImSvm11GR0Y"
   },
   {
     "id": 128,
@@ -2199,7 +2328,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-05",
     "description": "Business strategy with Hamilton Helmer (author of 7 Powers), covering strategic decision-making, startup building, and product design.",
-    "guest": "Hamilton Helmer"
+    "guest": "Hamilton Helmer",
+    "youtube_url": "https://www.youtube.com/watch?v=hKq1_KPSqy0"
   },
   {
     "id": 129,
@@ -2214,7 +2344,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-02",
     "description": "This will make you a better decision-maker, covering product design, practical product lessons, and career development.",
-    "guest": "Annie Duke"
+    "guest": "Annie Duke",
+    "youtube_url": "https://www.youtube.com/watch?v=svQMODvIGAE"
   },
   {
     "id": 130,
@@ -2231,7 +2362,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-28",
     "description": "Being fired, meeting Elon, changing stagnant culture, building consumer product, more, covering team leadership, product design, and consumer products.",
-    "guest": "Kayvon Beykpour"
+    "guest": "Kayvon Beykpour",
+    "youtube_url": "https://www.youtube.com/watch?v=MKDnDueTvKk"
   },
   {
     "id": 131,
@@ -2248,7 +2380,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-25",
     "description": "Building deeper, more robust relationships, covering product design, team leadership, and engineering tradeoffs.",
-    "guest": "Carole Robin"
+    "guest": "Carole Robin",
+    "youtube_url": "https://www.youtube.com/watch?v=Cew9-GlC_yk"
   },
   {
     "id": 132,
@@ -2265,7 +2398,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-21",
     "description": "Building 0 to 1 inside a company, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Mihika Kapoor"
+    "guest": "Mihika Kapoor",
+    "youtube_url": "https://www.youtube.com/watch?v=uDq6_CPaRjM"
   },
   {
     "id": 133,
@@ -2281,7 +2415,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-18",
     "description": "Resilience, tar pit ideas, pivoting, more, covering startup building, product design, and measurement and analysis.",
-    "guest": "Dalton Caldwell"
+    "guest": "Dalton Caldwell",
+    "youtube_url": "https://www.youtube.com/watch?v=m7LvNTbaqSI"
   },
   {
     "id": 134,
@@ -2298,7 +2433,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-11",
     "description": "A framework for finding product-market fit, covering startup building, strategic decision-making, and B2B products.",
-    "guest": "Todd Jackson"
+    "guest": "Todd Jackson",
+    "youtube_url": "https://www.youtube.com/watch?v=yc1Uwhfxacs"
   },
   {
     "id": 135,
@@ -2315,7 +2451,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-07",
     "description": "Bending the universe in your favor, covering career development, product design, and team leadership.",
-    "guest": "Claire Vo"
+    "guest": "Claire Vo",
+    "youtube_url": "https://www.youtube.com/watch?v=aXGo1o_baBo"
   },
   {
     "id": 136,
@@ -2332,7 +2469,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-04",
     "description": "How HubSpot built a $30B company, covering product design, startup building, and team leadership.",
-    "guest": "Dharmesh Shah"
+    "guest": "Dharmesh Shah",
+    "youtube_url": "https://www.youtube.com/watch?v=dpw9Ue1HU48"
   },
   {
     "id": 137,
@@ -2349,7 +2487,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-31",
     "description": "Speak more confidently and persuasively, covering career development, operator lessons, and product design.",
-    "guest": "Matt Abrahams"
+    "guest": "Matt Abrahams",
+    "youtube_url": "https://www.youtube.com/watch?v=LpbBzmXrzEY"
   },
   {
     "id": 138,
@@ -2366,7 +2505,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-24",
     "description": "Winning in India, second-order thinking, the philosophy of startups, and more, covering product design, startup building, and pricing decisions.",
-    "guest": "Kunal Shah"
+    "guest": "Kunal Shah",
+    "youtube_url": "https://www.youtube.com/watch?v=EgBOVDzUUAA"
   },
   {
     "id": 139,
@@ -2383,7 +2523,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-21",
     "description": "PR, covering B2B products, product design, and growth systems.",
-    "guest": "Emilie Gerber"
+    "guest": "Emilie Gerber",
+    "youtube_url": "https://www.youtube.com/watch?v=jW9GzaaRPxk"
   },
   {
     "id": 140,
@@ -2400,7 +2541,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-17",
     "description": "The happiness and pain of product management, covering team leadership, career development, and product design.",
-    "guest": "Noam Lovinsky"
+    "guest": "Noam Lovinsky",
+    "youtube_url": "https://www.youtube.com/watch?v=a_W5Rn0bJWE"
   },
   {
     "id": 141,
@@ -2417,7 +2559,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-07",
     "description": "Culture, strategy, monetization, and more, covering strategic decision-making, team leadership, and consumer products.",
-    "guest": "Ray Cao"
+    "guest": "Ray Cao",
+    "youtube_url": "https://www.youtube.com/watch?v=RJ3iPWo3-8M"
   },
   {
     "id": 142,
@@ -2434,7 +2577,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-03",
     "description": "Making Meta, covering startup building, product design, and team leadership.",
-    "guest": "Boz"
+    "guest": "Boz",
+    "youtube_url": "https://www.youtube.com/watch?v=_XqDB2Upr3s"
   },
   {
     "id": 143,
@@ -2451,7 +2595,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-25",
     "description": "Discover your superpowers, own your story, and unlock personal growth, covering team leadership, product design, and strategic decision-making.",
-    "guest": "Donna Lichaw"
+    "guest": "Donna Lichaw",
+    "youtube_url": "https://www.youtube.com/watch?v=7fA8DMMUNPI"
   },
   {
     "id": 144,
@@ -2468,7 +2613,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-22",
     "description": "How Netflix builds a culture of excellence, covering team leadership, engineering tradeoffs, and product design.",
-    "guest": "Elizabeth Stone"
+    "guest": "Elizabeth Stone",
+    "youtube_url": "https://www.youtube.com/watch?v=2XgU6T4DalY"
   },
   {
     "id": 145,
@@ -2485,7 +2631,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-11",
     "description": "Making time for what matters, covering product design, startup building, and team leadership.",
-    "guest": "Jake Knapp + John Zeratsky"
+    "guest": "Jake Knapp + John Zeratsky",
+    "youtube_url": "https://www.youtube.com/watch?v=cuce7zvOFHY"
   },
   {
     "id": 146,
@@ -2502,7 +2649,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-08",
     "description": "Inside OpenAI, covering AI product work, product design, and engineering tradeoffs.",
-    "guest": "Logan Kilpatrick"
+    "guest": "Logan Kilpatrick",
+    "youtube_url": "https://www.youtube.com/watch?v=XkMbkWG2ca4"
   },
   {
     "id": 147,
@@ -2519,7 +2667,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-04",
     "description": "Launching new products, getting buy-in, and staying ahead of the competition, covering team leadership, product strategy and execution, and product design.",
-    "guest": "Megan Cook"
+    "guest": "Megan Cook",
+    "youtube_url": "https://www.youtube.com/watch?v=MQQ1wohqArk"
   },
   {
     "id": 148,
@@ -2534,7 +2683,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-28",
     "description": "Jonny’s five-week boot camp, Nervous System Mastery, will equip you with evidence-backed protocols to cultivate greater calm and agency over your internal state. Learn to rewire maladaptive stress responses and improve your sleep ( use code LENNY for $250 discount ). Apply here .",
-    "guest": "Jonny Miller"
+    "guest": "Jonny Miller",
+    "youtube_url": "https://www.youtube.com/watch?v=-kN8Agqee4w"
   },
   {
     "id": 149,
@@ -2551,7 +2701,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-25",
     "description": "The “chasm” is the gap between success with early adopters and success with the mainstream market. Crossing the chasm requires selling to “pragmatist customers” who, unlike early adopters, will not buy on the basis of a vision.",
-    "guest": "Geoffrey Moore"
+    "guest": "Geoffrey Moore",
+    "youtube_url": "https://www.youtube.com/watch?v=RBbINB5HSHk"
   },
   {
     "id": 150,
@@ -2568,7 +2719,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-21",
     "description": "Good Strategy, Bad Strategy, covering strategic decision-making, product design, and growth systems.",
-    "guest": "Richard Rumelt"
+    "guest": "Richard Rumelt",
+    "youtube_url": "https://www.youtube.com/watch?v=4uWKEG0s9Kc"
   },
   {
     "id": 151,
@@ -2585,7 +2737,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-18",
     "description": "Change and growth are natural parts of company evolution. Don’t fear reteaming or reorgs; instead, embrace these changes, actively plan for them, and leverage the five reteaming patterns to create a dynamic and adaptive organizational culture.",
-    "guest": "Heidi Helfand"
+    "guest": "Heidi Helfand",
+    "youtube_url": "https://www.youtube.com/watch?v=0wN5wSImUdY"
   },
   {
     "id": 152,
@@ -2602,7 +2755,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-14",
     "description": "The Magic Loop framework: a five-step process to grow your career.",
-    "guest": "Ethan Evans 2.0"
+    "guest": "Ethan Evans 2.0",
+    "youtube_url": "https://www.youtube.com/watch?v=GB0P0_nFPTA"
   },
   {
     "id": 153,
@@ -2619,7 +2773,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-11",
     "description": "The importance of taking risks, embracing failure, and finding joy in your work.",
-    "guest": "Sam Schillace"
+    "guest": "Sam Schillace",
+    "youtube_url": "https://www.youtube.com/watch?v=IOWDoDpQ7Xg"
   },
   {
     "id": 154,
@@ -2636,7 +2791,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-07",
     "description": "The engineering mindset, covering team leadership, career development, and engineering tradeoffs.",
-    "guest": "Will Larson"
+    "guest": "Will Larson",
+    "youtube_url": "https://www.youtube.com/watch?v=Z9ftpRhRiJE"
   },
   {
     "id": 155,
@@ -2653,7 +2809,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-04",
     "description": "The UX research reckoning is here, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Judd Antin"
+    "guest": "Judd Antin",
+    "youtube_url": "https://www.youtube.com/watch?v=L6RKi9ZvkT4"
   },
   {
     "id": 156,
@@ -2670,7 +2827,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-29",
     "description": "Strategies for becoming less distracted and improving focus, covering strategic decision-making, product design, and consumer products.",
-    "guest": "Nir Eyal"
+    "guest": "Nir Eyal",
+    "youtube_url": "https://www.youtube.com/watch?v=WSscIIY609c"
   },
   {
     "id": 157,
@@ -2687,7 +2845,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-27",
     "description": "Sarah’s Hierarchy of Engagement framework for growing a consumer startup.",
-    "guest": "Sarah Tavel"
+    "guest": "Sarah Tavel",
+    "youtube_url": "https://www.youtube.com/watch?v=H9g4pzcz6Tk"
   },
   {
     "id": 158,
@@ -2704,7 +2863,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-21",
     "description": "The essence of product management, covering team leadership, product strategy and execution, and product design.",
-    "guest": "Christian Idiodi"
+    "guest": "Christian Idiodi",
+    "youtube_url": "https://www.youtube.com/watch?v=SXYc5RoU3Lg"
   },
   {
     "id": 159,
@@ -2721,7 +2881,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-17",
     "description": "Fundraising, goals, growth, and more, covering product design, startup building, and B2B products.",
-    "guest": "Jason Fried"
+    "guest": "Jason Fried",
+    "youtube_url": "https://www.youtube.com/watch?v=dAnF0tk0di8"
   },
   {
     "id": 160,
@@ -2736,7 +2897,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-15",
     "description": "Tell better stories, covering product design, strategic decision-making, and B2B products.",
-    "guest": "Matthew Dicks"
+    "guest": "Matthew Dicks",
+    "youtube_url": "https://www.youtube.com/watch?v=J4wguyJZI6A"
   },
   {
     "id": 161,
@@ -2753,7 +2915,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-13",
     "description": "In this special compilation episode, we delve into failure—an overlooked source of wisdom. From freezing onstage in front of thousands of people, to coworkers staging an intervention, to huge product investments that went to zero, we’ve pulled our favorite stories of failure from 100+ podcast episodes.",
-    "guest": "Failure"
+    "guest": "Failure",
+    "youtube_url": "https://www.youtube.com/watch?v=9euy9gC48lc"
   },
   {
     "id": 162,
@@ -2770,7 +2933,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-10",
     "description": "From theory to practice with author Kim Scott, covering team leadership, product design, and startup building.",
-    "guest": "Kim Scott"
+    "guest": "Kim Scott",
+    "youtube_url": "https://www.youtube.com/watch?v=V7tnbx-6Ayc"
   },
   {
     "id": 163,
@@ -2787,7 +2951,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-07",
     "description": "The full-stack PM, covering product design, product strategy and execution, and consumer products.",
-    "guest": "Anuj Rathi"
+    "guest": "Anuj Rathi",
+    "youtube_url": "https://www.youtube.com/watch?v=1sClhfuCxP0"
   },
   {
     "id": 164,
@@ -2804,7 +2969,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-03",
     "description": "Crafting a compelling product vision, covering strategic decision-making, team leadership, and product design.",
-    "guest": "Ebi Atawodi"
+    "guest": "Ebi Atawodi",
+    "youtube_url": "https://www.youtube.com/watch?v=tBPTwUmaxDs"
   },
   {
     "id": 165,
@@ -2821,7 +2987,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-01",
     "description": "The future of AI in software development, covering engineering tradeoffs, AI product work, and product design.",
-    "guest": "Inbal S"
+    "guest": "Inbal S",
+    "youtube_url": "https://www.youtube.com/watch?v=f10s3rxKaJw"
   },
   {
     "id": 166,
@@ -2838,7 +3005,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-29",
     "description": "Because I think humble people will always say \"luck\" in some way, and I always kind of want to know, how self-aware are you, basically, and how curious are you, covering career development, measurement and analysis, and product design.",
-    "guest": "Interview Q Compilation"
+    "guest": "Interview Q Compilation",
+    "youtube_url": null
   },
   {
     "id": 167,
@@ -2855,7 +3023,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-26",
     "description": "Billion dollar failures, and billion dollar success, covering product design, team leadership, and career development.",
-    "guest": "Tom Conrad"
+    "guest": "Tom Conrad",
+    "youtube_url": "https://www.youtube.com/watch?v=maK0XD9ARoI"
   },
   {
     "id": 168,
@@ -2872,7 +3041,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-19",
     "description": "Redefining success, money, and belonging, covering consumer products, product design, and team leadership.",
-    "guest": "Paul Millerd"
+    "guest": "Paul Millerd",
+    "youtube_url": "https://www.youtube.com/watch?v=yFckwBtiCUM"
   },
   {
     "id": 169,
@@ -2889,7 +3059,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-09",
     "description": "Marketplace lessons from Uber, Airbnb, Bumble, and more, covering strategic decision-making, product design, and measurement and analysis.",
-    "guest": "Ramesh Johari"
+    "guest": "Ramesh Johari",
+    "youtube_url": "https://www.youtube.com/watch?v=BVzTfsUMaK8"
   },
   {
     "id": 170,
@@ -2906,7 +3077,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-05",
     "description": "Mastering product strategy and growing as a PM, covering strategic decision-making, product strategy and execution, and team leadership.",
-    "guest": "Maggie Crowley"
+    "guest": "Maggie Crowley",
+    "youtube_url": "https://www.youtube.com/watch?v=4LjddcccYIo"
   },
   {
     "id": 171,
@@ -2923,7 +3095,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-02",
     "description": "Unpacking Amazon’s unique ways of working, covering team leadership, measurement and analysis, and product design.",
-    "guest": "Bill Carr"
+    "guest": "Bill Carr",
+    "youtube_url": "https://www.youtube.com/watch?v=S9WHQa_AJQo"
   },
   {
     "id": 172,
@@ -2940,7 +3113,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-29",
     "description": "Reflections on a movement, covering startup building, product design, and team leadership.",
-    "guest": "Eric Ries"
+    "guest": "Eric Ries",
+    "youtube_url": "https://www.youtube.com/watch?v=xzebbzIntFc"
   },
   {
     "id": 173,
@@ -2957,7 +3131,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-26",
     "description": "What AI means for your product strategy, covering product design, AI product work, and consumer products.",
-    "guest": "Paul Adams"
+    "guest": "Paul Adams",
+    "youtube_url": "https://www.youtube.com/watch?v=R-Geamq9xc0"
   },
   {
     "id": 174,
@@ -2974,7 +3149,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-19",
     "description": "Scaling Duolingo, embracing failure, and insight into Latin America’s tech scene, covering startup building, product design, and growth systems.",
-    "guest": "Gina Gotthilf"
+    "guest": "Gina Gotthilf",
+    "youtube_url": "https://www.youtube.com/watch?v=sWClFYdbkRA"
   },
   {
     "id": 175,
@@ -2991,7 +3167,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-15",
     "description": "Building beautiful products with Stripe’s Head of Design, covering product design, team leadership, and growth systems.",
-    "guest": "Katie Dill"
+    "guest": "Katie Dill",
+    "youtube_url": "https://www.youtube.com/watch?v=gfEEcssu304"
   },
   {
     "id": 176,
@@ -3008,7 +3185,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-12",
     "description": "Getting press for your product, covering startup building, practical product lessons, and strategic decision-making.",
-    "guest": "Jason Feifer"
+    "guest": "Jason Feifer",
+    "youtube_url": "https://www.youtube.com/watch?v=LZLdoAq3R7Y"
   },
   {
     "id": 177,
@@ -3025,7 +3203,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-08",
     "description": "Building with taste, craft, and focus, covering product design, team leadership, and startup building.",
-    "guest": "Karri Saarinen"
+    "guest": "Karri Saarinen",
+    "youtube_url": "https://www.youtube.com/watch?v=4muxFVZ4XfM"
   },
   {
     "id": 178,
@@ -3042,7 +3221,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-05",
     "description": "Career, growth, and life, covering AI product work, growth systems, and startup building.",
-    "guest": "Brian Balfour"
+    "guest": "Brian Balfour",
+    "youtube_url": "https://www.youtube.com/watch?v=ZG3iNH4vvMA"
   },
   {
     "id": 179,
@@ -3059,7 +3239,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-01",
     "description": "What sets great teams apart, covering product design, team leadership, and product strategy and execution.",
-    "guest": "Lane Shackleton"
+    "guest": "Lane Shackleton",
+    "youtube_url": "https://www.youtube.com/watch?v=XmgetFMgQZ0"
   },
   {
     "id": 180,
@@ -3076,7 +3257,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-28",
     "description": "Building Anchor, selling to Spotify, and lessons learned, covering team leadership, product design, and consumer products.",
-    "guest": "Maya Prohovnik"
+    "guest": "Maya Prohovnik",
+    "youtube_url": "https://www.youtube.com/watch?v=1gXNOJEWajU"
   },
   {
     "id": 181,
@@ -3093,7 +3275,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-24",
     "description": "Driving word of mouth, covering product design, strategic decision-making, and growth systems.",
-    "guest": "Nilan Peiris"
+    "guest": "Nilan Peiris",
+    "youtube_url": "https://www.youtube.com/watch?v=xZifSLGOrrw"
   },
   {
     "id": 182,
@@ -3110,7 +3293,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-21",
     "description": "Becoming evidence-guided, covering product design, team leadership, and consumer products.",
-    "guest": "Itamar Gilad"
+    "guest": "Itamar Gilad",
+    "youtube_url": "https://www.youtube.com/watch?v=aJWSn-tz3jQ"
   },
   {
     "id": 183,
@@ -3127,7 +3311,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-17",
     "description": "Becoming a category pirate, covering strategic decision-making, product design, and consumer products.",
-    "guest": "Christopher Lochhead"
+    "guest": "Christopher Lochhead",
+    "youtube_url": "https://www.youtube.com/watch?v=mS4B541m9xg"
   },
   {
     "id": 184,
@@ -3144,7 +3329,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-14",
     "description": "Picking sharp problems, increasing virality, and unique product frameworks, covering B2B products, product design, and growth systems.",
-    "guest": "Oji Udezue"
+    "guest": "Oji Udezue",
+    "youtube_url": "https://www.youtube.com/watch?v=T8TQGbJhv6Q"
   },
   {
     "id": 185,
@@ -3161,7 +3347,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-10",
     "description": "When enough is enough, covering career development, product design, and startup building.",
-    "guest": "Andy Johns"
+    "guest": "Andy Johns",
+    "youtube_url": "https://www.youtube.com/watch?v=_93m4PriHyc"
   },
   {
     "id": 186,
@@ -3178,7 +3365,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-07",
     "description": "An inside look at Figma’s unique GTM motion, covering product design, go-to-market execution, and strategic decision-making.",
-    "guest": "Claire Butler"
+    "guest": "Claire Butler",
+    "youtube_url": "https://www.youtube.com/watch?v=UmirRfy-gzA"
   },
   {
     "id": 187,
@@ -3195,7 +3383,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-03",
     "description": "Inside Etsy’s product, growth, and marketplace evolution, covering product design, B2B products, and team leadership.",
-    "guest": "Tim Holley"
+    "guest": "Tim Holley",
+    "youtube_url": "https://www.youtube.com/watch?v=n4hRs2FsRug"
   },
   {
     "id": 188,
@@ -3212,7 +3401,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-27",
     "description": "An inside look at Deel’s unprecedented growth, covering growth systems, team leadership, and consumer products.",
-    "guest": "Meltem Kuran"
+    "guest": "Meltem Kuran",
+    "youtube_url": "https://www.youtube.com/watch?v=C1_sM0_ds2c"
   },
   {
     "id": 189,
@@ -3229,7 +3419,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-24",
     "description": "A guide to JTBD, covering product design, B2B products, and product strategy and execution.",
-    "guest": "Bob Moesta"
+    "guest": "Bob Moesta",
+    "youtube_url": "https://www.youtube.com/watch?v=xQV7HVyAJjc"
   },
   {
     "id": 190,
@@ -3246,7 +3437,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-20",
     "description": "Monetizing passions, scaling marketplaces, and stories from a creator economy vet, covering consumer products, pricing decisions, and product design.",
-    "guest": "Camille Hearst"
+    "guest": "Camille Hearst",
+    "youtube_url": null
   },
   {
     "id": 191,
@@ -3263,7 +3455,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-13",
     "description": "Martech, covering growth systems, strategic decision-making, and product design.",
-    "guest": "Austin Hay"
+    "guest": "Austin Hay",
+    "youtube_url": "https://www.youtube.com/watch?v=B79p85DHLkU"
   },
   {
     "id": 192,
@@ -3280,7 +3473,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-10",
     "description": "Relentless curiosity, radical accountability, and HubSpot’s winning growth formula, covering growth systems, team leadership, and pricing decisions.",
-    "guest": "Christopher Miller"
+    "guest": "Christopher Miller",
+    "youtube_url": "https://www.youtube.com/watch?v=SzKKJwuRFZI"
   },
   {
     "id": 193,
@@ -3297,7 +3491,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-06",
     "description": "How Ramp became the fastest-growing SaaS startup of all time, covering team leadership, product design, and strategic decision-making.",
-    "guest": "Geoff Charles"
+    "guest": "Geoff Charles",
+    "youtube_url": "https://www.youtube.com/watch?v=aNJDZ_RzTVk"
   },
   {
     "id": 194,
@@ -3314,7 +3509,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-27",
     "description": "A/B testing, covering measurement and analysis, pricing decisions, and product design.",
-    "guest": "Ronny Kohavi"
+    "guest": "Ronny Kohavi",
+    "youtube_url": "https://www.youtube.com/watch?v=hEzpiDuYFoE"
   },
   {
     "id": 195,
@@ -3331,7 +3527,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-23",
     "description": "The 10 traits of great PMs, how AI will impact your product, and Slack’s product development process, covering product design, startup building, and team leadership.",
-    "guest": "Noah Weiss"
+    "guest": "Noah Weiss",
+    "youtube_url": "https://www.youtube.com/watch?v=XrRlVOWe5GE"
   },
   {
     "id": 196,
@@ -3348,7 +3545,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-16",
     "description": "LinkedIn’s product evolution and the art of building complex systems, covering product design, strategic decision-making, and career development.",
-    "guest": "Hari Srinivasan"
+    "guest": "Hari Srinivasan",
+    "youtube_url": "https://www.youtube.com/watch?v=ZUwkTs_QWqg"
   },
   {
     "id": 197,
@@ -3365,7 +3563,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-13",
     "description": "M&A, competition, pricing, and investing, covering product design, strategic decision-making, and startup building.",
-    "guest": "Julia Schottenstein"
+    "guest": "Julia Schottenstein",
+    "youtube_url": "https://www.youtube.com/watch?v=y9hmrMBRPDI"
   },
   {
     "id": 198,
@@ -3382,7 +3581,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-09",
     "description": "Ask the right questions, project confidence, and win over skeptics, covering team leadership, product design, and measurement and analysis.",
-    "guest": "Paige Costello"
+    "guest": "Paige Costello",
+    "youtube_url": "https://www.youtube.com/watch?v=N7S6nSmOsUI"
   },
   {
     "id": 199,
@@ -3399,7 +3599,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-02",
     "description": "Building minimum lovable products, stories from WeWork and Airbnb, and thriving as a PM, covering team leadership, product design, and product strategy and execution.",
-    "guest": "Jiaona Zhang"
+    "guest": "Jiaona Zhang",
+    "youtube_url": "https://www.youtube.com/watch?v=gLFZNzeylCc"
   },
   {
     "id": 200,
@@ -3416,7 +3617,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-25",
     "description": "Lessons from scaling Ramp, covering team leadership, growth systems, and B2B products.",
-    "guest": "Sri Batchu"
+    "guest": "Sri Batchu",
+    "youtube_url": "https://www.youtube.com/watch?v=RcYCU5UAZOk"
   },
   {
     "id": 201,
@@ -3433,7 +3635,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-18",
     "description": "Building high-performing teams, covering growth systems, team leadership, and B2B products.",
-    "guest": "Melissa Tan"
+    "guest": "Melissa Tan",
+    "youtube_url": "https://www.youtube.com/watch?v=DoEfXj1b_ko"
   },
   {
     "id": 202,
@@ -3450,7 +3653,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-15",
     "description": "Leveraging growth advisors, hiring well, mastering SEO, and honing your craft, covering team leadership, product design, and strategic decision-making.",
-    "guest": "Luc Levesque"
+    "guest": "Luc Levesque",
+    "youtube_url": "https://www.youtube.com/watch?v=Xf_ZXIGCQb0"
   },
   {
     "id": 203,
@@ -3467,7 +3671,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-11",
     "description": "Building a long and meaningful career, covering career development, product design, and team leadership.",
-    "guest": "Nikhyl Singhal"
+    "guest": "Nikhyl Singhal",
+    "youtube_url": "https://www.youtube.com/watch?v=U_WQuUIYnJg"
   },
   {
     "id": 204,
@@ -3484,7 +3689,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-04",
     "description": "Moving fast and navigating uncertainty, covering product design, team leadership, and growth systems.",
-    "guest": "Jeremy Henrickson"
+    "guest": "Jeremy Henrickson",
+    "youtube_url": "https://www.youtube.com/watch?v=CsruQYKISYI"
   },
   {
     "id": 205,
@@ -3501,7 +3707,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-01",
     "description": "Craft compelling presentations and tell a story that sticks, covering product design, team leadership, and B2B products.",
-    "guest": "Nancy Duarte"
+    "guest": "Nancy Duarte",
+    "youtube_url": "https://www.youtube.com/watch?v=-kHkWgjGD7U"
   },
   {
     "id": 206,
@@ -3518,7 +3725,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-28",
     "description": "The power of strategic narrative, covering B2B products, strategic decision-making, and product design.",
-    "guest": "Andy Raskin"
+    "guest": "Andy Raskin",
+    "youtube_url": "https://www.youtube.com/watch?v=dkVJnaxDlXE"
   },
   {
     "id": 207,
@@ -3535,7 +3743,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-21",
     "description": "Next question, what's something relatively minor you've changed in your product development process that's had a tremendous impact on your team's ability to execute, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Gustav Söderström"
+    "guest": "Gustav Söderström",
+    "youtube_url": null
   },
   {
     "id": 208,
@@ -3552,7 +3761,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-18",
     "description": "Building product sense, navigating AI, optimizing the first mile, and making it through the messy middle, covering product design, growth systems, and strategic decision-making.",
-    "guest": "Scott Belsky"
+    "guest": "Scott Belsky",
+    "youtube_url": "https://www.youtube.com/watch?v=HCKosdV1J-8"
   },
   {
     "id": 209,
@@ -3569,7 +3779,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-14",
     "description": "Frameworks for product differentiation, team building, and thinking from first principles, covering product design, consumer products, and team leadership.",
-    "guest": "Ayo Omojola"
+    "guest": "Ayo Omojola",
+    "youtube_url": "https://www.youtube.com/watch?v=EW6K8ZOWoIs"
   },
   {
     "id": 210,
@@ -3586,7 +3797,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-07",
     "description": "Mastering paid growth, covering strategic decision-making, growth systems, and product design.",
-    "guest": "Jonathan Becker"
+    "guest": "Jonathan Becker",
+    "youtube_url": "https://www.youtube.com/watch?v=mmxTeS0AVMo"
   },
   {
     "id": 211,
@@ -3603,7 +3815,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-04",
     "description": "Building a culture of excellence, covering product design, team leadership, and career development.",
-    "guest": "David Singleton"
+    "guest": "David Singleton",
+    "youtube_url": "https://www.youtube.com/watch?v=F0_IKKY3HCk"
   },
   {
     "id": 212,
@@ -3620,7 +3833,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-30",
     "description": "Achieve hypergrowth in your business and career, covering career development, growth systems, and team leadership.",
-    "guest": "Carilu Dietrich"
+    "guest": "Carilu Dietrich",
+    "youtube_url": "https://www.youtube.com/watch?v=Pm7QSWDIEUc"
   },
   {
     "id": 213,
@@ -3637,7 +3851,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-20",
     "description": "Outmaneuvering competitors, team structure, product quality, and moving fast, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Varun Parmar"
+    "guest": "Varun Parmar",
+    "youtube_url": "https://www.youtube.com/watch?v=furNg4njlsg"
   },
   {
     "id": 214,
@@ -3654,7 +3869,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-16",
     "description": "Making better decisions and building a joyful career, covering product design, strategic decision-making, and career development.",
-    "guest": "Ada Chen Rekhi"
+    "guest": "Ada Chen Rekhi",
+    "youtube_url": "https://www.youtube.com/watch?v=N64vIY2nJQo"
   },
   {
     "id": 215,
@@ -3671,7 +3887,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-13",
     "description": "Building a cult-like brand, covering product design, team leadership, and strategic decision-making.",
-    "guest": "Laura Modi"
+    "guest": "Laura Modi",
+    "youtube_url": "https://www.youtube.com/watch?v=hzBo5c7p7VU"
   },
   {
     "id": 216,
@@ -3688,7 +3905,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-09",
     "description": "Product lessons from Waymo, covering product design, product strategy and execution, and team leadership.",
-    "guest": "Shweta Shriva"
+    "guest": "Shweta Shriva",
+    "youtube_url": "https://www.youtube.com/watch?v=VtNmAjNF3Tc"
   },
   {
     "id": 217,
@@ -3705,7 +3923,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-06",
     "description": "Driving alignment and urgency within teams, work-life balance, and the changing PM landscape, covering team leadership, product design, and cross-functional alignment.",
-    "guest": "Nikita Miller"
+    "guest": "Nikita Miller",
+    "youtube_url": "https://www.youtube.com/watch?v=4PhfAbRQpbI"
   },
   {
     "id": 218,
@@ -3722,7 +3941,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-02",
     "description": "Adding a PLG motion, covering B2B products, growth systems, and team leadership.",
-    "guest": "Hila Qu"
+    "guest": "Hila Qu",
+    "youtube_url": "https://www.youtube.com/watch?v=7l1fIxk7SnA"
   },
   {
     "id": 219,
@@ -3739,7 +3959,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-26",
     "description": "The story behind Southeast Asia’s biggest startup, covering product design, growth systems, and startup building.",
-    "guest": "Kevin Aluwi"
+    "guest": "Kevin Aluwi",
+    "youtube_url": "https://www.youtube.com/watch?v=HVB-dqjUJks"
   },
   {
     "id": 220,
@@ -3756,7 +3977,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-23",
     "description": "Navigating comms and PR, covering product design, startup building, and strategic decision-making.",
-    "guest": "Lulu Cheng Meservey"
+    "guest": "Lulu Cheng Meservey",
+    "youtube_url": "https://www.youtube.com/watch?v=LTSEOeKV_Hs"
   },
   {
     "id": 221,
@@ -3773,7 +3995,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-19",
     "description": "Josh Miller is the CEO and co-founder of The Browser Company, where he helped build Arc, my go-to web browser. In today’s episode, we get an inside look at the unique structure and values of The Browser Company and how their company culture has helped them land some of the best talent in tech.",
-    "guest": "Josh Miller"
+    "guest": "Josh Miller",
+    "youtube_url": "https://www.youtube.com/watch?v=AZpo5785v8A"
   },
   {
     "id": 222,
@@ -3790,7 +4013,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-16",
     "description": "OKRs, covering product design, strategic decision-making, and practical product lessons.",
-    "guest": "Christina Wodtke"
+    "guest": "Christina Wodtke",
+    "youtube_url": "https://www.youtube.com/watch?v=kvkL18Ue0dE"
   },
   {
     "id": 223,
@@ -3807,7 +4031,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-12",
     "description": "Hot takes and techno-optimism from tech’s top power couple, covering growth systems, consumer products, and product design.",
-    "guest": "Sriram and Aarthi"
+    "guest": "Sriram and Aarthi",
+    "youtube_url": "https://www.youtube.com/watch?v=HsD5ycT_umw"
   },
   {
     "id": 224,
@@ -3824,7 +4049,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-09",
     "description": "Career frameworks, A/B testing mistakes, counterintuitive onboarding tips, selling to developers, covering team leadership, growth systems, and career development.",
-    "guest": "Laura Schaffer"
+    "guest": "Laura Schaffer",
+    "youtube_url": "https://www.youtube.com/watch?v=UMAmj1bciww"
   },
   {
     "id": 225,
@@ -3841,7 +4067,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-05",
     "description": "Lessons from scaling Stripe, covering product design, team leadership, and career development.",
-    "guest": "Claire Hughes Johnson"
+    "guest": "Claire Hughes Johnson",
+    "youtube_url": "https://www.youtube.com/watch?v=Mv0o9o4MRh0"
   },
   {
     "id": 226,
@@ -3858,7 +4085,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-02",
     "description": "It's sort of like when you ask a founder the question, \"How are things going?\", it's so emotional for them to answer that question because it's never going well, right, covering startup building, career development, and product design.",
-    "guest": "Gustaf Alstromer"
+    "guest": "Gustaf Alstromer",
+    "youtube_url": null
   },
   {
     "id": 227,
@@ -3875,7 +4103,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-26",
     "description": "Behind the scenes of Calendly’s rapid growth, covering product strategy and execution, team leadership, and product design.",
-    "guest": "Annie Pearl"
+    "guest": "Annie Pearl",
+    "youtube_url": "https://www.youtube.com/watch?v=-tUIGpgmsZw"
   },
   {
     "id": 228,
@@ -3892,7 +4121,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-23",
     "description": "An inside look at how CNN builds product, covering product design, team leadership, and product strategy and execution.",
-    "guest": "Upasna Gautam"
+    "guest": "Upasna Gautam",
+    "youtube_url": "https://www.youtube.com/watch?v=gRiCzfFEd7c"
   },
   {
     "id": 229,
@@ -3909,7 +4139,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-19",
     "description": "Bootstrapping a $200m business, covering team leadership, product design, and startup building.",
-    "guest": "Patrick Campbell"
+    "guest": "Patrick Campbell",
+    "youtube_url": "https://www.youtube.com/watch?v=FjLSCrSg5QY"
   },
   {
     "id": 230,
@@ -3926,7 +4157,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-16",
     "description": "Understanding the role of product ops, covering team leadership, product strategy and execution, and growth systems.",
-    "guest": "Christine Itwaru"
+    "guest": "Christine Itwaru",
+    "youtube_url": "https://www.youtube.com/watch?v=tGS-NhxrN_Q"
   },
   {
     "id": 231,
@@ -3943,7 +4175,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-12",
     "description": "Mastering onboarding, covering growth systems, measurement and analysis, and team leadership.",
-    "guest": "Lauryn Isford"
+    "guest": "Lauryn Isford",
+    "youtube_url": "https://www.youtube.com/watch?v=dLku0AiGPVA"
   },
   {
     "id": 232,
@@ -3960,7 +4193,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-09",
     "description": "Leading with empathy, covering team leadership, startup building, and career development.",
-    "guest": "Keith Yandell"
+    "guest": "Keith Yandell",
+    "youtube_url": "https://www.youtube.com/watch?v=tlCK9TuALtk"
   },
   {
     "id": 233,
@@ -3977,7 +4211,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-05",
     "description": "AI and product management, covering AI product work, product design, and measurement and analysis.",
-    "guest": "Marily Nika"
+    "guest": "Marily Nika",
+    "youtube_url": "https://www.youtube.com/watch?v=qNPPoj1qUG0"
   },
   {
     "id": 234,
@@ -3994,7 +4229,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-02",
     "description": "Foster innovation and big thinking, covering product design, team leadership, and product strategy and execution.",
-    "guest": "Eeke de Milliano"
+    "guest": "Eeke de Milliano",
+    "youtube_url": "https://www.youtube.com/watch?v=2ezz4KJe7kA"
   },
   {
     "id": 235,
@@ -4011,7 +4247,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-29",
     "description": "Lessons from Airtable’s unconventional growth strategy, covering product design, strategic decision-making, and startup building.",
-    "guest": "Zoelle Egner"
+    "guest": "Zoelle Egner",
+    "youtube_url": "https://www.youtube.com/watch?v=0P8LMyeYl1U"
   },
   {
     "id": 236,
@@ -4028,7 +4265,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-26",
     "description": "An inside look at Mixpanel’s product journey, covering product design, team leadership, and measurement and analysis.",
-    "guest": "Vijay"
+    "guest": "Vijay",
+    "youtube_url": "https://www.youtube.com/watch?v=t-2oXtZrlEc"
   },
   {
     "id": 237,
@@ -4045,7 +4283,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-15",
     "description": "What differentiates the highest-performing product teams, covering team leadership, strategic decision-making, and growth systems.",
-    "guest": "John Cutler"
+    "guest": "John Cutler",
+    "youtube_url": "https://www.youtube.com/watch?v=Y4PdUItyXUk"
   },
   {
     "id": 238,
@@ -4062,7 +4301,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-12",
     "description": "Price your product, covering product design, pricing decisions, and growth systems.",
-    "guest": "Naomi Ionita"
+    "guest": "Naomi Ionita",
+    "youtube_url": "https://www.youtube.com/watch?v=xvQadImf568"
   },
   {
     "id": 239,
@@ -4079,7 +4319,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-08",
     "description": "And so it's our quick way of being like, we're doing a product review, we on a pulse check, we drop it in and we're like, how are people feeling aligned, not aligned, covering product design, team leadership, and product strategy and execution.",
-    "guest": "Yuhki Yamashata"
+    "guest": "Yuhki Yamashata",
+    "youtube_url": null
   },
   {
     "id": 240,
@@ -4096,7 +4337,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-05",
     "description": "Leveraging mentors to uplevel your career, covering career development, product strategy and execution, and growth systems.",
-    "guest": "Jules Walter"
+    "guest": "Jules Walter",
+    "youtube_url": "https://www.youtube.com/watch?v=zn2JNbZwf00"
   },
   {
     "id": 241,
@@ -4113,7 +4355,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-29",
     "description": "I'd love to hear your broad overview of why do most analytics efforts fail and then how do teams avoid this, maybe what are two to three things they can do, covering product design, go-to-market execution, and strategic decision-making.",
-    "guest": "EOY Review"
+    "guest": "EOY Review",
+    "youtube_url": null
   },
   {
     "id": 242,
@@ -4130,7 +4373,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-18",
     "description": "Launching and growing a podcast, covering product design, startup building, and strategic decision-making.",
-    "guest": "Chris Hutchins"
+    "guest": "Chris Hutchins",
+    "youtube_url": "https://www.youtube.com/watch?v=kc1XhB4k0Eg"
   },
   {
     "id": 243,
@@ -4147,7 +4391,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-15",
     "description": "Founder-led sales, covering B2B products, startup building, and product design.",
-    "guest": "Pete Kazanjy"
+    "guest": "Pete Kazanjy",
+    "youtube_url": "https://www.youtube.com/watch?v=cZd5234Eem0"
   },
   {
     "id": 244,
@@ -4164,7 +4409,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-11",
     "description": "How Notion leveraged community to build a $10B business, covering product design, consumer products, and strategic decision-making.",
-    "guest": "Camille Ricketts"
+    "guest": "Camille Ricketts",
+    "youtube_url": "https://www.youtube.com/watch?v=bY5KC9Gguz8"
   },
   {
     "id": 245,
@@ -4181,7 +4427,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-04",
     "description": "Hit revenue targets in a recession, covering B2B products, team leadership, and strategic decision-making.",
-    "guest": "Sahil Mansuri"
+    "guest": "Sahil Mansuri",
+    "youtube_url": "https://www.youtube.com/watch?v=pYZ0S7a72po"
   },
   {
     "id": 246,
@@ -4198,7 +4445,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-27",
     "description": "Be the best coach to product people, covering team leadership, product strategy and execution, and career development.",
-    "guest": "Petra Wille"
+    "guest": "Petra Wille",
+    "youtube_url": "https://www.youtube.com/watch?v=4n3ybRqU5mU"
   },
   {
     "id": 247,
@@ -4215,7 +4463,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-20",
     "description": "What it takes to become a top 1% PM, covering team leadership, product strategy and execution, and career development.",
-    "guest": "Ian McAllister"
+    "guest": "Ian McAllister",
+    "youtube_url": "https://www.youtube.com/watch?v=7gaPPrAd7nc"
   },
   {
     "id": 248,
@@ -4232,7 +4481,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-17",
     "description": "Leaving big tech to build the #1 technology newsletter, covering practical product lessons, product design, and team leadership.",
-    "guest": "Gergely"
+    "guest": "Gergely",
+    "youtube_url": "https://www.youtube.com/watch?v=CtB0O0M7YS0"
   },
   {
     "id": 249,
@@ -4249,7 +4499,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-13",
     "description": "Is it our homes?\" You have to help people understand, \"Okay, when we talk product, we mean the website and app.\" What do you think of the product at The New York Times, covering product design, career development, and team leadership.",
-    "guest": "Alex Hardimen"
+    "guest": "Alex Hardimen",
+    "youtube_url": null
   },
   {
     "id": 250,
@@ -4266,7 +4517,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-10",
     "description": "Fire people with grace, work through fear, and nurture innovation, covering team leadership, startup building, and consumer products.",
-    "guest": "Matt Mochary"
+    "guest": "Matt Mochary",
+    "youtube_url": "https://www.youtube.com/watch?v=bCel0X2Ta7U"
   },
   {
     "id": 251,
@@ -4283,7 +4535,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-06",
     "description": "How Snyk built a product-led growth juggernaut, covering engineering tradeoffs, product design, and growth systems.",
-    "guest": "Ben Williams"
+    "guest": "Ben Williams",
+    "youtube_url": "https://www.youtube.com/watch?v=21sFTZzIfUk"
   },
   {
     "id": 252,
@@ -4300,7 +4553,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-03",
     "description": "Lessons from one of the world’s top executive recruiters, covering product design, team leadership, and career development.",
-    "guest": "Lauren Ipsen"
+    "guest": "Lauren Ipsen",
+    "youtube_url": "https://www.youtube.com/watch?v=v3pofqabzhs"
   },
   {
     "id": 253,
@@ -4317,7 +4571,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-30",
     "description": "Building Substack, covering team leadership, product design, and growth systems.",
-    "guest": "Sachin Monga"
+    "guest": "Sachin Monga",
+    "youtube_url": "https://www.youtube.com/watch?v=zKP2HrMc23s"
   },
   {
     "id": 254,
@@ -4334,7 +4589,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-27",
     "description": "Category creation and brand building, covering product design, strategic decision-making, and team leadership.",
-    "guest": "Barbra Gago"
+    "guest": "Barbra Gago",
+    "youtube_url": "https://www.youtube.com/watch?v=gCEaUfZUuI0"
   },
   {
     "id": 255,
@@ -4351,7 +4607,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-23",
     "description": "Building trust and grow as a product leader, covering team leadership, product design, and growth systems.",
-    "guest": "Fareed Mosavat"
+    "guest": "Fareed Mosavat",
+    "youtube_url": "https://www.youtube.com/watch?v=oo0jSep7pzc"
   },
   {
     "id": 256,
@@ -4368,7 +4625,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-20",
     "description": "Humanizing product development, covering team leadership, product design, and growth systems.",
-    "guest": "Adriel Frederick"
+    "guest": "Adriel Frederick",
+    "youtube_url": "https://www.youtube.com/watch?v=4avaVEAa64Y"
   },
   {
     "id": 257,
@@ -4385,7 +4643,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-16",
     "description": "Janna Bastow is a former product manager, and currently the CEO and co-founder of ProdPad. She also co-founded Mind the Product, a community for PMs, which has grown to 300,000 members across the world.",
-    "guest": "Janna Bastow"
+    "guest": "Janna Bastow",
+    "youtube_url": "https://www.youtube.com/watch?v=W3cvqPCGcck"
   },
   {
     "id": 258,
@@ -4402,7 +4661,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-13",
     "description": "Building a high-performing growth team, covering growth systems, team leadership, and career development.",
-    "guest": "Adam Fishman"
+    "guest": "Adam Fishman",
+    "youtube_url": "https://www.youtube.com/watch?v=wP8YyWH524A"
   },
   {
     "id": 259,
@@ -4419,7 +4679,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-09",
     "description": "Developing a growth model + marketplace growth strategy, covering growth systems, product design, and strategic decision-making.",
-    "guest": "Dan Hockenmaier"
+    "guest": "Dan Hockenmaier",
+    "youtube_url": "https://www.youtube.com/watch?v=AlTQ6O2qooI"
   },
   {
     "id": 260,
@@ -4436,7 +4697,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-02",
     "description": "Using behavioral science to improve your product, covering product design, team leadership, and B2B products.",
-    "guest": "Kristen Berman"
+    "guest": "Kristen Berman",
+    "youtube_url": "https://www.youtube.com/watch?v=u53fplD_C30"
   },
   {
     "id": 261,
@@ -4453,7 +4715,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-29",
     "description": "Customer-led growth, covering growth systems, strategic decision-making, and go-to-market execution.",
-    "guest": "Gia Laudi"
+    "guest": "Gia Laudi",
+    "youtube_url": "https://www.youtube.com/watch?v=0FgZ1VVxEBo"
   },
   {
     "id": 262,
@@ -4470,7 +4733,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-25",
     "description": "Growth tactics, retention strategies, and becoming a better writer, covering product design, growth systems, and measurement and analysis.",
-    "guest": "Julian Shapiro"
+    "guest": "Julian Shapiro",
+    "youtube_url": "https://www.youtube.com/watch?v=9cNRDWEXnrQ"
   },
   {
     "id": 263,
@@ -4487,7 +4751,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-18",
     "description": "Building a meaningful career, covering product design, team leadership, and product strategy and execution.",
-    "guest": "Jason Shah"
+    "guest": "Jason Shah",
+    "youtube_url": "https://www.youtube.com/watch?v=nMsA5VeLoOM"
   },
   {
     "id": 264,
@@ -4504,7 +4769,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-15",
     "description": "Deciding when and how to invest in new acquisition channels, covering product design, strategic decision-making, and growth systems.",
-    "guest": "Adam Grenier"
+    "guest": "Adam Grenier",
+    "youtube_url": "https://www.youtube.com/watch?v=-PDsvl2WCZU"
   },
   {
     "id": 265,
@@ -4521,7 +4787,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-11",
     "description": "Building a powerful marketing machine, covering strategic decision-making, team leadership, and product design.",
-    "guest": "Emily Kramer"
+    "guest": "Emily Kramer",
+    "youtube_url": "https://www.youtube.com/watch?v=gzs61z9Fekw"
   },
   {
     "id": 266,
@@ -4538,7 +4805,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-04",
     "description": "The role of AI in product development, covering engineering tradeoffs, product design, and AI product work.",
-    "guest": "Ryan J. Salva"
+    "guest": "Ryan J. Salva",
+    "youtube_url": "https://www.youtube.com/watch?v=awcd3P1DnX4"
   },
   {
     "id": 267,
@@ -4555,7 +4823,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-01",
     "description": "Grow a subscription business, covering growth systems, consumer products, and product design.",
-    "guest": "Yuriy Timen"
+    "guest": "Yuriy Timen",
+    "youtube_url": null
   },
   {
     "id": 268,
@@ -4572,7 +4841,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-21",
     "description": "The nature of product, covering team leadership, product design, and product strategy and execution.",
-    "guest": "Marty Cagan"
+    "guest": "Marty Cagan",
+    "youtube_url": "https://www.youtube.com/watch?v=h-KVGHoQ_98"
   },
   {
     "id": 269,
@@ -4589,7 +4859,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-18",
     "description": "What makes a great brand? After working at Google and Square, Arielle Jackson has spent the past eight years consulting startups on how to create powerful messaging that works.",
-    "guest": "Arielle Jackson"
+    "guest": "Arielle Jackson",
+    "youtube_url": null
   },
   {
     "id": 270,
@@ -4606,7 +4877,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-14",
     "description": "The rituals of great teams, covering product design, team leadership, and growth systems.",
-    "guest": "Shishir Mehrotra"
+    "guest": "Shishir Mehrotra",
+    "youtube_url": "https://www.youtube.com/watch?v=7uSuMIJhONA"
   },
   {
     "id": 271,
@@ -4623,7 +4895,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-07",
     "description": "Hey there! Did you know I have a podcast ? I do! Below you’ll find a peek at today’s episode.",
-    "guest": "Ryan Hoover"
+    "guest": "Ryan Hoover",
+    "youtube_url": null
   },
   {
     "id": 272,
@@ -4640,7 +4913,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-04",
     "description": "Own your career growth and becoming a powerful product leader, covering career development, product design, and team leadership.",
-    "guest": "Deb Liu"
+    "guest": "Deb Liu",
+    "youtube_url": null
   },
   {
     "id": 273,
@@ -4657,7 +4931,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-31",
     "description": "Scrappily hire for, measure, and unlock growth, covering product design, growth systems, and startup building.",
-    "guest": "Crystal W"
+    "guest": "Crystal W",
+    "youtube_url": null
   },
   {
     "id": 274,
@@ -4674,7 +4949,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-28",
     "description": "Every company wants to develop a winning strategy—but what are signs your strategy isn’t working, and how do you change course? Melissa Perri has worked trained PMs and product leaders at nearly all the Fortune 100 companies, and in this conversation shares how to reset a struggling strategy, align your team, and.",
-    "guest": "Melissa Perri"
+    "guest": "Melissa Perri",
+    "youtube_url": null
   },
   {
     "id": 275,
@@ -4691,7 +4967,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-24",
     "description": "Advancing as a product leader requires new skills and a new mindset. Ken Norton is an executive coach who works with some of the top people in product to help them get unstuck and find creativity again in their approach to problems and their careers.",
-    "guest": "Ken Norton"
+    "guest": "Ken Norton",
+    "youtube_url": null
   },
   {
     "id": 276,
@@ -4708,7 +4985,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-21",
     "description": "Sell your ideas and rise within your company, covering team leadership, growth systems, and product design.",
-    "guest": "Casey Winters"
+    "guest": "Casey Winters",
+    "youtube_url": null
   },
   {
     "id": 277,
@@ -4725,7 +5003,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-18",
     "description": "Translating vision into goals, operationalizing product quality, second-order decisions, brainstorming, influence, and much more, covering team leadership, strategic decision-making, and product design.",
-    "guest": "Nickey Skarstad"
+    "guest": "Nickey Skarstad",
+    "youtube_url": null
   },
   {
     "id": 278,
@@ -4742,7 +5021,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-14",
     "description": "Manik Gupta has led two of the most successful consumer products in history—Google Maps, where he was Director of product for the Maps team, and Uber, where he was CPO.",
-    "guest": "Manik Gupta"
+    "guest": "Manik Gupta",
+    "youtube_url": null
   },
   {
     "id": 279,
@@ -4759,7 +5039,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-11",
     "description": "Merci Grace has been a founder, an investor (at Lightspeed Ventures), head of product and growth (at Slack), and is now a founder again (Panobi). She’s also one of the co-founders of Women in Product, and Fast Company named her one of the Most Creative People in 2017.",
-    "guest": "Merci Grace"
+    "guest": "Merci Grace",
+    "youtube_url": null
   },
   {
     "id": 280,
@@ -4776,7 +5057,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-05",
     "description": "Sanchan Saxena is VP of Product at Coinbase. Before Coinbase, Sanchan was Head of Product and GM at Airbnb, founder and Head of Product of Instagram Shopping, Director of Product Management at Yahoo, and Lead PM at Microsoft.",
-    "guest": "Sanchan Saxena"
+    "guest": "Sanchan Saxena",
+    "youtube_url": null
   },
   {
     "id": 281,
@@ -4793,7 +5075,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-30",
     "description": "Interview customers, automating continuous discovery, the opportunity solution tree framework, making the case for user research, common interviewing mistakes, and much more, covering product design, team leadership, and career development.",
-    "guest": "Teresa Torres"
+    "guest": "Teresa Torres",
+    "youtube_url": null
   },
   {
     "id": 282,
@@ -4810,7 +5093,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-27",
     "description": "Building product at Shopify, how writing changed the trajectory of his career, the habits that make you a great PM, pros and cons of being a platform PM, how Shopify got through Covid, covering team leadership, product design, and product strategy and execution.",
-    "guest": "Brandon Chu"
+    "guest": "Brandon Chu",
+    "youtube_url": null
   },
   {
     "id": 283,
@@ -4827,7 +5111,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-23",
     "description": "Elena Verna has led growth at some of today’s most successful B2B businesses, including Miro as CMO, Surveymonkey as SVP of Growth, and now at Amplitude as interim Head of Growth.",
-    "guest": "Elena Verna 3.0"
+    "guest": "Elena Verna 3.0",
+    "youtube_url": null
   },
   {
     "id": 284,
@@ -4844,7 +5129,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-20",
     "description": "Before getting into teaching full-time, Gibson Biddle was VP of Product at Netflix and CPO at Chegg (a textbook rental and homework help company). He now spends his days speaking, writing, and hosting workshops on product leadership, strategy, and culture.",
-    "guest": "Gibson Biddle"
+    "guest": "Gibson Biddle",
+    "youtube_url": null
   },
   {
     "id": 285,
@@ -4861,7 +5147,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-16",
     "description": "Jackie Bavaro is the author of the best-selling books Cracking the PM Interview and Cracking the PM Career . She was most recently at Asana, where she joined as its first product manager and later became the head of product.",
-    "guest": "Jackie Bavaro"
+    "guest": "Jackie Bavaro",
+    "youtube_url": null
   },
   {
     "id": 286,
@@ -4878,7 +5165,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-13",
     "description": "Designing your product development process, when and how to hire your first PM, a playbook for hiring leaders, getting ahead in you career, how to get started angel investing, more, covering product design, startup building, and career development.",
-    "guest": "Gokul Rajaram"
+    "guest": "Gokul Rajaram",
+    "youtube_url": "https://www.youtube.com/watch?v=5p0VK_-BoJI"
   },
   {
     "id": 287,
@@ -4895,7 +5183,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-09",
     "description": "April Dunford is the author of the best-selling book Obviously Awesome , a definitive guide to product positioning. She spent 25 years leading marketing, product, and sales teams and now runs her own consulting firm, helping companies of all shapes and sizes nail their positioning.",
-    "guest": "April Dunford"
+    "guest": "April Dunford",
+    "youtube_url": null
   },
   {
     "id": 288,
@@ -4912,7 +5201,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-07",
     "description": "Julie Zhuo is the co-founder of Sundial, a company that helps builders make meaningful use of data to fulfill their mission. With over 400K followers across social media, she is one of the most influential leaders in product design, and product thinking broadly.",
-    "guest": "Julie Zhuo"
+    "guest": "Julie Zhuo",
+    "youtube_url": "https://www.youtube.com/watch?v=YLsxHa1dhSw"
   },
   {
     "id": 289,
@@ -4929,7 +5219,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-16",
     "description": "Use AI to amplify your craft, not replace it",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 290,
@@ -4946,7 +5237,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-09",
     "description": "Three key lessons from people who picked multiple iconic companies before they were obvious",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 291,
@@ -4963,7 +5255,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-12-02",
     "description": "A deal you won’t find anywhere else—bringing the total value of the Product Pass to over $25,000",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 292,
@@ -4980,7 +5273,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-18",
     "description": "No slop here",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 293,
@@ -4997,7 +5291,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-11",
     "description": "How to stand out in a noisy landscape by leveraging partners who already have access and trust with your target audience",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 294,
@@ -5014,7 +5309,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-11-04",
     "description": "Tips for taking full advantage of the 17+ free premium products you have access to as a paid subscriber",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 295,
@@ -5031,7 +5327,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-28",
     "description": "For something a little different",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 296,
@@ -5048,7 +5345,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-14",
     "description": "How to get started, and 50 ways non-technical people are using Claude Code in their work and life",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 297,
@@ -5065,7 +5363,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-10-07",
     "description": "Insider subscribers now get $1,350/year of Devin, on top of 15 additional premium products. All the advice, community, and tools you need to build and grow a world-class product (and career).",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 298,
@@ -5082,7 +5381,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-30",
     "description": "A step-by-step guide to crafting feedback you’ll want to give and people will want to get",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 299,
@@ -5099,7 +5399,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-23",
     "description": "Tips for taking full advantage of the 15+ free premium products you have access to as a paid subscriber",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 300,
@@ -5116,7 +5417,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-09",
     "description": "A practical guide to moving beyond generic scores and measuring what matters",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 301,
@@ -5133,7 +5435,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-09-02",
     "description": "A step-by-step playbook for naming in a noisy and AI-driven product landscape",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 302,
@@ -5148,7 +5451,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-26",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 303,
@@ -5165,7 +5469,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-19",
     "description": "Introducing the Continuous Calibration/Continuous Development (CC/CD) framework",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 304,
@@ -5182,7 +5487,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-12",
     "description": "10 more timeless essays you probably haven’t read but should",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 305,
@@ -5199,7 +5505,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-08-05",
     "description": "Practical advice from AI-forward companies like Shopify, Ramp, Zapier, Duolingo, Intercom, and Whoop",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 306,
@@ -5216,7 +5523,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-29",
     "description": "Over $25,000 in value for just $350. All the tools, community, and advice you need to build and grow a world-class product and career.",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 307,
@@ -5233,7 +5541,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-22",
     "description": "A guide to using AI as a long-term thinking partner (including prompts to get you started)",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 308,
@@ -5250,7 +5559,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-15",
     "description": "7 timeless essays you likely haven’t read but should",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 309,
@@ -5267,7 +5577,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-08",
     "description": "50+ useful/fun/clever examples of what non-technical people are building—to inspire your own vibe-coding journey",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 310,
@@ -5284,7 +5595,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-07-01",
     "description": "A step-by-step playbook to help you ace your PM interviews",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 311,
@@ -5301,7 +5613,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-24",
     "description": "The most common AI terms explained, simply",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 312,
@@ -5318,7 +5631,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-17",
     "description": "Introducing ARMOR: a new framework building on our tech worker sentiment survey insights",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 313,
@@ -5335,7 +5649,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-10",
     "description": "A guide to creating AI prototypes that match your brand and are integrated into every step of your development lifecycle",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 314,
@@ -5352,7 +5667,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-06-03",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 315,
@@ -5369,7 +5685,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-27",
     "description": "Results from our first-ever large-scale tech worker sentiment survey",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 316,
@@ -5386,7 +5703,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-20",
     "description": "Why skip leads are the load-bearing pillars of your organization",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 317,
@@ -5403,7 +5721,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-13",
     "description": "There’s a lot to be optimistic about",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 318,
@@ -5420,7 +5739,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-05-06",
     "description": "The step-by-step guide that’s helped hundreds of leaders secure life-changing compensation",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 319,
@@ -5437,7 +5757,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-29",
     "description": "A guide to AI agents for product managers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 320,
@@ -5452,7 +5773,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-15",
     "description": "And new products will continue to be added to this deal over time",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 321,
@@ -5469,7 +5791,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-08",
     "description": "How to master the emerging skill that can make or break an AI product",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 322,
@@ -5486,7 +5809,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-04-01",
     "description": "A step-by-step playbook to help you ace your PM interview",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 323,
@@ -5503,7 +5827,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-25",
     "description": "Seven lessons from the story of Figma Slides",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 324,
@@ -5520,7 +5845,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-18",
     "description": "Part two in my exploration of the companies that find and develop the best PMs",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 325,
@@ -5537,7 +5863,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-11",
     "description": "A practical framework for transforming big feelings into wisdom",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 326,
@@ -5554,7 +5881,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-03-04",
     "description": "Taking a moment to celebrate and reflect—and then back to work",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 327,
@@ -5571,7 +5899,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-25",
     "description": "Five steps to map out and build alignment around the future of your company",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 328,
@@ -5588,7 +5917,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-18",
     "description": "Comprehensive salary, equity, and total comp benchmarks for product managers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 329,
@@ -5605,7 +5935,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-11",
     "description": "A first-of-its-kind deep dive into the data to see what’s really working for the industry’s biggest incubator",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 330,
@@ -5622,7 +5953,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-02-04",
     "description": "New perk for paid subscribers of Lenny’s Newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 331,
@@ -5639,7 +5971,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-28",
     "description": "An exclusive first look at Jake Knapp and John Zeratsky’s new book, Click, and the new 2-day process for jump-starting big projects right",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 332,
@@ -5656,7 +5989,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-21",
     "description": "Insights from 6,500 tech professionals on their favorite and least favorite tools",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 333,
@@ -5673,7 +6007,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-14",
     "description": "A unified developer productivity framework from the creators of DORA, SPACE, and DevEx",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 334,
@@ -5690,7 +6025,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2025-01-07",
     "description": "How to turn your idea into a working prototype in minutes",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 335,
@@ -5702,7 +6038,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-31",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 336,
@@ -5719,7 +6056,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-24",
     "description": "Inspiration for who to raise from when you’re raising your early rounds",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 337,
@@ -5736,7 +6074,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-17",
     "description": "My all-time best posts and podcast episodes, categorized by the problem you need solved",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 338,
@@ -5753,7 +6092,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-10",
     "description": "A first-ever deep dive into the impact 50+ companies have had on alumni trajectories",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 339,
@@ -5770,7 +6110,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-12-03",
     "description": "Wins, misses, and lessons from GiveDirectly’s donation-optimizing journey",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 340,
@@ -5787,7 +6128,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-26",
     "description": "Art, gadgets, household items, health and wellness ideas, kids’ stuff, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 341,
@@ -5804,7 +6146,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-19",
     "description": "AI is ushering in an era of “super ICs.” What about managers?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 342,
@@ -5821,7 +6164,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-12",
     "description": "How to thrive in “the great flattening” by redefining work norms",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 343,
@@ -5838,7 +6182,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-11-05",
     "description": "Seven strategies (and some stories) to help you harness the power of humor",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 344,
@@ -5855,7 +6200,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-29",
     "description": "How to get exactly what you want when working with AI",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 345,
@@ -5872,7 +6218,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-22",
     "description": "The rise of ICs, the unexpected salary dip for managers, why salary only moderately impacts satisfaction, and more revealing insights from our recent compensation survey.",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 346,
@@ -5889,7 +6236,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-15",
     "description": "How the Internal Family Systems model can help you listen to your inner wisdom and get unstuck",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 347,
@@ -5906,7 +6254,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-08",
     "description": "The first set of results from our inaugural compensation survey reveals the need for stable income above all else",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 348,
@@ -5923,7 +6272,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-10-01",
     "description": "How to align stakeholders so decisions go your way",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 349,
@@ -5940,7 +6290,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-24",
     "description": "Which companies are hiring PMs, what hard skills are most in demand, trends in remote work, whether there’s been a shift to senior hires, what roles AI companies are hiring for, and so much more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 350,
@@ -5952,7 +6303,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-23",
     "description": "An exciting new perk for paid subscribers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 351,
@@ -5969,7 +6321,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-17",
     "description": "The whys, whats, and hows of seed funding, with advice from the founders of Notion, Linear, Figma, Ramp, Instacart, 37signals, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 352,
@@ -5986,7 +6339,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-10",
     "description": "Tactical tips for teeing up critical decisions without pissing leaders off",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 353,
@@ -6003,7 +6357,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-09-03",
     "description": "Including case studies, templates, and 10 proven growth tactics from top consumer subscription apps like Duolingo, Spotify, Tinder, and Calm",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 354,
@@ -6020,7 +6375,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-27",
     "description": "Seven more tactics for making the most of your precious time",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 355,
@@ -6037,7 +6393,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-20",
     "description": "An optimistic case for the future of product management",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 356,
@@ -6054,7 +6411,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-13",
     "description": "Ten tactics I use every single day",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 357,
@@ -6071,7 +6429,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-13",
     "description": "Gustaf Alströmer is a Group Partner at Y Combinator, where he has worked with over 600 startups",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 358,
@@ -6088,7 +6447,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-13",
     "description": "April Dunford is an expert at nailing positioning for scaling tech companies and wrote Obviously Awesome, a definitive guide to product",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 359,
@@ -6105,7 +6465,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-13",
     "description": "She has a PhD in ML from Imperial College London, spoke at TED AI SF and she writes about AI Product Management at:",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 360,
@@ -6122,7 +6483,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-12",
     "description": "### Why companies should have PLG and sales ▶️",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 361,
@@ -6139,7 +6501,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-06",
     "description": "Step-by-step tactics for facing your fears and making the ask—including templates and example scripts",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 362,
@@ -6156,7 +6519,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-08-06",
     "description": "SEO expert Ethan Smith shares actionable tips for using internal linking to improve your website's search rankings and drive traffic to your business.",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 363,
@@ -6173,7 +6537,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-30",
     "description": "What we can learn from the monetization strategies of leading tech companies, including GitHub, Zapier, Adobe, Loom, and Microsoft",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 364,
@@ -6190,7 +6555,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-29",
     "description": "A one-day in-person event for senior product leaders",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 365,
@@ -6207,7 +6573,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-23",
     "description": "Who’s hiring, what roles are growing, the one role that’s disappearing, and more surprising insights",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 366,
@@ -6223,7 +6590,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-16",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 367,
@@ -6240,7 +6608,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-09",
     "description": "Closer than you think",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 368,
@@ -6257,7 +6626,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-02",
     "description": "Lessons from 20+ top product builders, including Scott Belsky, Elad Gil, Rahul Vohra, and Sarah Guo",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 369,
@@ -6274,7 +6644,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-07-01",
     "description": "Welcome Tara Seshan, Natalie Rothfels, and Jules Walter 👏",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 370,
@@ -6291,7 +6662,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-25",
     "description": "How stage, North Star metrics, and talent can impact this critical decision",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 371,
@@ -6308,7 +6680,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-18",
     "description": "Is $20K for a spot on Highway 101 worth it?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 372,
@@ -6325,7 +6698,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-11",
     "description": "27 examples (with actual prompts) of how product managers are using the AI-powered search engine today",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 373,
@@ -6342,7 +6716,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-06-04",
     "description": "Why feature team PMs are real PMs",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 374,
@@ -6356,7 +6731,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-28",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 375,
@@ -6373,7 +6749,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-21",
     "description": "Strategies, templates, and advice on how to stay focused while still being kind",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 376,
@@ -6390,7 +6767,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-14",
     "description": "Strategies from the data for your “pivotal” decision",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 377,
@@ -6407,7 +6785,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-05-07",
     "description": "Details behind 30+ pivots, including how they knew it was time to pivot, how long it took them to pivot, and much more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 378,
@@ -6424,7 +6803,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-30",
     "description": "Johnny Ho, co-founder and head of product, explains how he organizes his teams like slime mold, uses AI to build their AI company, and much more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 379,
@@ -6441,7 +6821,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-23",
     "description": "25 quick wins from top leaders at Ramp, Canva, HubSpot, Wiz, Google Gemini, Dropbox, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 380,
@@ -6458,7 +6839,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-16",
     "description": "Introducing the ARIA framework",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 381,
@@ -6475,7 +6857,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-09",
     "description": "Which skills will be affected or replaced, and which will become even more valuable",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 382,
@@ -6492,7 +6875,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-04-02",
     "description": "Don’t kill the golden goose, maintain a sense of urgency to drive compounding growth, copy first, and more of their biggest growth lessons",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 383,
@@ -6509,7 +6893,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-26",
     "description": "Technical foundations for product managers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 384,
@@ -6522,7 +6907,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-19",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 385,
@@ -6539,7 +6925,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-12",
     "description": "Celebrating 10 million downloads 🎉",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 386,
@@ -6556,7 +6943,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-03-05",
     "description": "Seven tips and five myths",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 387,
@@ -6573,7 +6961,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-27",
     "description": "High-signal-to-noise interview questions inspired by my 150+ podcast guests",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 388,
@@ -6590,7 +6979,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-20",
     "description": "20 examples of how people are using custom GPTs to make their teams more productive",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 389,
@@ -6607,7 +6997,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-13",
     "description": "How to effectively run your own WTP study, with templates, guides, examples, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 390,
@@ -6624,7 +7015,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-02-06",
     "description": "Templates and guides to help you make better decisions with less drama",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 391,
@@ -6641,7 +7033,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-30",
     "description": "Lessons from Linear, Automattic, 37signals, Gumroad, Auth0, and PostHog",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 392,
@@ -6658,7 +7051,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-23",
     "description": "Co-founder and chief product officer Eilon Reshef on autonomy, OKRs, design partners, prioritizing, interviewing, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 393,
@@ -6675,7 +7069,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-16",
     "description": "And why you don’t fully understand your business until you can",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 394,
@@ -6692,7 +7087,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-09",
     "description": "Seven steps you can take today to try to turn things around",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 395,
@@ -6709,7 +7105,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2024-01-02",
     "description": "Powerful life mottos shared by my podcast guests",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 396,
@@ -6723,7 +7120,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-26",
     "description": "Happy holidays, happy new year, and back next year (a.k.a. next week)!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 397,
@@ -6740,7 +7138,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-19",
     "description": "What it means, how to apply it, and tons of examples of first-principles thinking in action",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 398,
@@ -6757,7 +7156,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-12",
     "description": "The single best way to discover my all-time best stuff across both the newsletter and podcast",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 399,
@@ -6774,7 +7174,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-12-05",
     "description": "How single-player utility, hyper-personalization, doing things unscalably, and thinking long-term helped us bootstrap a brand-new social network",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 400,
@@ -6791,7 +7192,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-28",
     "description": "How freemium and no-friction onboarding reversed our growth, and how we got back on track",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 401,
@@ -6808,7 +7210,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-21",
     "description": "My favorite products for early parenthood to help your kid hit their KPIs",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 402,
@@ -6825,7 +7228,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-14",
     "description": "Lessons, timelines, and stories from Pinterest, Looker, Instagram, Segment, Snap, Notion, and 25+ other top companies",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 403,
@@ -6842,7 +7246,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-11-07",
     "description": "Boost your experiment win rate and help your team drive more impact",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 404,
@@ -6859,7 +7264,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-31",
     "description": "What not to do when building a B2B startup",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 405,
@@ -6876,7 +7282,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-24",
     "description": "Part seven of my seven-part series on kickstarting and scaling a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 406,
@@ -6893,7 +7300,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-17",
     "description": "And why your real competition is “no decision”",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 407,
@@ -6906,7 +7314,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-10",
     "description": "Given what is happening in the world, we’ve got more important things to focus on right now",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 408,
@@ -6923,7 +7332,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-10-03",
     "description": "Part six of my seven-part series on kickstarting and scaling a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 409,
@@ -6940,7 +7350,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-26",
     "description": "Karri Saarinen, co-founder and CEO, on taste over metrics, product teams over product managers, strategy over OKRs—and the importance of craft, profitability, and good judgment",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 410,
@@ -6957,7 +7368,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-19",
     "description": "A framework for rapid career growth",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 411,
@@ -6974,7 +7386,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-12",
     "description": "Part five of my seven-part series on kickstarting and scaling a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 412,
@@ -6991,7 +7404,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-11",
     "description": "Ten lessons learned from building this newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 413,
@@ -7008,7 +7422,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-09-05",
     "description": "Part four of my seven-part series on kickstarting and scaling a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 414,
@@ -7025,7 +7440,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-29",
     "description": "Part three of my seven-part series on kickstarting and scaling a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 415,
@@ -7042,7 +7458,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-22",
     "description": "Practical advice from 12 world-class growth experts, including Lauryn Isford, Casey Winters, Melissa Tan, Adam Fishman, Laura Schaffer, John Egan, Hila Qu, Adam Grenier, and Ben Williams",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 416,
@@ -7059,7 +7476,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-15",
     "description": "Part two of my seven-part series on how to kickstart and scale a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 417,
@@ -7076,7 +7494,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-08",
     "description": "Part one of my seven-part series on kickstarting and scaling a B2B business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 418,
@@ -7093,7 +7512,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-08-01",
     "description": "Benchmarks of good and great free-to-paid conversion rates based on a survey of 1,000+ products",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 419,
@@ -7110,7 +7530,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-25",
     "description": "VP of Product Glen Coates on how Shopify plans around yearly themes, organizes around jobs to be done, tracks using a homegrown tool, why they shifted away from a GM structure, and much more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 420,
@@ -7127,7 +7548,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-18",
     "description": "Lessons from how 40+ brands measure their marketing impact, including McDonald’s, H&M, TikTok, Amazon, Airbnb, and Uber",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 421,
@@ -7144,7 +7566,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-11",
     "description": "An interview with Jeff Hollan, Director of Product for Snowflake’s Developer Platform and Ecosystem",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 422,
@@ -7161,7 +7584,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-07-04",
     "description": "Learn how to get that strong yes without burning yourself out with interview prep",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 423,
@@ -7178,7 +7602,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-27",
     "description": "A framework, from the front lines of Reddit, for turning a sometimes combative relationship with users into a strong, productive partnership",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 424,
@@ -7195,7 +7620,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-20",
     "description": "A step-by-step guide and plug-and-play template for going on leave with peace of mind",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 425,
@@ -7212,7 +7638,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-13",
     "description": "How the principles we learned at Palantir spawned nine unicorns and 100+ venture-backed companies",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 426,
@@ -7229,7 +7656,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-06",
     "description": "Takeaways from a period of extreme adversity",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 427,
@@ -7246,7 +7674,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-06-02",
     "description": "VP of Product Sho Kuwamoto on the importance of feel, service, and staying close to customers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 428,
@@ -7263,7 +7692,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-30",
     "description": "Chief Product and Technology Officer Michael Manapat on Notion’s evolving internal processes, product reviews, planning cadences, and increasing shift to synchronous communication",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 429,
@@ -7280,7 +7710,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-23",
     "description": "Geoff Charles, VP of Product, on Ramp's unique culture of velocity, efficiency, and empowerment",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 430,
@@ -7297,7 +7728,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-16",
     "description": "And that’s OK",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 431,
@@ -7314,7 +7746,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-09",
     "description": "Varun Parmar, Chief Product Officer at Miro, shares what they've learned about OKRs, planning, design reviews, prioritization, rituals—plus tons of plug-and-play templates you can start using today",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 432,
@@ -7331,7 +7764,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-05-02",
     "description": "Steps, methods, tools, and use cases for locating predictable user actions and improving retention",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 433,
@@ -7348,7 +7782,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-25",
     "description": "Unexpected parallels and hidden lessons about leadership and product management from my experience on a jury",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 434,
@@ -7365,7 +7800,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-11",
     "description": "Real-life examples (and actual prompts) of how PMs are already using ChatGPT day-to-day",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 435,
@@ -7378,7 +7814,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-04-04",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 436,
@@ -7395,7 +7832,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-28",
     "description": "How to get traffic and users for your product at a near-$0 CAC",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 437,
@@ -7412,7 +7850,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-21",
     "description": "Cem Kansu on Duolingo’s unique team structure, steady planning cadence, design review process, OKR templates, team rituals, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 438,
@@ -7429,7 +7868,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-03-14",
     "description": "A long and growing list of ideas to inspire your team’s thinking on increasing top-of-funnel, monetization, conversion, retention, and velocity",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 439,
@@ -7446,7 +7886,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-28",
     "description": "The story behind Duolingo's 350% growth acceleration, leaderboards, streaks, notifications, and innovative growth model",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 440,
@@ -7463,7 +7904,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-21",
     "description": "What you can do today to avoid getting caught off guard in case layoffs come for you",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 441,
@@ -7480,7 +7922,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-14",
     "description": "Stories behind growth unlocks for Figma, Facebook, Airbnb, YouTube, Tinder, DoorDash, and others",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 442,
@@ -7497,7 +7940,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-02-07",
     "description": "A step-by-step guide to building an AI chatbot",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 443,
@@ -7514,7 +7958,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-31",
     "description": "Lane Shackleton, CPO at Coda, shares his team’s templates, day-to-day processes, and hard-earned lessons",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 444,
@@ -7531,7 +7976,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-17",
     "description": "A guide to setting up your PLG infrastructure, tool stack, and team",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 445,
@@ -7548,7 +7994,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-10",
     "description": "An in-depth guide to getting started with PLG",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 446,
@@ -7565,7 +8012,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2023-01-03",
     "description": "And why you are probably under-investing in influencers and PR",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 447,
@@ -7582,7 +8030,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-27",
     "description": "If you read one post this year, read this one—my most popular posts and podcasts, categorized and organized",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 448,
@@ -7599,7 +8048,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-20",
     "description": "Five courses for senior PMs, and five for up-and-coming PMs",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 449,
@@ -7616,7 +8066,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-12-06",
     "description": "Examples and tactics for getting the most out of your investors",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 450,
@@ -7633,7 +8084,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-29",
     "description": "Last year, I experimented with a holiday gift guide, and it proved to be quite popular (and really fun to do)",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 451,
@@ -7650,7 +8102,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-22",
     "description": "Why VC funding is a drug, when building in stealth is a mistake, what to do when you lose conviction, how to approach selling your company, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 452,
@@ -7667,7 +8120,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-15",
     "description": "Yuhki Yamashita, Chief Product Officer at Figma, shares lessons learned, plug-and-play templates, and fresh insights into how Figma builds product",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 453,
@@ -7684,7 +8138,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-11-08",
     "description": "Including a deep dive into multi-player B2B SaaS products featuring Figma, Linear, Snyk, Airtable, Slack, Asana, and Sprig",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 454,
@@ -7701,7 +8156,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-25",
     "description": "Benchmarks and advice for increasing your activation rate, based on a survey of 500+ products",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 455,
@@ -7718,7 +8174,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-18",
     "description": "As taught to us by Oceans Eleven",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 456,
@@ -7735,7 +8192,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-11",
     "description": "The culmination of all my GTM and growth research in one image",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 457,
@@ -7752,7 +8210,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-10-04",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 458,
@@ -7769,7 +8228,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-27",
     "description": "GACCS: A framework for aligning your marketing, product, and sales teams",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 459,
@@ -7786,7 +8246,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-20",
     "description": "What Frodo Baggins from Lord of the Rings can teach us about influence",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 460,
@@ -7803,7 +8264,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-09-13",
     "description": "A handy checklist to help decide when it’s time to sunset a product or feature",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 461,
@@ -7820,7 +8282,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-30",
     "description": "A deep dive into the formulas, visualizations, and SQL you need to accurately measure and report on cohort retention—a guest post by Olga Berezovsky",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 462,
@@ -7837,7 +8300,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-23",
     "description": "Growth engines, turbo boosts, lubricants, kickstarts, and mid-stage accelerants",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 463,
@@ -7854,7 +8318,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-16",
     "description": "How products grow, how your product will grow, and the GTM motions of today’s biggest consumer apps",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 464,
@@ -7871,7 +8336,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-08-09",
     "description": "How to know if you’ve got product-market fit, how to iterate toward product-market fit, and how long it usually takes",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 465,
@@ -7888,7 +8354,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-26",
     "description": "Also, how today’s biggest consumer products got their first 1,000 users",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 466,
@@ -7905,7 +8372,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-19",
     "description": "Lessons from Pinterest, Netflix, Tinder, Dropbox, DoorDash, Robinhood, Amazon, WhatsApp, and dozens of today’s most successful consumer businesses",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 467,
@@ -7922,7 +8390,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-12",
     "description": "Lessons from Substack, Netflix, Yelp, Discord, TikTok, Instagram, Cameo, DoorDash, and dozens of others",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 468,
@@ -7939,7 +8408,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-07-05",
     "description": "Step 1: Come up with an idea",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 469,
@@ -7956,7 +8426,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-21",
     "description": "I caught COVID over the weekend and I’m taking the week off",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 470,
@@ -7973,7 +8444,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-14",
     "description": "Lessons from Lyft, Thumbtack, Rover, Snackpass, Peerspace, Shef, Good Dog, and Udemy",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 471,
@@ -7990,7 +8462,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-06-07",
     "description": "And the first two episodes with Julie Zhuo and Shreyas Doshi are now live!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 472,
@@ -8007,7 +8480,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-05-24",
     "description": "Examples, templates, titles, and attributes from 20+ companies, including Facebook, Google, DoorDash, Airbnb, Instacart, Lyft, Uber, and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 473,
@@ -8024,7 +8498,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-05-17",
     "description": "Learnings from Noom, Duolingo, Grammarly, Calm, Spotify, Future, Flo, and others",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 474,
@@ -8041,7 +8516,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-05-10",
     "description": "Lessons learned from Flexport, Vanta, Rec Room, LaunchDarkly, Pinwheel, Snackpass, Good Dog, and Cocoon—a guest post by Todd Jackson",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 475,
@@ -8058,7 +8534,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-04-26",
     "description": "Benchmarks and insights from the world’s best investors",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 476,
@@ -8075,7 +8552,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-04-19",
     "description": "My favorite resources for getting ready for product interviews",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 477,
@@ -8092,7 +8570,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-04-12",
     "description": "A guide to avoiding burnout and establishing balance in your life—by guest author Andy Johns",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 478,
@@ -8109,7 +8588,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-03-29",
     "description": "> ## Q: I’m building a marketplace and am wondering, what KPIs should I focus on and track?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 479,
@@ -8126,7 +8606,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-03-22",
     "description": "Interview structure, skills to test, questions to ask, project examples, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 480,
@@ -8143,7 +8624,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-03-15",
     "description": "With guest author Jules Walter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 481,
@@ -8160,7 +8642,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-03-08",
     "description": "Going freemium, adding a trial, business model disruption, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 482,
@@ -8177,7 +8660,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-03-01",
     "description": "Benchmarks and advice for making the most of your waitlist",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 483,
@@ -8194,7 +8678,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-02-22",
     "description": "So I’m going to take a sick day (my first) and instead focus on resting and making next week’s post that much better",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 484,
@@ -8211,7 +8696,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-02-15",
     "description": "How PM'ing in web3 is different, the pros and cons of going web3, how to break in, and how to be successful—by guest author Jason Shah, head of product at Alchemy",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 485,
@@ -8228,7 +8714,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-02-08",
     "description": "Benchmarks for good and great monthly churn, broken down by segment and price point",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 486,
@@ -8245,7 +8732,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-02-01",
     "description": "7 concrete actions you can take to increase your odds",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 487,
@@ -8262,7 +8750,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-01-25",
     "description": "Biggest surprises, how to get started, what to look for when evaluating companies, plus a ton of advice from many smart investors",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 488,
@@ -8279,7 +8768,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-01-18",
     "description": "A guest post by Deb Liu",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 489,
@@ -8296,7 +8786,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-01-11",
     "description": "> ## Q: I know differentiation is important, but why is that, and what are ways we can differentiate our product?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 490,
@@ -8313,7 +8804,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2022-01-04",
     "description": "A guide for prioritizing at an early-stage B2B startup",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 491,
@@ -8330,7 +8822,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-12-28",
     "description": "The most popular posts of the year, and a brief look back",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 492,
@@ -8343,7 +8836,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-12-21",
     "description": "Back next week!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 493,
@@ -8360,7 +8854,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-12-16",
     "description": "Guest post by Justin Gage, writer of Technically and growth at Retool",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 494,
@@ -8377,7 +8872,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-12-14",
     "description": "Benchmarks for good, great, and exceptional payback periods based on guidance from 16 growth experts",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 495,
@@ -8394,7 +8890,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-12-09",
     "description": "Exclusive excerpt from Andrew Chen’s new book, The Cold Start Problem",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 496,
@@ -8411,7 +8908,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-12-07",
     "description": "The Coordinator, The Dictator, The Dreamer, The Feature Factory, and The Busted Umbrella",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 497,
@@ -8428,7 +8926,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-30",
     "description": "When to invest in community, how to get started, setting goals, crafting a strategy, hiring, scaling, and much more—guest post by David Spinks",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 498,
@@ -8445,7 +8944,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-25",
     "description": "50+ gift ideas for your friends, family, and coworkers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 499,
@@ -8462,7 +8962,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-23",
     "description": "Which metrics matter most when building a B2C product",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 500,
@@ -8479,7 +8980,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-16",
     "description": "My take on the PM role",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 501,
@@ -8496,7 +8998,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-09",
     "description": "How to hire and build your growth team—guest post by Elena Verna",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 502,
@@ -8513,7 +9016,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-05",
     "description": "A three-week part-time live course with in-depth lectures, real-world assignments, special guests, and much more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 503,
@@ -8530,7 +9034,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-11-02",
     "description": "## ✨ Announcement: Applications for my PM course now open ✨",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 504,
@@ -8547,7 +9052,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-10-26",
     "description": "When, why, and how to pick a wedge for your product",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 505,
@@ -8560,7 +9066,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-10-19",
     "description": "OOTO",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 506,
@@ -8577,7 +9084,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-10-12",
     "description": "A motherload of growth inspiration by guest author Ali Abouelatta, creator of the First 1000 newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 507,
@@ -8594,7 +9102,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-10-05",
     "description": "200+ links to the most actionable, highest signal-to-noise content",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 508,
@@ -8611,7 +9120,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-09-28",
     "description": "A three-step framework for saying no effectively",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 509,
@@ -8628,7 +9138,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-09-24",
     "description": "Guest post by Niya Dragova, co-founder of Candor",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 510,
@@ -8645,7 +9156,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-09-21",
     "description": "> ## Q: I don’t have a technical background, and I find it hard to follow what my engineers are saying sometimes and, even worse, to make",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 511,
@@ -8662,7 +9174,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-09-17",
     "description": "Guest post by Kristen Berman, co-founder of Irrational Labs",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 512,
@@ -8679,7 +9192,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-09-14",
     "description": "Guest post by Brian Rothenberg, Partner at Defy.vc, former VP of Growth at Eventbrite, and two-time founder",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 513,
@@ -8696,7 +9210,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-09-07",
     "description": "How marketplaces like Instacart, OpenTable, Caviar, Grubhub, and others approached expanding into additional markets",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 514,
@@ -8713,7 +9228,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-08-31",
     "description": "I’m looking for a structure I can borrow and inspiration for what great looks like",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 515,
@@ -8730,7 +9246,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-08-24",
     "description": "Market segments, target personas, and sales motions—then and now",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 516,
@@ -8747,7 +9264,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-08-17",
     "description": "My all-time best posts",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 517,
@@ -8764,7 +9282,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-08-10",
     "description": "How to not be an annoying PM",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 518,
@@ -8781,7 +9300,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-08-03",
     "description": "Your three paths to marketplace success",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 519,
@@ -8798,7 +9318,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-07-27",
     "description": "Tips for prioritizing your roadmap",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 520,
@@ -8815,7 +9336,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-07-21",
     "description": "Why it matters for startups to have a strong 'why now'—and also why it doesn't",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 521,
@@ -8832,7 +9354,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-07-21",
     "description": "Why it matters for startups to have a strong 'why now'—and also why it doesn't",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 522,
@@ -8849,7 +9372,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-07-13",
     "description": "Growth lessons from over a dozen of today's fastest-growing labor marketplaces",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 523,
@@ -8866,7 +9390,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-07-06",
     "description": "Hiring advice from founders who are crushing it",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 524,
@@ -8883,7 +9408,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-29",
     "description": "The three things you need to get right",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 525,
@@ -8900,7 +9426,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-22",
     "description": "Seven ways to break through the noise",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 526,
@@ -8916,7 +9443,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-16",
     "description": "A guest post on Future—a16z's new media site",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 527,
@@ -8933,7 +9461,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-15",
     "description": "Ten great interview questions for product managers, plus my favorite generalist questions",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 528,
@@ -8950,7 +9479,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-10",
     "description": "By special guest contributor Shivani Berry, CEO & Founder of Arise Leadership",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 529,
@@ -8967,7 +9497,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-08",
     "description": "The seven places we learn about new stuff",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 530,
@@ -8984,7 +9515,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-06-01",
     "description": "Stories from Cameo, DoorDash, Uber, Faire, Hipcamp, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 531,
@@ -9001,7 +9533,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-05-25",
     "description": "What I learned from studying twenty PM career ladders",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 532,
@@ -9018,7 +9551,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-05-18",
     "description": "By special guest contributor Carole Robin, co-creator of Stanford's “Touchy Feely” GSB course",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 533,
@@ -9035,7 +9569,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-05-11",
     "description": "Issue 77",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 534,
@@ -9052,7 +9587,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-05-04",
     "description": "Issue 76",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 535,
@@ -9069,7 +9605,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-04-27",
     "description": "With return guest DJ DiDonna",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 536,
@@ -9086,7 +9623,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-04-20",
     "description": "By special guest contributor DJ DiDonna, founder of The Sabbatical Project",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 537,
@@ -9103,7 +9641,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-04-13",
     "description": "The top five marketplaces failure modes — lessons from 30+ marketplaces",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 538,
@@ -9120,7 +9659,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-04-06",
     "description": "Issue 72",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 539,
@@ -9137,7 +9677,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-03-30",
     "description": "Issue 71",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 540,
@@ -9154,7 +9695,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-03-23",
     "description": "Five tips for PMs working with designers — guest post by Katie Dill",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 541,
@@ -9171,7 +9713,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-03-16",
     "description": "Issue 69",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 542,
@@ -9188,7 +9731,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-03-09",
     "description": "Issue 68",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 543,
@@ -9205,7 +9749,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-03-02",
     "description": "Advice from HubSpot, Ahrefs, Intercom, Slidebean, and Webflow",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 544,
@@ -9222,7 +9767,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-02-23",
     "description": "Issue 66",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 545,
@@ -9239,7 +9785,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-02-16",
     "description": "A special edition of Lenny's Newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 546,
@@ -9256,7 +9803,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-02-09",
     "description": "by Jackie Bavaro",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 547,
@@ -9273,7 +9821,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-02-02",
     "description": "> # Q: Is it possible to increase the virality of my product?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 548,
@@ -9290,7 +9839,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-01-26",
     "description": "By April Dunford",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 549,
@@ -9307,7 +9857,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-01-19",
     "description": "> ## Q: I'm considering venturing into product management after being a software engineer for 3 years",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 550,
@@ -9324,7 +9875,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-01-12",
     "description": "> ## Q: I’m constantly feeling like my team is moving too slowly",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 551,
@@ -9341,7 +9893,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2021-01-05",
     "description": "> ## Q: I read your post about the most important bottom-up SaaS metrics to track, and I was wondering – do you have the same kind of advice",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 552,
@@ -9358,7 +9911,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-29",
     "description": "Most popular posts, tweets, and a reflection on the year",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 553,
@@ -9375,7 +9929,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-22",
     "description": "👋 Hello, I’m Lenny and welcome to a ✨ once-a-month-free-edition✨ of my newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 554,
@@ -9392,7 +9947,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-15",
     "description": "And it makes sense — SEO is one of the few remaining “free” growth channels, and still somewhat mysterious",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 555,
@@ -9409,7 +9965,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-11",
     "description": "🤩 Community Wisdom - Issue 13",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 556,
@@ -9426,7 +9983,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-08",
     "description": "This is a peek at this week’s 🔒 subscriber-only 🔒 post.",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 557,
@@ -9443,7 +10001,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-08",
     "description": "Ten strategies and 49 examples of successful buzz making",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 558,
@@ -9460,7 +10019,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-04",
     "description": "🤩 Community Wisdom - Issue 12",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 559,
@@ -9477,7 +10037,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-12-01",
     "description": "> ## Q: Should I always run an experiment when I make a change to my product?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 560,
@@ -9494,7 +10055,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-11-24",
     "description": "By Pete Kazanjy",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 561,
@@ -9511,7 +10073,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-11-17",
     "description": "> ## Q: Can you share examples of companies that found innovative growth loops, like marketplaces convincing their supply to drive their",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 562,
@@ -9528,7 +10091,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-11-10",
     "description": "> ## Q: I’m transitioning from being the first (and only) Product Manager at a small company to being a PM at a big company",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 563,
@@ -9545,7 +10109,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-11-03",
     "description": "> ## Q: I’m finding it tough to work with my manager",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 564,
@@ -9562,7 +10127,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-10-27",
     "description": "By Patrick Campbell, CEO of ProfitWell",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 565,
@@ -9579,7 +10145,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-10-20",
     "description": "Metrics to focus on, what tools to use, and how to best visualize and share these metrics",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 566,
@@ -9596,7 +10163,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-10-20",
     "description": "> ## Q: I’m curious what metrics early-stage bottom-up SaaS startups track and how they visualize these metrics –– especially metrics other",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 567,
@@ -9613,7 +10181,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-10-13",
     "description": "The biggest surprises about the switch, advice for setting yourself up for the move, and tips for being successful in the new role",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 568,
@@ -9630,7 +10199,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-10-06",
     "description": "An exclusive companion piece to today's First Round Review",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 569,
@@ -9647,7 +10217,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-09-29",
     "description": "Stories from the founders of Netflix, Uber, Airbnb, Substack, Stripe, Datadog, GitHub, Segment, Dropbox, Superhuman, Instacart, Nextdoor, and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 570,
@@ -9664,7 +10235,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-09-22",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 571,
@@ -9681,7 +10253,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-09-15",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 572,
@@ -9698,7 +10271,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-09-08",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 573,
@@ -9715,7 +10289,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-09-01",
     "description": "Practical advice for navigating the fundraising process by Marc McCabe",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 574,
@@ -9732,7 +10307,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-08-25",
     "description": "A peek at this week's 🔓 subscriber-only 🔓 post",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 575,
@@ -9749,7 +10325,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-08-25",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 576,
@@ -9766,7 +10343,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-08-18",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 577,
@@ -9783,7 +10361,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-08-11",
     "description": "Things like knowing what role to be in a company, when to quit a job, when and set out for another new adventure?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 578,
@@ -9800,7 +10379,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-08-04",
     "description": "1-pagers, strategy, GTM, and more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 579,
@@ -9817,7 +10397,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-07-28",
     "description": "Part two in our series on B2B growth strategy",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 580,
@@ -9834,7 +10415,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-07-28",
     "description": "They then worked with their power-users to figure out what the paid plans should be",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 581,
@@ -9851,7 +10433,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-07-21",
     "description": "If you find this newsletter valuable, consider sharing it with friends, or subscribe if you haven’t already 👇",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 582,
@@ -9868,7 +10451,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-07-14",
     "description": "If you find this newsletter valuable, consider sharing it with friends, or subscribe if you haven’t already 👇",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 583,
@@ -9885,7 +10469,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-07-07",
     "description": "Lessons from Figma, Stripe, Airtable, Shopify, Carta, Gusto and many many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 584,
@@ -9902,7 +10487,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-06-30",
     "description": "If you find this newsletter valuable, consider sharing it with friends, or subscribe if you haven’t already 👇",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 585,
@@ -9919,7 +10505,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-06-23",
     "description": "A free preview of this week's subscriber-only post",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 586,
@@ -9936,7 +10523,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-06-23",
     "description": "The top seven things to look for when evaluating a marketplace business idea – or any business idea",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 587,
@@ -9953,7 +10541,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-06-16",
     "description": "If you find this newsletter valuable, consider sharing it with friends or subscribe if you haven’t already 👇",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 588,
@@ -9970,7 +10559,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-06-09",
     "description": "Hello, and welcome to the free monthly editionof my weekly newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 589,
@@ -9987,7 +10577,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-06-02",
     "description": "When I talk to my users, do you have any advice on what questions I should ask them to help me know if I’m on the right track?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 590,
@@ -10004,7 +10595,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-05-26",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 591,
@@ -10021,7 +10613,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-05-19",
     "description": "Consider joining as a paid subscriber to support this newsletter 🔓",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 592,
@@ -10038,7 +10631,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-05-19",
     "description": "Each week I tackle reader questions about product, growth, working with humans, and anything else that’s stressing you out at the office",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 593,
@@ -10055,7 +10649,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-05-12",
     "description": "How to Kickstart and Scale a Marketplace Business 3",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 594,
@@ -10072,7 +10667,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-05-05",
     "description": "And surviving it to tell the tale",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 595,
@@ -10089,7 +10685,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-04-29",
     "description": "🔐 This is a preview of a subscriber-only post🔐",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 596,
@@ -10106,7 +10703,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-04-28",
     "description": "If you find this newsletter valuable, consider sharing it with friends",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 597,
@@ -10118,7 +10716,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-04-21",
     "description": "🔐 This is a free preview of a subscriber-only post 🔐",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 598,
@@ -10135,7 +10734,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-04-21",
     "description": "What tips do you have for managing your time and workload?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 599,
@@ -10152,7 +10752,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-04-14",
     "description": "Send me your questions and in return, I’ll humbly offer actionable real-talk advice",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 600,
@@ -10169,7 +10770,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-04-07",
     "description": "tl;dr: I’m adding a paid subscription plan!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 601,
@@ -10186,7 +10788,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-03-31",
     "description": "Send me your questions (just reply to this email or DM me) and in return, I’ll humbly offer some real-talk advice",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 602,
@@ -10203,7 +10806,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-03-24",
     "description": "Send me your questions (just reply to this email or DM me) and in return, I’ll humbly share free real-talk advice",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 603,
@@ -10220,7 +10824,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-03-10",
     "description": "Hello and welcome to another edition of my weekly newsletter",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 604,
@@ -10237,7 +10842,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-03-03",
     "description": "Send me your questions (just reply to this email or DM me) and in return I’ll humbly share actionable free real-talk advice",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 605,
@@ -10254,7 +10860,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-02-25",
     "description": "Hello and welcome to another edition of my weekly newsletter 👋",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 606,
@@ -10271,7 +10878,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-02-18",
     "description": "Hello and welcome to another edition of my weekly newsletter 👋",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 607,
@@ -10288,7 +10896,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-02-11",
     "description": "Send me your questions (just reply to this email or DM me) and in return I’ll give you free actionable real-talk advice 🤝",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 608,
@@ -10305,7 +10914,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-02-04",
     "description": "Send me your questions and in return I’ll give you actionable real-talk advice 🤝",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 609,
@@ -10322,7 +10932,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-01-28",
     "description": "Insights from Marc Andreessen, Elad Gil, Steve Blank, Andy Rachleff, Michael Seibel, and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 610,
@@ -10339,7 +10950,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-01-21",
     "description": "With guest contributor Jackie Bavaro - author of Cracking the PM Interview",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 611,
@@ -10356,7 +10968,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-01-14",
     "description": "With guest contributor Lex Roman - Growth Designer, Writer, Speaker",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 612,
@@ -10373,7 +10986,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2020-01-07",
     "description": "With special guest contributor Brian Balfour – Founder and CEO of Reforge",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 613,
@@ -10390,7 +11004,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-12-19",
     "description": "Insights from today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 614,
@@ -10407,7 +11022,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-12-17",
     "description": "Insights from today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 615,
@@ -10424,7 +11040,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-12-13",
     "description": "Insights from today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 616,
@@ -10441,7 +11058,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-12-10",
     "description": "Insights from today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 617,
@@ -10458,7 +11076,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-12-03",
     "description": "Rare insights from today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 618,
@@ -10475,7 +11094,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-11-25",
     "description": "Rare insights from 17 of today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 619,
@@ -10492,7 +11112,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-11-22",
     "description": "Rare insights from 17 of today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 620,
@@ -10509,7 +11130,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-11-20",
     "description": "Insights from 17 of today's biggest marketplaces, including Airbnb, DoorDash, Thumbtack, Etsy, Uber and many more",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 621,
@@ -10526,7 +11148,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-11-12",
     "description": "With special guest contributor Hunter Walk!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 622,
@@ -10543,7 +11166,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-10-29",
     "description": "### Q: What are your thoughts on communicating failure, like missing our team’s set goals?",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 623,
@@ -10560,7 +11184,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-10-22",
     "description": "With special guest contributor Hiten Shah!",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 624,
@@ -10577,7 +11202,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-10-15",
     "description": "What helped me most during that period was actually talking to a professional coach",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 625,
@@ -10594,7 +11220,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-10-08",
     "description": "I’ll tackle three reader questions each week (keeping your name and company anonymous) until you quit sending me questions",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 626,
@@ -10611,7 +11238,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-10-01",
     "description": "I’ll answer three questions each week (keeping your name and company anonymous) until you stop sending me questions",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 627,
@@ -10628,7 +11256,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-09-26",
     "description": "An excerpt from a new essay about yearly and quarterly planning just published by First Round Review",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 628,
@@ -10645,7 +11274,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-09-24",
     "description": "Thank you for all of the feedback and kind words so far",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 629,
@@ -10662,7 +11292,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-09-17",
     "description": "I was half-worried no one would take me up on the offer — instead, we now have a backlog of over two dozen intriguing questions",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 630,
@@ -10679,7 +11310,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-09-12",
     "description": "As you may have noticed it’s been relatively dormant for the past few months 😬",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 631,
@@ -10694,7 +11326,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-07-18",
     "description": "You owe your reports a better performance review",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 632,
@@ -10711,7 +11344,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-06-26",
     "description": "What I learned about growing supply at Airbnb that you can apply to your marketplace business",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 633,
@@ -10727,7 +11361,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-06-14",
     "description": "The fifteen best ways to inspire new ideas, and three to avoid",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 634,
@@ -10744,7 +11379,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-06-14",
     "description": "Create strong culture, stay laser-focused on problems, and set wildly ambitious goals",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 635,
@@ -10761,7 +11397,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-06-14",
     "description": "We think we’ll be happy when we finally get what we want (e.g",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 636,
@@ -10778,7 +11415,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-06-14",
     "description": "Figure out if this role is for you, how to make the move, and what skills you’ll need to build in order to be successful",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   },
   {
     "id": 637,
@@ -10795,7 +11433,8 @@ export const CATALOG: CatalogItem[] = [
     ],
     "date": "2019-06-14",
     "description": "We work long and hard to design an amazing experience for travelers to discover fun local things to do with other travelers",
-    "guest": null
+    "guest": null,
+    "youtube_url": null
   }
 ];
 

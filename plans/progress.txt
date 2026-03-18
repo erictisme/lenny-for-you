@@ -3,3 +3,4 @@ Task 1: Installed react-markdown, remark-gfm, shadcn collapsible & popover. Buil
 Task 2: Lenny brand redesign — Spectral serif font, coral #f47c55 primary, light mode, updated badges/cards for white bg. Build passes.
 Task 3: Fixed "Invalid filename" bug — added trimming, .md suffix, singular→plural prefix normalization, and fuzzy slug matching. Build passes.
 Task 4: Replaced Sheet (side drawer) with centered Dialog + backdrop blur. Added ReactMarkdown + remarkGfm for rendered content. Build passes.
+Task 5: Added youtube_url to CatalogItem by extracting from podcast frontmatter. Modal now shows correct links — Substack for newsletters, YouTube for podcasts. Build passes.

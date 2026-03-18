@@ -7,6 +7,7 @@ import { FeedSkeleton } from "@/components/feed-skeleton";
 import { DeepDiveModal } from "@/components/deep-dive-modal";
 import { ShareButton } from "@/components/share-button";
 import { BYOKToggle, useApiKey } from "@/components/byok-toggle";
+import { CATALOG } from "@/data/compact-index";
 import type { RankedItem } from "@/types";
 
 const LOADING_MESSAGES = [
@@ -143,6 +144,7 @@ function ResultsContent() {
         date={selectedItem?.date ?? ""}
         userInput={userInput}
         apiKey={apiKey}
+        youtubeUrl={selectedItem ? CATALOG.find(c => c.filename === selectedItem.filename)?.youtube_url ?? null : null}
       />
 
       <div className="mt-12 text-center">

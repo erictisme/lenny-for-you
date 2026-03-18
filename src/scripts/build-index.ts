@@ -39,6 +39,18 @@ interface CatalogItem {
   date: string;
   description: string;
   guest: string | null;
+  youtube_url: string | null;
+}
+
+function extractYoutubeUrl(filename: string): string | null {
+  const filePath = path.join(process.cwd(), "content", filename);
+  try {
+    const content = fs.readFileSync(filePath, "utf-8");
+    const match = content.match(/youtube_url:\s*"([^"]+)"/);
+    return match ? match[1] : null;
+  } catch {
+    return null;
+  }
 }
 
 const items: CatalogItem[] = [];
@@ -54,6 +66,7 @@ for (const p of data.podcasts) {
     date: p.date,
     description: p.description,
     guest: p.guest,
+    youtube_url: extractYoutubeUrl(p.filename),
   });
 }
 
@@ -67,6 +80,7 @@ for (const n of data.newsletters) {
     date: n.date,
     description: n.subtitle,
     guest: null,
+    youtube_url: null,
   });
 }
 
@@ -80,6 +94,7 @@ const tsContent = `export type CatalogItem = {
   date: string;
   description: string;
   guest: string | null;
+  youtube_url: string | null;
 };
 
 export const CATALOG: CatalogItem[] = ${JSON.stringify(items, null, 2)};

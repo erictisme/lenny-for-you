@@ -23,6 +23,7 @@ export function DeepDiveModal({
   date,
   userInput,
   apiKey,
+  youtubeUrl,
 }: {
   open: boolean;
   onClose: () => void;
@@ -32,6 +33,7 @@ export function DeepDiveModal({
   date: string;
   userInput: string;
   apiKey?: string | null;
+  youtubeUrl?: string | null;
 }) {
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -117,14 +119,34 @@ export function DeepDiveModal({
 
         {slug && (
           <DialogFooter>
-            <a
-              href={`https://www.lennysnewsletter.com/p/${slug}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-primary underline underline-offset-4"
-            >
-              Read full article on Lenny&apos;s Newsletter
-            </a>
+            {type === "newsletter" ? (
+              <a
+                href={`https://www.lennysnewsletter.com/p/${slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary underline underline-offset-4"
+              >
+                Read full article on Lenny&apos;s Newsletter
+              </a>
+            ) : youtubeUrl ? (
+              <a
+                href={youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary underline underline-offset-4"
+              >
+                Watch on YouTube
+              </a>
+            ) : (
+              <a
+                href="https://www.lennyspodcast.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary underline underline-offset-4"
+              >
+                Visit Lenny&apos;s Podcast
+              </a>
+            )}
           </DialogFooter>
         )}
       </DialogContent>

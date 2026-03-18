@@ -116,7 +116,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** Click card → centered modal with blur. Markdown renders as formatted text (## = heading, ** = bold, - = list). No raw syntax visible. `pnpm build` passes.
 
-- [ ] **Task 5: Add youtube_url to catalog and fix article links** (Priority: 1)
+- [x] **Task 5: Add youtube_url to catalog and fix article links** (Priority: 1)
 
   **What does "done" look like?**
   Newsletter cards link to correct Substack article. Podcast cards link to YouTube video.
