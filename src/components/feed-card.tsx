@@ -110,7 +110,7 @@ export function FeedCard({
             rel="noopener noreferrer"
             className="text-[11px] text-primary/70 hover:text-primary transition-colors"
           >
-            Get 18 coaching journeys →
+            Install skills from GitHub → Interactive coaching sessions with any article
           </a>
         </div>
 

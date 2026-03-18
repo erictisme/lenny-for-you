@@ -2,3 +2,4 @@
 Task 1: Added normalizeFilename() to deep-dive and batch-summarize routes (strips smart quotes, collapses hyphens, lowercases). Strengthened filename instruction in prompts.ts.
 Task 2: Replaced skeleton loading with Loader2 spinner + "Generating a personalized summary..." text. Widened modal from max-w-4xl to max-w-6xl.
 Task 3: Added compact CTA banner on results page with GitHub link and copyable install command.
+Task 4: Updated feed card link text to "Install skills from GitHub → Interactive coaching sessions with any article".
