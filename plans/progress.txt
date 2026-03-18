@@ -1,2 +1,3 @@
 # Ralph DEFAULT run Wed Mar 18 09:38:02 +08 2026
 Task 1: Created build-index.ts script, generated compact-index.ts (638 items + CATALOG_PROMPT export) and catalog-prompt.txt (638 lines). Added build-index npm script.
+Task 2: Created src/types/index.ts (RankedItem, DeepDiveRequest, RankRequest), src/lib/ai.ts (Gemini provider factory), src/lib/prompts.ts (ranking + deep-dive system prompts).

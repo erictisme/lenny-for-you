@@ -28,7 +28,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** Run `npx tsx src/scripts/build-index.ts`. Check that `src/data/compact-index.ts` exports an array with 638 items. Check that `src/data/catalog-prompt.txt` has 638 lines. Then run `pnpm build` to confirm the TypeScript compiles.
 
-- [ ] **Task 2: Create TypeScript types and AI provider setup** (Priority: 0 — architecture dependency)
+- [x] **Task 2: Create TypeScript types and AI provider setup** (Priority: 0 — architecture dependency)
 
   **What does "done" look like?**
   Three files exist and compile:
