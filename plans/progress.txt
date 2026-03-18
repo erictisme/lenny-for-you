@@ -1,2 +1,3 @@
 # Ralph DEFAULT run Wed Mar 18 23:45:04 +08 2026
 Task 1: Added normalizeFilename() to deep-dive and batch-summarize routes (strips smart quotes, collapses hyphens, lowercases). Strengthened filename instruction in prompts.ts.
+Task 2: Replaced skeleton loading with Loader2 spinner + "Generating a personalized summary..." text. Widened modal from max-w-4xl to max-w-6xl.

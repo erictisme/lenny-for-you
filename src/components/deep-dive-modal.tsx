@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { TypeBadge } from "@/components/type-badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Loader2 } from "lucide-react";
 
 export function DeepDiveModal({
   open,
@@ -78,7 +79,7 @@ export function DeepDiveModal({
 
   return (
     <Dialog open={open} onOpenChange={(val) => !val && onClose()}>
-      <DialogContent className="max-w-4xl w-full max-h-[80vh] flex flex-col max-sm:max-w-[calc(100%-1rem)] max-sm:max-h-[95vh]">
+      <DialogContent className="max-w-6xl w-full max-h-[80vh] flex flex-col max-sm:max-w-[calc(100%-1rem)] max-sm:max-h-[95vh]">
         <DialogHeader>
           <div className="flex items-center gap-2">
             <TypeBadge type={type} />
@@ -92,13 +93,9 @@ export function DeepDiveModal({
 
         <div className="flex-1 overflow-y-auto px-1">
           {loading && (
-            <div className="space-y-3">
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-5/6" />
-              <Skeleton className="h-4 w-4/6" />
-              <Skeleton className="h-20 w-full" />
-              <Skeleton className="h-4 w-full" />
-              <Skeleton className="h-4 w-3/4" />
+            <div className="flex flex-col items-center justify-center py-12 gap-3">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <p className="text-sm text-muted-foreground">Generating a personalized summary...</p>
             </div>
           )}
 
