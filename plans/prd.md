@@ -158,7 +158,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
   ```
   Should stream back a personalized markdown summary.
 
-- [ ] **Task 6: Landing page — hero section + text input** (Priority: 2)
+- [x] **Task 6: Landing page — hero section + text input** (Priority: 2)
 
   **What does "done" look like?**
   The home page (`src/app/page.tsx`) shows a beautiful dark-themed landing page with:

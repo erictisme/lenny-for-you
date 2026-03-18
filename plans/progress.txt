@@ -4,3 +4,4 @@ Task 2: Created src/types/index.ts (RankedItem, DeepDiveRequest, RankRequest), s
 Task 4: Created POST /api/rank route with Zod schema validation, Gemini generateObject call using CATALOG_PROMPT, error handling (400/429/500).
 Task 3: Applied Lenny-inspired dark theme to globals.css (slate-navy background, blue-500 primary accent) and layout.tsx (dark class, updated metadata).
 Task 5: Created POST /api/deep-dive route with fs-based content reading, path traversal protection, streamText streaming response.
+Task 6: Created hero.tsx, profile-input.tsx, footer.tsx components. Replaced boilerplate page.tsx with landing page.
