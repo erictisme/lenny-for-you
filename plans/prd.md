@@ -139,7 +139,7 @@ Round 1 built the functional MVP. Round 2 transforms it: Lenny brand design, syn
 
   **How to verify?** Click newsletter card → link opens Substack. Click podcast card → link opens YouTube. `pnpm build` passes.
 
-- [ ] **Task 6: New synthesis API route — /api/synthesize** (Priority: 0 — the key differentiator)
+- [x] **Task 6: New synthesis API route — /api/synthesize** (Priority: 0 — the key differentiator)
 
   **What does "done" look like?**
   A new API endpoint that takes the user's situation + the top 20 ranked items, reads ALL 20 articles, and generates a synthesized 3-4 paragraph brief that pulls insights from multiple sources into one cohesive answer to the user's situation. This is NOT a summary of individual articles — it's a NEW piece of content that cross-references and connects ideas from different guests and posts.
