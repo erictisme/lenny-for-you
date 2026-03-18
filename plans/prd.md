@@ -40,7 +40,7 @@ Testing revealed critical bugs and UX gaps. Fix them before competition submissi
 
   **How to verify?** `pnpm build` passes.
 
-- [ ] **Task 3: Add GitHub skills link + improve "Try in Claude Code" UX**
+- [x] **Task 3: Add GitHub skills link + improve "Try in Claude Code" UX**
 
   **What does "done" look like?**
   Each article card has a visible link to `https://github.com/erictisme/lenny-skills` and the "Try in Claude Code" button has a brief explanation of what it does.

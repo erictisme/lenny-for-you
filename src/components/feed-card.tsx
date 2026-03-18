@@ -100,8 +100,18 @@ export function FeedCard({
             Try in Claude Code
           </button>
           <span className="text-[10px] text-muted-foreground">
-            Requires Claude Code + Lenny MCP
+            Opens a coaching session about this article in your terminal
           </span>
+        </div>
+        <div className="mt-1.5">
+          <a
+            href="https://github.com/erictisme/lenny-skills"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] text-primary/70 hover:text-primary transition-colors"
+          >
+            Get 18 coaching journeys →
+          </a>
         </div>
 
         {item.tags.length > 0 && (
