@@ -260,7 +260,7 @@ User flow: Landing page → single text box ("tell me about your situation") →
 
   **How to verify?** Run `pnpm dev`, go to results page with a valid query, wait for cards to load, click a card. Modal/sheet should open, show loading, then display a personalized summary. Close button works. `pnpm build` passes.
 
-- [ ] **Task 9: Share button and BYOK toggle** (Priority: 3 — polish)
+- [x] **Task 9: Share button and BYOK toggle** (Priority: 3 — polish)
 
   **What does "done" look like?**
   1. A share button on the results page that copies the current URL to clipboard with a toast notification.

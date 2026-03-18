@@ -7,3 +7,4 @@ Task 5: Created POST /api/deep-dive route with fs-based content reading, path tr
 Task 6: Created hero.tsx, profile-input.tsx, footer.tsx components. Replaced boilerplate page.tsx with landing page.
 Task 7: Created type-badge, relevance-badge, feed-card, feed-skeleton components and results/page.tsx with loading/error states.
 Task 8: Created deep-dive-modal.tsx (Sheet-based side panel) and wired it into results page with selectedItem state.
+Task 9: Verified share-button.tsx, byok-toggle.tsx (with useApiKey hook) already exist and are integrated into landing page, results page, and deep-dive modal.
