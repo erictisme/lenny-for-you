@@ -17,13 +17,32 @@ function stripFrontmatter(content: string): string {
   return content;
 }
 
+function normalizeFilename(raw: string): string {
+  let name = raw.trim();
+  // Replace curly/smart quotes with straight quotes
+  name = name.replace(/[\u2018\u2019\u201A\u201B]/g, "'");
+  name = name.replace(/[\u201C\u201D\u201E\u201F]/g, '"');
+  // Lowercase everything
+  name = name.toLowerCase();
+  // Collapse multiple hyphens into single hyphen
+  name = name.replace(/-{2,}/g, "-");
+  // Trim trailing hyphens before .md
+  name = name.replace(/-+(\.md)$/, "$1");
+  // Append .md if missing
+  if (!name.endsWith(".md")) {
+    name += ".md";
+  }
+  // Fix singular prefixes
+  if (name.startsWith("newsletter/")) {
+    name = "newsletters/" + name.slice("newsletter/".length);
+  } else if (name.startsWith("podcast/")) {
+    name = "podcasts/" + name.slice("podcast/".length);
+  }
+  return name;
+}
+
 function resolveFilePath(filename: string): string | null {
-  let normalized = filename.trim();
-  if (!normalized.endsWith(".md")) normalized += ".md";
-  if (normalized.startsWith("newsletter/"))
-    normalized = "newsletters/" + normalized.slice("newsletter/".length);
-  else if (normalized.startsWith("podcast/"))
-    normalized = "podcasts/" + normalized.slice("podcast/".length);
+  let normalized = normalizeFilename(filename);
 
   if (
     !(normalized.startsWith("podcasts/") || normalized.startsWith("newsletters/")) ||

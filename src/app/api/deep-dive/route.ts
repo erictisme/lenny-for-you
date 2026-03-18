@@ -7,6 +7,30 @@ import path from "path";
 
 export const runtime = "nodejs";
 
+function normalizeFilename(raw: string): string {
+  let name = raw.trim();
+  // Replace curly/smart quotes with straight quotes
+  name = name.replace(/[\u2018\u2019\u201A\u201B]/g, "'");
+  name = name.replace(/[\u201C\u201D\u201E\u201F]/g, '"');
+  // Lowercase everything
+  name = name.toLowerCase();
+  // Collapse multiple hyphens into single hyphen
+  name = name.replace(/-{2,}/g, "-");
+  // Trim trailing hyphens before .md
+  name = name.replace(/-+(\.md)$/, "$1");
+  // Append .md if missing
+  if (!name.endsWith(".md")) {
+    name += ".md";
+  }
+  // Fix singular prefixes
+  if (name.startsWith("newsletter/")) {
+    name = "newsletters/" + name.slice("newsletter/".length);
+  } else if (name.startsWith("podcast/")) {
+    name = "podcasts/" + name.slice("podcast/".length);
+  }
+  return name;
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -27,19 +51,7 @@ export async function POST(request: Request) {
     }
 
     // Normalize the filename
-    let normalizedFilename = filename.trim();
-
-    // Append .md if missing
-    if (!normalizedFilename.endsWith(".md")) {
-      normalizedFilename += ".md";
-    }
-
-    // Fix singular prefixes
-    if (normalizedFilename.startsWith("newsletter/")) {
-      normalizedFilename = "newsletters/" + normalizedFilename.slice("newsletter/".length);
-    } else if (normalizedFilename.startsWith("podcast/")) {
-      normalizedFilename = "podcasts/" + normalizedFilename.slice("podcast/".length);
-    }
+    let normalizedFilename = normalizeFilename(filename);
 
     // Security: only allow content subdirectories
     if (

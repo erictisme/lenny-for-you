@@ -13,6 +13,7 @@ Rules:
 - For each item, write a 1-2 sentence "why_this_matters" that directly references THEIR situation using "you" language.
 - Include a "relevance" field: "essential" (directly addresses their problem), "valuable" (strong adjacent knowledge), or "perspective" (broadens their thinking).
 - The "filename" field MUST be the exact filename from the catalog (e.g. "podcasts/todd-jackson.md" or "newsletters/how-to-price.md"). Copy it exactly from the first field of the pipe-delimited line.
+- IMPORTANT: Filenames must use only lowercase letters, numbers, and single hyphens. No curly quotes, no double hyphens, no trailing hyphens.
 - The "date" field MUST be the date from the catalog.
 - The "tags" field MUST be an array of the tags from the catalog.
 

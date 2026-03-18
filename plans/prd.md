@@ -1,73 +1,17 @@
-# Lenny, For You — Round 3: Bug Fixes & UX Polish
+# Round 4: Web App Bug Fixes
 
-Testing revealed critical bugs and UX gaps. Fix them before competition submission.
+6 tasks. Fix bugs found during live testing. All changes must pass `pnpm build`.
 
 ---
 
-## Tasks
+- [x] **Task 1: Fix article-not-found errors** — Users click articles but get "not found" because the AI-generated filename doesn't exactly match the real file. Add a `normalizeFilename()` function to both `src/app/api/deep-dive/route.ts` and `src/app/api/batch-summarize/route.ts` that: (1) strips curly/smart quotes and replaces with straight quotes, (2) collapses multiple hyphens into single hyphens, (3) trims trailing hyphens before `.md`, (4) lowercases everything. Apply this function to the filename before looking up the file. Also strengthen the filename instruction in `src/lib/prompts.ts` — add a line like: "IMPORTANT: Filenames must use only lowercase letters, numbers, and single hyphens. No curly quotes, no double hyphens, no trailing hyphens."
 
-- [x] **Task 1: Fix article-not-found bug (CRITICAL)**
+- [ ] **Task 2: Deep-dive loading state + wider modal** — When a user clicks "Deep Dive" on a card, the modal opens but shows nothing while the AI generates. Fix `src/components/deep-dive-modal.tsx`: (1) Add a loading spinner (use a simple CSS spinner or lucide-react `Loader2` icon with `animate-spin`) and the text "Generating a personalized summary..." that shows while waiting for the stream to start. (2) Change the modal width from `max-w-4xl` to `max-w-6xl` so the content has more room.
 
-  **What does "done" look like?**
-  Deep-dive modal loads actual article content when you click a card. No more "Article not found" errors. Synthesis brief loads successfully (no red error banner).
+- [ ] **Task 3: Results page CTA** — Add a compact banner/card in `src/app/results/page.tsx` between the user's prompt section and the synthesis brief section. The banner should say something like: "Want to go deeper? Install Lenny coaching skills for interactive 1-on-1 sessions with any article." Include: (1) A link to `https://github.com/erictisme/lenny-skills` that opens in a new tab, (2) The install command `git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh` in a copyable code block or monospace text. Keep it visually compact — not a huge hero section, just a subtle CTA that fits the page design.
 
-  **Root cause:** `src/data/compact-index.ts` builds CATALOG_PROMPT with `i.id` (a number) as the first pipe-delimited field, but `src/lib/prompts.ts` tells Gemini the first field is "filename". So Gemini invents filenames from titles instead of using real slugified filenames.
+- [ ] **Task 4: Feed card link text** — In `src/components/feed-card.tsx`, find the text that says "Get 18 coaching journeys →" (or similar CTA text on the cards). Change it to: "Install skills from GitHub → Interactive coaching sessions with any article". Make sure the link still points to `https://github.com/erictisme/lenny-skills`.
 
-  **Steps:**
-  1. Open `src/data/compact-index.ts` and find the line that builds each CATALOG_PROMPT entry (the template literal with pipe-delimited fields)
-  2. Change the first field from `i.id` (or whatever numeric field is there) to `i.filename`
-  3. Open `src/lib/prompts.ts` and verify the format description matches: first field should be described as "filename"
-  4. Run `pnpm build` — must pass
-  5. Verify by checking the generated CATALOG_PROMPT output: lines should start with paths like `newsletters/some-article-slug.md|...` NOT numbers like `0|...`
+- [ ] **Task 5: Fix broken external links** — In `src/components/deep-dive-modal.tsx`, the deep-dive summaries include per-article Substack URLs that are often wrong (AI hallucinates the exact URL). Fix: (1) Remove any logic that generates or displays per-article Substack URLs. (2) For newsletter references, link to the Lenny's Newsletter homepage (`https://www.lennysnewsletter.com/`). (3) Keep YouTube URLs for podcast episodes — those are reliable because they come from the content metadata. If YouTube URLs are in the content data, preserve them. Only remove the unreliable Substack article URLs.
 
-  **What should it NOT touch?** Don't change the ranking logic, the Zod schema, or the deep-dive/batch-summarize routes — they already expect filenames.
-
-  **How to verify?** `pnpm build` passes. Inspect the CATALOG_PROMPT constant — first field of each line is a real filename from content/.
-
-- [x] **Task 2: Make hero text more prominent**
-
-  **What does "done" look like?**
-  The "650 posts. 300 guests." heading is roughly 2x larger than current size. The numbers stand out visually. The page feels like it has a clear, bold headline.
-
-  **Steps:**
-  1. Open `src/components/hero.tsx`
-  2. Increase the main heading size — currently `text-4xl sm:text-5xl`, change to approximately `text-5xl sm:text-7xl`
-  3. Make the numbers "650" and "300" visually distinct — either wrap them in a span with primary color, extra bold weight, or both
-  4. Keep the subheading ("Tell me about your situation...") smaller as contrast
-  5. Run `pnpm build` — must pass
-
-  **What should it NOT touch?** Don't change the input form, button, or page layout. Just the hero text sizing and emphasis.
-
-  **How to verify?** `pnpm build` passes.
-
-- [x] **Task 3: Add GitHub skills link + improve "Try in Claude Code" UX**
-
-  **What does "done" look like?**
-  Each article card has a visible link to `https://github.com/erictisme/lenny-skills` and the "Try in Claude Code" button has a brief explanation of what it does.
-
-  **Steps:**
-  1. Open `src/components/feed-card.tsx`
-  2. Find the "Try in Claude Code" button section
-  3. Below the button, add a brief explanation: "Opens a coaching session about this article in your terminal"
-  4. Change the help text from "Requires Claude Code + Lenny MCP" to include a link to the GitHub skills repo
-  5. Add a visible link: something like "Get 18 coaching journeys →" linking to `https://github.com/erictisme/lenny-skills`
-  6. The link should open in a new tab (`target="_blank" rel="noopener noreferrer"`)
-  7. Run `pnpm build` — must pass
-
-  **What should it NOT touch?** Don't change the copy-to-clipboard functionality of the button itself. Don't remove the "Try in Claude Code" button. Just add context around it.
-
-  **How to verify?** `pnpm build` passes. The GitHub link is visible on each card.
-
-- [x] **Task 4: Final build verification**
-
-  **What does "done" look like?**
-  `pnpm build` passes with zero errors. All previous tasks are committed.
-
-  **Steps:**
-  1. Run `pnpm build`
-  2. If it fails, fix the errors
-  3. Confirm all 3 previous tasks are committed
-
-  **What should it NOT touch?** Nothing new — just verify.
-
-  **How to verify?** `pnpm build` exits with code 0.
+- [ ] **Task 6: Final build check** — Run `pnpm build` and verify it passes with zero errors. Check that all 5 previous changes are present: (1) normalizeFilename exists in both API routes, (2) deep-dive modal has loading spinner and max-w-6xl, (3) results page has CTA banner, (4) feed card has updated link text, (5) no broken Substack URLs in deep-dive modal. If build fails, fix the errors. This task is only done when build passes clean.

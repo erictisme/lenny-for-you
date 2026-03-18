@@ -1,5 +1,2 @@
-# Ralph DEFAULT run Wed Mar 18 14:49:02 +08 2026
-Task 1: Fixed article-not-found bug — changed CATALOG_PROMPT first field from i.id (number) to i.filename in both compact-index.ts and build-index.ts, plus catalog-prompt.txt generation.
-Task 2: Made hero text larger (text-5xl/sm:text-7xl) and highlighted numbers "650" and "300" with primary color + extrabold.
-Task 3: Updated "Try in Claude Code" help text to explain what it does, added "Get 18 coaching journeys →" link to GitHub skills repo.
-Task 4: Final build verification — tsc --noEmit and pnpm build both pass clean.
+# Ralph DEFAULT run Wed Mar 18 23:45:04 +08 2026
+Task 1: Added normalizeFilename() to deep-dive and batch-summarize routes (strips smart quotes, collapses hyphens, lowercases). Strengthened filename instruction in prompts.ts.
