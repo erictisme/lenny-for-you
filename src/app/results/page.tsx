@@ -274,23 +274,26 @@ function ResultsContent() {
       {!loading && !error && (
         <>
           {/* Skills CTA */}
-          <div className="mb-6 rounded-lg border border-border/50 bg-muted/30 px-4 py-3">
-            <p className="text-sm font-medium text-foreground">
-              CLI setup first:
-            </p>
-            <div className="mt-2 flex items-center gap-2">
+          <div id="cli-setup" className="mb-6 rounded-lg border border-border bg-background/70 px-4 py-3">
+            <div className="flex items-center justify-between">
+              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                CLI setup
+              </p>
+              <span className="text-[10px] text-muted-foreground">one-time</span>
+            </div>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
               <a
                 href="https://www.lennysdata.com/access/mcp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-medium text-primary underline underline-offset-4"
+                className="text-xs text-foreground underline underline-offset-4 hover:text-primary"
                 onClick={() => {
                   if (typeof window !== "undefined") {
                     localStorage.setItem("lenny-mcp-ready", "1");
                   }
                 }}
               >
-                0) Connect Lenny MCP
+                0) Connect MCP
               </a>
               <button
                 onClick={() => {
@@ -305,32 +308,20 @@ function ResultsContent() {
                 }}
                 className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
                   mcpLinkCopied
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-primary/30 text-primary hover:bg-primary/10"
+                    ? "border-foreground/20 bg-foreground text-background"
+                    : "border-border bg-background text-foreground hover:bg-muted"
                 }`}
               >
                 {mcpLinkCopied ? "Copied!" : "Copy link"}
               </button>
-            </div>
-
-            <p className="mt-2 text-sm font-medium text-foreground">
-              1) Install Lenny coaching skills:
-            </p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              GitHub:{" "}
               <a
                 href="https://github.com/erictisme/lenny-skills"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary underline underline-offset-4"
+                className="text-xs text-foreground underline underline-offset-4 hover:text-primary"
               >
-                erictisme/lenny-skills
+                1) Install skills
               </a>
-            </p>
-            <div className="mt-2 flex items-center gap-2">
-              <code className="block flex-1 text-xs text-muted-foreground bg-background/50 rounded px-2 py-1.5 select-all">
-                git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh
-              </code>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(
@@ -344,13 +335,16 @@ function ResultsContent() {
                 }}
                 className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
                   skillsInstallCopied
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-primary/30 text-primary hover:bg-primary/10"
+                    ? "border-foreground/20 bg-foreground text-background"
+                    : "border-border bg-background text-foreground hover:bg-muted"
                 }`}
               >
-                {skillsInstallCopied ? "Copied!" : "Copy"}
+                {skillsInstallCopied ? "Copied!" : "Copy install"}
               </button>
             </div>
+            <p className="mt-2 text-[10px] text-muted-foreground">
+              Then click <span className="font-medium text-foreground">Run in CLI</span> on any card.
+            </p>
           </div>
 
           {/* Synthesis Brief */}
