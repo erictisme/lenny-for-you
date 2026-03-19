@@ -1,13 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { useState, type MouseEvent } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TypeBadge } from "@/components/type-badge";
 import { RelevanceBadge } from "@/components/relevance-badge";
-import { Skeleton } from "@/components/ui/skeleton";
 import type { RankedItem } from "@/types";
+
+const INSTALL_COMMAND =
+  "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh";
+
+function markInstallCommandCopied() {
+  if (typeof window === "undefined") return;
+  localStorage.setItem("lenny-skills-install-copied", "1");
+}
+
+function hasSeenInstallCommand() {
+  if (typeof window === "undefined") return false;
+  return localStorage.getItem("lenny-skills-install-copied") === "1";
+}
 
 export function FeedCard({
   item,
@@ -15,80 +25,48 @@ export function FeedCard({
   index = 0,
   defaultExpanded = false,
   userInput,
-  apiKey,
 }: {
   item: RankedItem;
   onClick: () => void;
   index?: number;
   defaultExpanded?: boolean;
   userInput?: string;
-  apiKey?: string | null;
 }) {
   const [expanded, setExpanded] = useState(defaultExpanded);
-  const [summary, setSummary] = useState<string | null>(null);
-  const [summaryLoading, setSummaryLoading] = useState(false);
-  const [summaryError, setSummaryError] = useState<string | null>(null);
-  const [summaryFetched, setSummaryFetched] = useState(false);
+  const [cliCopied, setCliCopied] = useState(false);
+  const [installCopied, setInstallCopied] = useState(false);
 
-  useEffect(() => {
-    if (!expanded || summaryFetched || !userInput) return;
+  const handleInstallCopy = () => {
+    navigator.clipboard.writeText(INSTALL_COMMAND);
+    markInstallCommandCopied();
+    setInstallCopied(true);
+    setTimeout(() => setInstallCopied(false), 2000);
+  };
 
-    let cancelled = false;
-    setSummaryFetched(true);
-    setSummaryLoading(true);
-    setSummaryError(null);
+  const handleCliCopy = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
 
-    async function fetchSummary() {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 25000);
-      try {
-        const res = await fetch("/api/batch-summarize", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          signal: controller.signal,
-          body: JSON.stringify({
-            userInput,
-            filenames: [item.filename],
-            ...(apiKey ? { apiKey } : {}),
-          }),
-        });
+    const hasInstalled = hasSeenInstallCommand();
+    if (!hasInstalled) {
+      const proceed = window.confirm(
+        "Before this works, install Lenny skills first. Click OK if you already installed them. Click Cancel to copy the install command now."
+      );
 
-        if (!res.ok) {
-          throw new Error("Failed to summarize");
-        }
-
-        const data = await res.json();
-        const nextSummary = data?.summaries?.[item.filename];
-
-        if (!cancelled) {
-          setSummary(typeof nextSummary === "string" ? nextSummary : null);
-        }
-      } catch (error) {
-        if (!cancelled) {
-          const isAbort =
-            error instanceof Error && error.name === "AbortError";
-          setSummaryError(
-            isAbort
-              ? "Summary took too long. Please try again."
-              : error instanceof Error
-                ? error.message
-                : "Could not load summary"
-          );
-        }
-      } finally {
-        clearTimeout(timeoutId);
-        if (!cancelled) {
-          setSummaryLoading(false);
-        }
+      if (!proceed) {
+        handleInstallCopy();
+        return;
       }
     }
 
-    fetchSummary();
+    const sanitized = userInput
+      ? userInput.replace(/"/g, "'").replace(/\s+/g, " ").trim()
+      : "";
 
-    return () => {
-      cancelled = true;
-    };
-  }, [expanded, summaryFetched, userInput, item.filename, apiKey]);
+    const copyStr = `/lenny-learn "${item.filename}${sanitized ? ` | ${sanitized}` : ""}"`;
+    navigator.clipboard.writeText(copyStr);
+    setCliCopied(true);
+    setTimeout(() => setCliCopied(false), 2000);
+  };
 
   return (
     <Card
@@ -106,6 +84,7 @@ export function FeedCard({
           {item.guest && ` · ${item.guest}`}
         </p>
       </CardHeader>
+
       <CardContent>
         <div className="rounded-lg border-l-2 border-primary/50 bg-primary/5 px-4 py-3 text-sm leading-relaxed">
           {item.why_this_matters}
@@ -125,75 +104,56 @@ export function FeedCard({
           </button>
 
           {expanded && (
-            <div className="mt-2">
-              {summaryLoading ? (
-                <div className="space-y-2">
-                  <Skeleton className="h-3 w-full" />
-                  <Skeleton className="h-3 w-5/6" />
-                  <Skeleton className="h-3 w-4/6" />
-                </div>
-              ) : summary ? (
-                <div className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground text-sm leading-relaxed">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{summary}</ReactMarkdown>
-                </div>
-              ) : (
-                <div className="text-xs text-muted-foreground">
-                  {summaryError ? (
-                    <>
-                      Couldn&apos;t load summary. {" "}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSummaryFetched(false);
-                          setSummaryError(null);
-                        }}
-                        className="underline underline-offset-4"
-                      >
-                        Try again
-                      </button>
-                    </>
-                  ) : (
-                    "No summary available."
-                  )}
-                </div>
+            <div className="mt-2 rounded-md bg-muted/40 p-3 text-sm text-foreground/90">
+              <p>{item.why_this_matters}</p>
+              {item.tags.length > 0 && (
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Focus areas: {item.tags.slice(0, 4).join(", ")}
+                </p>
               )}
             </div>
           )}
         </div>
 
         <div className="mt-3 flex items-center gap-2">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              const sanitized = userInput
-                ? userInput.replace(/"/g, "'").replace(/\s+/g, " ").trim()
-                : "";
-              const copyStr = `/lenny-learn "${item.filename}${sanitized ? ` | ${sanitized}` : ""}"`;
-              navigator.clipboard.writeText(copyStr);
-              const btn = e.currentTarget;
-              btn.textContent = "Copied!";
-              setTimeout(() => {
-                btn.textContent = "Learn this in your CLI";
-              }, 2000);
-            }}
-            className="text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-md px-2.5 py-1"
-          >
-            Learn this in your CLI
-          </button>
-          <span className="text-[10px] text-muted-foreground">
-            Requires Lenny MCP + installed skills
-          </span>
-        </div>
-
-        <div className="mt-1.5">
           <a
             href="https://github.com/erictisme/lenny-skills"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] text-primary/70 hover:text-primary transition-colors"
+            className="text-xs font-medium text-primary underline underline-offset-4"
+            onClick={(e) => e.stopPropagation()}
           >
-            Install skills from GitHub → Interactive coaching sessions with any article
+            1) Install skills first (GitHub)
           </a>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleInstallCopy();
+            }}
+            className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
+              installCopied
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-primary/30 text-primary hover:bg-primary/10"
+            }`}
+          >
+            {installCopied ? "Copied!" : "Copy install"}
+          </button>
+        </div>
+
+        <div className="mt-2 flex items-center gap-2">
+          <button
+            onClick={handleCliCopy}
+            className={`text-xs font-medium transition-colors border rounded-md px-2.5 py-1 ${
+              cliCopied
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-primary/30 text-primary hover:bg-primary/10"
+            }`}
+          >
+            {cliCopied ? "Copied!" : "2) Learn this in your CLI"}
+          </button>
+          <span className="text-[10px] text-muted-foreground">
+            Requires Lenny MCP
+          </span>
         </div>
 
         {item.tags.length > 0 && (

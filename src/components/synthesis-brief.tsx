@@ -69,7 +69,7 @@ export function SynthesisBrief({
                 }}
                 className={`shrink-0 rounded-md border px-3 py-2 text-xs font-medium transition-colors ${
                   copied
-                    ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-300"
+                    ? "border-primary bg-primary text-primary-foreground"
                     : "border-primary/30 text-primary hover:bg-primary/10"
                 }`}
               >
