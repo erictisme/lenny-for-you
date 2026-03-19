@@ -41,10 +41,10 @@ export function FeedCard({
   const [installCopied, setInstallCopied] = useState(false);
   const [mcpCopied, setMcpCopied] = useState(false);
 
-  const buttonStateClass = (active: boolean) =>
+  const copyButtonClass = (active: boolean) =>
     active
-      ? "border-primary bg-primary text-primary-foreground"
-      : "border-primary/30 text-primary hover:bg-primary/10";
+      ? "border-foreground/20 bg-foreground text-background"
+      : "border-border bg-background text-foreground hover:bg-muted";
 
   const handleMcpCopy = () => {
     navigator.clipboard.writeText(MCP_SETUP_URL);
@@ -142,63 +142,80 @@ export function FeedCard({
           )}
         </div>
 
-        <div className="mt-3 rounded-md border border-border/60 bg-muted/20 p-3 space-y-2">
-          <p className="text-xs font-medium text-foreground">Before CLI:</p>
-
-          <div className="flex items-center gap-2">
-            <a
-              href={MCP_SETUP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-primary underline underline-offset-4"
-              onClick={(e) => {
-                e.stopPropagation();
-                markLocalFlag(MCP_READY_KEY);
-              }}
-            >
-              0) Connect Lenny MCP
-            </a>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleMcpCopy();
-              }}
-              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${buttonStateClass(mcpCopied)}`}
-            >
-              {mcpCopied ? "Copied!" : "Copy link"}
-            </button>
+        <div className="mt-3 rounded-lg border border-border bg-background/70 p-3">
+          <div className="mb-2 flex items-center justify-between">
+            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+              CLI Setup
+            </p>
+            <span className="text-[10px] text-muted-foreground">one-time</span>
           </div>
 
-          <div className="flex items-center gap-2">
-            <a
-              href="https://github.com/erictisme/lenny-skills"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-primary underline underline-offset-4"
-              onClick={(e) => e.stopPropagation()}
-            >
-              1) Install skills (GitHub)
-            </a>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                handleInstallCopy();
-              }}
-              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${buttonStateClass(installCopied)}`}
-            >
-              {installCopied ? "Copied!" : "Copy install"}
-            </button>
+          <div className="space-y-2">
+            <div className="grid grid-cols-[1fr_auto] items-center gap-2">
+              <a
+                href={MCP_SETUP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs text-foreground hover:underline underline-offset-4"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  markLocalFlag(MCP_READY_KEY);
+                }}
+              >
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-muted text-[10px] font-semibold text-muted-foreground">
+                  0
+                </span>
+                Connect Lenny MCP
+              </a>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleMcpCopy();
+                }}
+                className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${copyButtonClass(mcpCopied)}`}
+              >
+                {mcpCopied ? "Copied!" : "Copy link"}
+              </button>
+            </div>
+
+            <div className="grid grid-cols-[1fr_auto] items-center gap-2">
+              <a
+                href="https://github.com/erictisme/lenny-skills"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs text-foreground hover:underline underline-offset-4"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-muted text-[10px] font-semibold text-muted-foreground">
+                  1
+                </span>
+                Install skills (GitHub)
+              </a>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleInstallCopy();
+                }}
+                className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${copyButtonClass(installCopied)}`}
+              >
+                {installCopied ? "Copied!" : "Copy install"}
+              </button>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="mt-3 flex items-center gap-2">
             <button
               onClick={handleCliCopy}
-              className={`text-xs font-medium transition-colors border rounded-md px-2.5 py-1 ${buttonStateClass(cliCopied)}`}
+              className={`rounded-md border px-2.5 py-1 text-xs font-medium transition-colors ${
+                cliCopied
+                  ? "border-foreground/20 bg-foreground text-background"
+                  : "border-primary/40 bg-primary/10 text-foreground hover:bg-primary/15"
+              }`}
             >
-              {cliCopied ? "Copied!" : "2) Learn this in your CLI"}
+              {cliCopied ? "Copied!" : "Run in CLI"}
             </button>
             <span className="text-[10px] text-muted-foreground">
-              Runs `/lenny-learn` with your full context
+              uses `/lenny-learn` with your context
             </span>
           </div>
         </div>
