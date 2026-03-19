@@ -22,7 +22,6 @@ export function DeepDiveModal({
   type,
   date,
   userInput,
-  apiKey,
   youtubeUrl,
 }: {
   open: boolean;
@@ -32,7 +31,6 @@ export function DeepDiveModal({
   type: "podcast" | "newsletter";
   date: string;
   userInput: string;
-  apiKey?: string | null;
   youtubeUrl?: string | null;
 }) {
   const [content, setContent] = useState<string | null>(null);
@@ -52,7 +50,7 @@ export function DeepDiveModal({
         const res = await fetch("/api/deep-dive", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ filename, userInput, ...(apiKey ? { apiKey } : {}) }),
+          body: JSON.stringify({ filename, userInput }),
         });
 
         if (!res.ok) {
@@ -70,7 +68,7 @@ export function DeepDiveModal({
     }
 
     fetchDeepDive();
-  }, [open, filename, userInput, apiKey]);
+  }, [open, filename, userInput]);
 
   return (
     <Dialog open={open} onOpenChange={(val) => !val && onClose()}>

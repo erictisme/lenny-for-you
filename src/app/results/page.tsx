@@ -7,7 +7,6 @@ import { FeedSkeleton } from "@/components/feed-skeleton";
 import { SynthesisBrief } from "@/components/synthesis-brief";
 import { DeepDiveModal } from "@/components/deep-dive-modal";
 import { ShareButton } from "@/components/share-button";
-import { BYOKToggle, useApiKey } from "@/components/byok-toggle";
 import { CATALOG } from "@/data/compact-index";
 import type { RankedItem } from "@/types";
 
@@ -17,6 +16,10 @@ const LOADING_MESSAGES = [
   "Finding your matches…",
   "Ranking by relevance…",
 ];
+
+const MCP_SETUP_URL = "https://www.lennysdata.com/access/mcp";
+const INSTALL_COMMAND =
+  "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh";
 
 function ResultsContent() {
   const searchParams = useSearchParams();
@@ -28,14 +31,15 @@ function ResultsContent() {
   const [error, setError] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<RankedItem | null>(null);
   const [loadingMsgIndex, setLoadingMsgIndex] = useState(0);
-  const apiKey = useApiKey();
-  const [skillsInstallCopied, setSkillsInstallCopied] = useState(false);
-  const [mcpLinkCopied, setMcpLinkCopied] = useState(false);
 
   // Synthesis state
   const [synthesisContent, setSynthesisContent] = useState("");
   const [synthesisLoading, setSynthesisLoading] = useState(false);
   const [synthesisError, setSynthesisError] = useState<string | null>(null);
+
+  // Batch summary state
+  const [summaries, setSummaries] = useState<Record<string, string | null>>({});
+  const [summariesLoading, setSummariesLoading] = useState(false);
 
   // Load more state
   const [loadingMore, setLoadingMore] = useState(false);
@@ -45,6 +49,10 @@ function ResultsContent() {
   // Edit mode
   const [editing, setEditing] = useState(false);
   const [editText, setEditText] = useState("");
+
+  // CLI setup copy states
+  const [mcpLinkCopied, setMcpLinkCopied] = useState(false);
+  const [skillsInstallCopied, setSkillsInstallCopied] = useState(false);
 
   const userInput = q
     ? decodeURIComponent(escape(atob(q)))
@@ -59,11 +67,7 @@ function ResultsContent() {
         const res = await fetch("/api/synthesize", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            userInput: input,
-            filenames,
-            ...(apiKey ? { apiKey } : {}),
-          }),
+          body: JSON.stringify({ userInput: input, filenames }),
         });
         if (!res.ok) {
           const data = await res.json().catch(() => null);
@@ -88,7 +92,35 @@ function ResultsContent() {
         setSynthesisLoading(false);
       }
     },
-    [apiKey]
+    []
+  );
+
+  const fetchBatchSummaries = useCallback(
+    async (input: string, filenames: string[]) => {
+      setSummariesLoading(true);
+      const batches: string[][] = [];
+      for (let i = 0; i < filenames.length; i += 10) {
+        batches.push(filenames.slice(i, i + 10));
+      }
+
+      for (const batch of batches) {
+        try {
+          const res = await fetch("/api/batch-summarize", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userInput: input, filenames: batch }),
+          });
+          if (res.ok) {
+            const data = await res.json();
+            setSummaries((prev) => ({ ...prev, ...data.summaries }));
+          }
+        } catch {
+          // Continue with other batches even if one fails
+        }
+      }
+      setSummariesLoading(false);
+    },
+    []
   );
 
   useEffect(() => {
@@ -102,7 +134,7 @@ function ResultsContent() {
         const res = await fetch("/api/rank", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userInput, ...(apiKey ? { apiKey } : {}) }),
+          body: JSON.stringify({ userInput }),
         });
 
         if (!res.ok) {
@@ -119,8 +151,9 @@ function ResultsContent() {
         const filenames = rankedItems.map((it) => it.filename);
         loadedFilenamesRef.current = filenames;
 
-        // Start synthesis
+        // Start synthesis and batch summaries in parallel
         fetchSynthesis(userInput!, filenames);
+        fetchBatchSummaries(userInput!, filenames);
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Something went wrong"
@@ -131,7 +164,7 @@ function ResultsContent() {
     }
 
     fetchRankings();
-  }, [userInput, router, apiKey, fetchSynthesis]);
+  }, [userInput, router, fetchSynthesis, fetchBatchSummaries]);
 
   useEffect(() => {
     if (!loading) return;
@@ -151,7 +184,6 @@ function ResultsContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           userInput: `${userInput}\n\nIMPORTANT: Do NOT include these already-selected items: [${excludeList}]. Select the NEXT 20 most relevant items.`,
-          ...(apiKey ? { apiKey } : {}),
         }),
       });
 
@@ -168,6 +200,7 @@ function ResultsContent() {
           ...loadedFilenamesRef.current,
           ...newFilenames,
         ];
+        fetchBatchSummaries(userInput, newFilenames);
       }
     } catch {
       // Silently fail on load more
@@ -192,10 +225,7 @@ function ResultsContent() {
           <h1 className="text-3xl font-bold tracking-tight">
             Your Personalized Lenny Feed
           </h1>
-          <div className="flex items-center gap-2">
-            <ShareButton />
-            <BYOKToggle />
-          </div>
+          <ShareButton />
         </div>
 
         {/* User query with edit */}
@@ -273,30 +303,20 @@ function ResultsContent() {
 
       {!loading && !error && (
         <>
-          {/* Skills CTA */}
+          {/* CLI setup bar */}
           <div id="cli-setup" className="mb-4 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <span>CLI setup:</span>
             <a
-              href="https://www.lennysdata.com/access/mcp"
+              href={MCP_SETUP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground underline underline-offset-4 hover:text-primary"
-              onClick={() => {
-                if (typeof window !== "undefined") {
-                  localStorage.setItem("lenny-mcp-ready", "1");
-                }
-              }}
             >
               Connect MCP
             </a>
             <button
               onClick={() => {
-                navigator.clipboard.writeText(
-                  "https://www.lennysdata.com/access/mcp"
-                );
-                if (typeof window !== "undefined") {
-                  localStorage.setItem("lenny-mcp-ready", "1");
-                }
+                navigator.clipboard.writeText(MCP_SETUP_URL);
                 setMcpLinkCopied(true);
                 setTimeout(() => setMcpLinkCopied(false), 2000);
               }}
@@ -308,7 +328,7 @@ function ResultsContent() {
             >
               {mcpLinkCopied ? "Copied!" : "Copy MCP link"}
             </button>
-            <span className="text-muted-foreground">•</span>
+            <span className="text-muted-foreground">&middot;</span>
             <a
               href="https://github.com/erictisme/lenny-skills"
               target="_blank"
@@ -319,12 +339,7 @@ function ResultsContent() {
             </a>
             <button
               onClick={() => {
-                navigator.clipboard.writeText(
-                  "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh"
-                );
-                if (typeof window !== "undefined") {
-                  localStorage.setItem("lenny-skills-install-copied", "1");
-                }
+                navigator.clipboard.writeText(INSTALL_COMMAND);
                 setSkillsInstallCopied(true);
                 setTimeout(() => setSkillsInstallCopied(false), 2000);
               }}
@@ -355,6 +370,9 @@ function ResultsContent() {
                 item={item}
                 index={i}
                 onClick={() => setSelectedItem(item)}
+                summary={summaries[item.filename] ?? null}
+                summaryLoading={summariesLoading && !(item.filename in summaries)}
+                defaultExpanded={i === 0}
                 userInput={userInput}
               />
             ))}
@@ -383,7 +401,6 @@ function ResultsContent() {
         type={selectedItem?.type ?? "newsletter"}
         date={selectedItem?.date ?? ""}
         userInput={userInput}
-        apiKey={apiKey}
         youtubeUrl={selectedItem ? CATALOG.find(c => c.filename === selectedItem.filename)?.youtube_url ?? null : null}
       />
 
