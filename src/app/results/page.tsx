@@ -370,7 +370,6 @@ function ResultsContent() {
                 item={item}
                 index={i}
                 onClick={() => setSelectedItem(item)}
-                defaultExpanded={i === 0}
                 userInput={userInput}
               />
             ))}

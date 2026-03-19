@@ -27,16 +27,13 @@ export function FeedCard({
   item,
   onClick,
   index = 0,
-  defaultExpanded = false,
   userInput,
 }: {
   item: RankedItem;
   onClick: () => void;
   index?: number;
-  defaultExpanded?: boolean;
   userInput?: string;
 }) {
-  const [expanded, setExpanded] = useState(defaultExpanded);
   const [cliCopied, setCliCopied] = useState(false);
   const [installCopied, setInstallCopied] = useState(false);
   const [mcpCopied, setMcpCopied] = useState(false);
@@ -115,31 +112,6 @@ export function FeedCard({
       <CardContent>
         <div className="rounded-lg border-l-2 border-primary/50 bg-primary/5 px-4 py-3 text-sm leading-relaxed">
           {item.why_this_matters}
-        </div>
-
-        <div className="mt-3">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setExpanded(!expanded);
-            }}
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {expanded
-              ? "Hide personalized summary ▲"
-              : "View personalized summary ▼"}
-          </button>
-
-          {expanded && (
-            <div className="mt-2 rounded-md bg-muted/40 p-3 text-sm text-foreground/90">
-              <p>{item.why_this_matters}</p>
-              {item.tags.length > 0 && (
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Focus areas: {item.tags.slice(0, 4).join(", ")}
-                </p>
-              )}
-            </div>
-          )}
         </div>
 
         <div className="mt-3 rounded-lg border border-border bg-background/70 p-3">
