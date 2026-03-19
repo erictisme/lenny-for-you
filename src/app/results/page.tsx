@@ -50,8 +50,7 @@ function ResultsContent() {
   const [editing, setEditing] = useState(false);
   const [editText, setEditText] = useState("");
 
-  // CLI setup copy states
-  const [mcpLinkCopied, setMcpLinkCopied] = useState(false);
+  // CLI setup copy state
   const [skillsInstallCopied, setSkillsInstallCopied] = useState(false);
 
   const userInput = q
@@ -306,6 +305,7 @@ function ResultsContent() {
           {/* CLI setup bar */}
           <div id="cli-setup" className="mb-4 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <span>CLI setup:</span>
+            <span className="text-foreground">Step 1.</span>
             <a
               href={MCP_SETUP_URL}
               target="_blank"
@@ -314,21 +314,8 @@ function ResultsContent() {
             >
               Connect MCP
             </a>
-            <button
-              onClick={() => {
-                navigator.clipboard.writeText(MCP_SETUP_URL);
-                setMcpLinkCopied(true);
-                setTimeout(() => setMcpLinkCopied(false), 2000);
-              }}
-              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
-                mcpLinkCopied
-                  ? "border-foreground/20 bg-foreground text-background"
-                  : "border-border bg-background text-foreground hover:bg-muted"
-              }`}
-            >
-              {mcpLinkCopied ? "Copied!" : "Copy MCP link"}
-            </button>
             <span className="text-muted-foreground">&middot;</span>
+            <span className="text-foreground">Step 2.</span>
             <a
               href="https://github.com/erictisme/lenny-skills"
               target="_blank"
