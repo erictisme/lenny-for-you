@@ -12,8 +12,11 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { TypeBadge } from "@/components/type-badge";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Loader2 } from "lucide-react";
+
+function getLennySearchUrl(title: string) {
+  return `https://www.lennysnewsletter.com/search?q=${encodeURIComponent(title)}`;
+}
 
 export function DeepDiveModal({
   open,
@@ -39,7 +42,8 @@ export function DeepDiveModal({
   const [content, setContent] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [cliBtnText, setCliBtnText] = useState("Learn interactively in Claude Code");
+  const [cliBtnText, setCliBtnText] = useState("Learn this in your CLI");
+  const articleUrl = getLennySearchUrl(title);
 
   useEffect(() => {
     if (!open || !filename) return;
@@ -115,15 +119,18 @@ export function DeepDiveModal({
             <button
               onClick={() => {
                 const sanitized = userInput ? userInput.replace(/"/g, "'").slice(0, 200) + (userInput.length > 200 ? "..." : "") : "";
-                const copyStr = `claude /lenny-learn "${filename}${sanitized ? ` | ${sanitized}` : ""}"`;
+                const copyStr = `/lenny-learn "${filename}${sanitized ? ` | ${sanitized}` : ""}"`;
                 navigator.clipboard.writeText(copyStr);
                 setCliBtnText("Copied!");
-                setTimeout(() => setCliBtnText("Learn interactively in Claude Code"), 2000);
+                setTimeout(() => setCliBtnText("Learn this in your CLI"), 2000);
               }}
               className="text-sm text-primary underline underline-offset-4"
             >
               {cliBtnText}
             </button>
+            <span className="text-xs text-muted-foreground">
+              Requires Lenny MCP + installed skills
+            </span>
             {youtubeUrl && (
               <a
                 href={youtubeUrl}
@@ -135,12 +142,12 @@ export function DeepDiveModal({
               </a>
             )}
             <a
-              href="https://www.lennysnewsletter.com/"
+              href={articleUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-primary underline underline-offset-4"
             >
-              Visit Lenny&apos;s Newsletter
+              Open on Lenny&apos;s Newsletter
             </a>
           </DialogFooter>
         )}

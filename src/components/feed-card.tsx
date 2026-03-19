@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -9,41 +9,94 @@ import { RelevanceBadge } from "@/components/relevance-badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { RankedItem } from "@/types";
 
+function getLennySearchUrl(title: string) {
+  return `https://www.lennysnewsletter.com/search?q=${encodeURIComponent(title)}`;
+}
+
 export function FeedCard({
   item,
   onClick,
   index = 0,
-  summary = null,
-  summaryLoading = false,
   defaultExpanded = false,
   userInput,
+  apiKey,
 }: {
   item: RankedItem;
   onClick: () => void;
   index?: number;
-  summary?: string | null;
-  summaryLoading?: boolean;
   defaultExpanded?: boolean;
   userInput?: string;
+  apiKey?: string | null;
 }) {
   const [expanded, setExpanded] = useState(defaultExpanded);
+  const [summary, setSummary] = useState<string | null>(null);
+  const [summaryLoading, setSummaryLoading] = useState(false);
+  const [summaryError, setSummaryError] = useState<string | null>(null);
+  const [summaryFetched, setSummaryFetched] = useState(false);
+
+  useEffect(() => {
+    if (!expanded || summaryFetched || !userInput) return;
+
+    let cancelled = false;
+    setSummaryFetched(true);
+    setSummaryLoading(true);
+    setSummaryError(null);
+
+    async function fetchSummary() {
+      try {
+        const res = await fetch("/api/batch-summarize", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userInput,
+            filenames: [item.filename],
+            ...(apiKey ? { apiKey } : {}),
+          }),
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to summarize");
+        }
+
+        const data = await res.json();
+        const nextSummary = data?.summaries?.[item.filename];
+
+        if (!cancelled) {
+          setSummary(typeof nextSummary === "string" ? nextSummary : null);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          setSummaryError(
+            error instanceof Error ? error.message : "Could not load summary"
+          );
+        }
+      } finally {
+        if (!cancelled) {
+          setSummaryLoading(false);
+        }
+      }
+    }
+
+    fetchSummary();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [expanded, summaryFetched, userInput, item.filename, apiKey]);
+
+  const articleUrl = getLennySearchUrl(item.title);
 
   return (
     <Card
       className="animate-fade-in-up shadow-sm transition-shadow hover:shadow-md"
       style={{ animationDelay: `${index * 60}ms` }}
     >
-      <CardHeader
-        className="cursor-pointer"
-        onClick={onClick}
-      >
+      <CardHeader className="cursor-pointer" onClick={onClick}>
         <div className="flex items-center gap-2">
           <TypeBadge type={item.type} />
           <RelevanceBadge relevance={item.relevance} />
         </div>
-        <h3 className="mt-1 text-lg font-semibold leading-snug">
-          {item.title}
-        </h3>
+        <h3 className="mt-1 text-lg font-semibold leading-snug">{item.title}</h3>
         <p className="text-sm text-muted-foreground">
           {item.date}
           {item.guest && ` · ${item.guest}`}
@@ -54,59 +107,90 @@ export function FeedCard({
           {item.why_this_matters}
         </div>
 
-        {/* Summary section */}
-        {(summary || summaryLoading) && (
-          <div className="mt-3">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setExpanded(!expanded);
-              }}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {expanded ? "Hide summary ▲" : "View summary ▼"}
-            </button>
+        <div className="mt-2">
+          <a
+            href={articleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] text-primary/80 hover:text-primary transition-colors"
+          >
+            Open on Lenny&apos;s Newsletter
+          </a>
+        </div>
 
-            {expanded && (
-              <div className="mt-2">
-                {summaryLoading && !summary ? (
-                  <div className="space-y-2">
-                    <Skeleton className="h-3 w-full" />
-                    <Skeleton className="h-3 w-5/6" />
-                    <Skeleton className="h-3 w-4/6" />
-                  </div>
-                ) : summary ? (
-                  <div className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground text-sm leading-relaxed">
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                      {summary}
-                    </ReactMarkdown>
-                  </div>
-                ) : null}
-              </div>
-            )}
-          </div>
-        )}
+        <div className="mt-3">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setExpanded(!expanded);
+            }}
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {expanded ? "Hide summary ▲" : "View summary ▼"}
+          </button>
 
-        {/* Try in Claude Code */}
+          {expanded && (
+            <div className="mt-2">
+              {summaryLoading ? (
+                <div className="space-y-2">
+                  <Skeleton className="h-3 w-full" />
+                  <Skeleton className="h-3 w-5/6" />
+                  <Skeleton className="h-3 w-4/6" />
+                </div>
+              ) : summary ? (
+                <div className="prose prose-sm max-w-none prose-headings:text-foreground prose-p:text-foreground/90 prose-strong:text-foreground text-sm leading-relaxed">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{summary}</ReactMarkdown>
+                </div>
+              ) : (
+                <div className="text-xs text-muted-foreground">
+                  {summaryError ? (
+                    <>
+                      Couldn&apos;t load summary. {" "}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSummaryFetched(false);
+                          setSummaryError(null);
+                        }}
+                        className="underline underline-offset-4"
+                      >
+                        Try again
+                      </button>
+                    </>
+                  ) : (
+                    "No summary available."
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
         <div className="mt-3 flex items-center gap-2">
           <button
             onClick={(e) => {
               e.stopPropagation();
-              const sanitized = userInput ? userInput.replace(/"/g, "'").slice(0, 200) + (userInput.length > 200 ? "..." : "") : "";
-              const copyStr = `claude /lenny-learn "${item.filename}${sanitized ? ` | ${sanitized}` : ""}"`;
+              const sanitized = userInput
+                ? userInput.replace(/"/g, "'").slice(0, 200) +
+                  (userInput.length > 200 ? "..." : "")
+                : "";
+              const copyStr = `/lenny-learn "${item.filename}${sanitized ? ` | ${sanitized}` : ""}"`;
               navigator.clipboard.writeText(copyStr);
               const btn = e.currentTarget;
               btn.textContent = "Copied!";
-              setTimeout(() => { btn.textContent = "Learn this in Claude Code"; }, 2000);
+              setTimeout(() => {
+                btn.textContent = "Learn this in your CLI";
+              }, 2000);
             }}
             className="text-xs font-medium text-primary hover:text-primary/80 transition-colors border border-primary/30 rounded-md px-2.5 py-1"
           >
-            Learn this in Claude Code
+            Learn this in your CLI
           </button>
           <span className="text-[10px] text-muted-foreground">
-            Opens a coaching session about this article in your terminal
+            Requires Lenny MCP + installed skills
           </span>
         </div>
+
         <div className="mt-1.5">
           <a
             href="https://github.com/erictisme/lenny-skills"

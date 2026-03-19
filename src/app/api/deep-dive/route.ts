@@ -1,5 +1,5 @@
 import { streamText } from "ai";
-import { getGoogleProvider, MODEL_ID } from "@/lib/ai";
+import { getGoogleProvider, MODEL_IDS } from "@/lib/ai";
 import { DEEP_DIVE_SYSTEM_PROMPT } from "@/lib/prompts";
 import { NextResponse } from "next/server";
 import fs from "fs";
@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     const provider = getGoogleProvider(apiKey);
 
     const result = streamText({
-      model: provider(MODEL_ID),
+      model: provider(MODEL_IDS.deepDive),
       system: DEEP_DIVE_SYSTEM_PROMPT,
       prompt: `Reader's situation: ${userInput}\n\n---\n\nFull article content:\n\n${content}`,
     });

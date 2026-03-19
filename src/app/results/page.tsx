@@ -35,10 +35,6 @@ function ResultsContent() {
   const [synthesisLoading, setSynthesisLoading] = useState(false);
   const [synthesisError, setSynthesisError] = useState<string | null>(null);
 
-  // Batch summary state
-  const [summaries, setSummaries] = useState<Record<string, string | null>>({});
-  const [summariesLoading, setSummariesLoading] = useState(false);
-
   // Load more state
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -93,39 +89,6 @@ function ResultsContent() {
     [apiKey]
   );
 
-  const fetchBatchSummaries = useCallback(
-    async (input: string, filenames: string[]) => {
-      setSummariesLoading(true);
-      // Batch in groups of 10
-      const batches: string[][] = [];
-      for (let i = 0; i < filenames.length; i += 10) {
-        batches.push(filenames.slice(i, i + 10));
-      }
-
-      for (const batch of batches) {
-        try {
-          const res = await fetch("/api/batch-summarize", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              userInput: input,
-              filenames: batch,
-              ...(apiKey ? { apiKey } : {}),
-            }),
-          });
-          if (res.ok) {
-            const data = await res.json();
-            setSummaries((prev) => ({ ...prev, ...data.summaries }));
-          }
-        } catch {
-          // Continue with other batches even if one fails
-        }
-      }
-      setSummariesLoading(false);
-    },
-    [apiKey]
-  );
-
   useEffect(() => {
     if (!userInput) {
       router.replace("/");
@@ -154,9 +117,8 @@ function ResultsContent() {
         const filenames = rankedItems.map((it) => it.filename);
         loadedFilenamesRef.current = filenames;
 
-        // Start synthesis and batch summaries in parallel
+        // Start synthesis
         fetchSynthesis(userInput!, filenames);
-        fetchBatchSummaries(userInput!, filenames);
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Something went wrong"
@@ -167,7 +129,7 @@ function ResultsContent() {
     }
 
     fetchRankings();
-  }, [userInput, router, apiKey, fetchSynthesis, fetchBatchSummaries]);
+  }, [userInput, router, apiKey, fetchSynthesis]);
 
   useEffect(() => {
     if (!loading) return;
@@ -204,7 +166,6 @@ function ResultsContent() {
           ...loadedFilenamesRef.current,
           ...newFilenames,
         ];
-        fetchBatchSummaries(userInput, newFilenames);
       }
     } catch {
       // Silently fail on load more
@@ -334,6 +295,7 @@ function ResultsContent() {
             content={synthesisContent}
             loading={synthesisLoading}
             error={synthesisError}
+            userInput={userInput}
           />
 
           {/* Feed Cards */}
@@ -344,10 +306,9 @@ function ResultsContent() {
                 item={item}
                 index={i}
                 onClick={() => setSelectedItem(item)}
-                summary={summaries[item.filename] ?? null}
-                summaryLoading={summariesLoading && !(item.filename in summaries)}
                 defaultExpanded={i === 0}
                 userInput={userInput}
+                apiKey={apiKey}
               />
             ))}
           </div>

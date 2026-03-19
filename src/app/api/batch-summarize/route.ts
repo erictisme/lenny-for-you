@@ -1,5 +1,5 @@
 import { generateText } from "ai";
-import { getGoogleProvider, MODEL_ID } from "@/lib/ai";
+import { getGoogleProvider, MODEL_IDS } from "@/lib/ai";
 import { CARD_SUMMARY_SYSTEM_PROMPT } from "@/lib/prompts";
 import { NextResponse } from "next/server";
 import fs from "fs";
@@ -67,6 +67,7 @@ function resolveFilePath(filename: string): string | null {
 }
 
 const MAX_FILES = 10;
+const SUMMARY_EXCERPT_CHARS = 4000;
 
 export async function POST(request: Request) {
   try {
@@ -97,12 +98,12 @@ export async function POST(request: Request) {
           if (!filePath) return { filename: fname, summary: null, error: "File not found" };
 
           const raw = fs.readFileSync(filePath, "utf-8");
-          const content = stripFrontmatter(raw);
+          const content = stripFrontmatter(raw).slice(0, SUMMARY_EXCERPT_CHARS);
 
           const { text } = await generateText({
-            model: provider(MODEL_ID),
+            model: provider(MODEL_IDS.cardSummary),
             system: CARD_SUMMARY_SYSTEM_PROMPT,
-            prompt: `Reader's situation: ${userInput}\n\n---\n\nArticle content:\n\n${content}`,
+            prompt: `Reader's situation: ${userInput}\n\n---\n\nArticle excerpt:\n\n${content}`,
           });
 
           return { filename: fname, summary: text, error: null };

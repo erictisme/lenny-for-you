@@ -85,7 +85,7 @@ export function BYOKToggle() {
         <PopoverHeader>
           <PopoverTitle>Settings</PopoverTitle>
           <PopoverDescription>
-            Use your own Google AI key
+            Use your own Google AI key (optional)
           </PopoverDescription>
         </PopoverHeader>
         <div className="flex flex-col gap-2">
@@ -114,6 +114,9 @@ export function BYOKToggle() {
               </Button>
             )}
           </div>
+          <p className="text-[10px] text-muted-foreground">
+            Cost saver mode is on: summaries are generated only when you open a card.
+          </p>
         </div>
       </PopoverContent>
     </Popover>

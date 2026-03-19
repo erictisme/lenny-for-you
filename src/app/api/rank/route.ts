@@ -1,6 +1,6 @@
 import { generateObject } from "ai";
 import { z } from "zod";
-import { getGoogleProvider, MODEL_ID } from "@/lib/ai";
+import { getGoogleProvider, MODEL_IDS } from "@/lib/ai";
 import { RANKING_SYSTEM_PROMPT } from "@/lib/prompts";
 import { CATALOG_PROMPT } from "@/data/compact-index";
 import { NextResponse } from "next/server";
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     const provider = getGoogleProvider(apiKey);
 
     const result = await generateObject({
-      model: provider(MODEL_ID),
+      model: provider(MODEL_IDS.ranking),
       schema: ResponseSchema,
       system: RANKING_SYSTEM_PROMPT,
       prompt: `Here is the content catalog:\n\n${CATALOG_PROMPT}\n\nHere is the person's situation:\n\n${userInput}`,

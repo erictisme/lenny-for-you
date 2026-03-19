@@ -8,10 +8,12 @@ export function SynthesisBrief({
   content,
   loading,
   error,
+  userInput,
 }: {
   content: string;
   loading: boolean;
   error: string | null;
+  userInput: string;
 }) {
   return (
     <section className="mb-10">
@@ -50,15 +52,15 @@ export function SynthesisBrief({
 
           <div className="mt-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
             <p className="text-sm font-medium mb-2">
-              Want to go deeper? Run this in your terminal:
+              Want to go deeper in your CLI? Paste your original prompt:
             </p>
             <div className="flex items-center gap-2">
-              <code className="flex-1 rounded bg-foreground/5 px-3 py-2 text-xs font-mono text-foreground/80 select-all">
-                claude /lenny &quot;your situation here&quot;
-              </code>
+              <pre className="flex-1 rounded bg-foreground/5 px-3 py-2 text-xs font-mono text-foreground/80 whitespace-pre-wrap break-words">
+                {userInput}
+              </pre>
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText('claude /lenny "your situation here"');
+                  navigator.clipboard.writeText(userInput);
                 }}
                 className="shrink-0 rounded-md border border-primary/30 px-3 py-2 text-xs font-medium text-primary hover:bg-primary/10 transition-colors"
               >
@@ -66,7 +68,11 @@ export function SynthesisBrief({
               </button>
             </div>
             <p className="mt-2 text-[10px] text-muted-foreground">
-              Requires <a href="https://claude.ai/claude-code" target="_blank" rel="noopener noreferrer" className="underline">Claude Code</a> + <a href="https://lennysdata.com" target="_blank" rel="noopener noreferrer" className="underline">Lenny MCP</a>
+              Works with Claude Code, Codex CLI, Cursor, Windsurf, Antigravity,
+              and other MCP-capable tools.
+            </p>
+            <p className="mt-1 text-[10px] text-muted-foreground">
+              Requires <a href="https://lennysdata.com" target="_blank" rel="noopener noreferrer" className="underline">Lenny MCP</a> and installed Lenny skills in your tool.
             </p>
           </div>
         </>

@@ -1,5 +1,5 @@
 import { streamText } from "ai";
-import { getGoogleProvider, MODEL_ID } from "@/lib/ai";
+import { getGoogleProvider, MODEL_IDS } from "@/lib/ai";
 import { SYNTHESIS_SYSTEM_PROMPT } from "@/lib/prompts";
 import { NextResponse } from "next/server";
 import fs from "fs";
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Read all files and extract first 2000 chars of content
+    // Read all files and extract first 1200 chars of content
     const excerpts: string[] = [];
     for (const fname of filenames) {
       const filePath = resolveFilePath(fname);
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
 
       const raw = fs.readFileSync(filePath, "utf-8");
       const content = stripFrontmatter(raw);
-      const excerpt = content.slice(0, 2000);
+      const excerpt = content.slice(0, 1200);
       excerpts.push(`--- ${fname} ---\n${excerpt}`);
     }
 
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     const provider = getGoogleProvider(apiKey);
 
     const result = streamText({
-      model: provider(MODEL_ID),
+      model: provider(MODEL_IDS.synthesis),
       system: SYNTHESIS_SYSTEM_PROMPT,
       prompt: `Reader's situation: ${userInput}\n\n---\n\nExcerpts from ${excerpts.length} relevant articles:\n\n${excerpts.join("\n\n")}`,
     });
