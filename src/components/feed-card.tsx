@@ -6,17 +6,21 @@ import { TypeBadge } from "@/components/type-badge";
 import { RelevanceBadge } from "@/components/relevance-badge";
 import type { RankedItem } from "@/types";
 
+const MCP_SETUP_URL = "https://www.lennysdata.com/access/mcp";
 const INSTALL_COMMAND =
   "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh";
 
-function markInstallCommandCopied() {
+const MCP_READY_KEY = "lenny-mcp-ready";
+const SKILLS_READY_KEY = "lenny-skills-install-copied";
+
+function markLocalFlag(key: string) {
   if (typeof window === "undefined") return;
-  localStorage.setItem("lenny-skills-install-copied", "1");
+  localStorage.setItem(key, "1");
 }
 
-function hasSeenInstallCommand() {
+function hasLocalFlag(key: string) {
   if (typeof window === "undefined") return false;
-  return localStorage.getItem("lenny-skills-install-copied") === "1";
+  return localStorage.getItem(key) === "1";
 }
 
 export function FeedCard({
@@ -35,10 +39,23 @@ export function FeedCard({
   const [expanded, setExpanded] = useState(defaultExpanded);
   const [cliCopied, setCliCopied] = useState(false);
   const [installCopied, setInstallCopied] = useState(false);
+  const [mcpCopied, setMcpCopied] = useState(false);
+
+  const buttonStateClass = (active: boolean) =>
+    active
+      ? "border-primary bg-primary text-primary-foreground"
+      : "border-primary/30 text-primary hover:bg-primary/10";
+
+  const handleMcpCopy = () => {
+    navigator.clipboard.writeText(MCP_SETUP_URL);
+    markLocalFlag(MCP_READY_KEY);
+    setMcpCopied(true);
+    setTimeout(() => setMcpCopied(false), 2000);
+  };
 
   const handleInstallCopy = () => {
     navigator.clipboard.writeText(INSTALL_COMMAND);
-    markInstallCommandCopied();
+    markLocalFlag(SKILLS_READY_KEY);
     setInstallCopied(true);
     setTimeout(() => setInstallCopied(false), 2000);
   };
@@ -46,13 +63,23 @@ export function FeedCard({
   const handleCliCopy = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
 
-    const hasInstalled = hasSeenInstallCommand();
-    if (!hasInstalled) {
-      const proceed = window.confirm(
-        "Before this works, install Lenny skills first. Click OK if you already installed them. Click Cancel to copy the install command now."
+    const mcpReady = hasLocalFlag(MCP_READY_KEY);
+    if (!mcpReady) {
+      const continueAnyway = window.confirm(
+        "Step 0 first: connect Lenny MCP. Click Cancel to copy the MCP setup link now."
       );
+      if (!continueAnyway) {
+        handleMcpCopy();
+        return;
+      }
+    }
 
-      if (!proceed) {
+    const skillsReady = hasLocalFlag(SKILLS_READY_KEY);
+    if (!skillsReady) {
+      const continueAnyway = window.confirm(
+        "Step 1 first: install Lenny skills. Click Cancel to copy the install command now."
+      );
+      if (!continueAnyway) {
         handleInstallCopy();
         return;
       }
@@ -115,45 +142,65 @@ export function FeedCard({
           )}
         </div>
 
-        <div className="mt-3 flex items-center gap-2">
-          <a
-            href="https://github.com/erictisme/lenny-skills"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-medium text-primary underline underline-offset-4"
-            onClick={(e) => e.stopPropagation()}
-          >
-            1) Install skills first (GitHub)
-          </a>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handleInstallCopy();
-            }}
-            className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
-              installCopied
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-primary/30 text-primary hover:bg-primary/10"
-            }`}
-          >
-            {installCopied ? "Copied!" : "Copy install"}
-          </button>
-        </div>
+        <div className="mt-3 rounded-md border border-border/60 bg-muted/20 p-3 space-y-2">
+          <p className="text-xs font-medium text-foreground">Before CLI:</p>
 
-        <div className="mt-2 flex items-center gap-2">
-          <button
-            onClick={handleCliCopy}
-            className={`text-xs font-medium transition-colors border rounded-md px-2.5 py-1 ${
-              cliCopied
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-primary/30 text-primary hover:bg-primary/10"
-            }`}
-          >
-            {cliCopied ? "Copied!" : "2) Learn this in your CLI"}
-          </button>
-          <span className="text-[10px] text-muted-foreground">
-            Requires Lenny MCP
-          </span>
+          <div className="flex items-center gap-2">
+            <a
+              href={MCP_SETUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-primary underline underline-offset-4"
+              onClick={(e) => {
+                e.stopPropagation();
+                markLocalFlag(MCP_READY_KEY);
+              }}
+            >
+              0) Connect Lenny MCP
+            </a>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleMcpCopy();
+              }}
+              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${buttonStateClass(mcpCopied)}`}
+            >
+              {mcpCopied ? "Copied!" : "Copy link"}
+            </button>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/erictisme/lenny-skills"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-medium text-primary underline underline-offset-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              1) Install skills (GitHub)
+            </a>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleInstallCopy();
+              }}
+              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${buttonStateClass(installCopied)}`}
+            >
+              {installCopied ? "Copied!" : "Copy install"}
+            </button>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleCliCopy}
+              className={`text-xs font-medium transition-colors border rounded-md px-2.5 py-1 ${buttonStateClass(cliCopied)}`}
+            >
+              {cliCopied ? "Copied!" : "2) Learn this in your CLI"}
+            </button>
+            <span className="text-[10px] text-muted-foreground">
+              Runs `/lenny-learn` with your full context
+            </span>
+          </div>
         </div>
 
         {item.tags.length > 0 && (

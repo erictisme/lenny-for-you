@@ -30,6 +30,7 @@ function ResultsContent() {
   const [loadingMsgIndex, setLoadingMsgIndex] = useState(0);
   const apiKey = useApiKey();
   const [skillsInstallCopied, setSkillsInstallCopied] = useState(false);
+  const [mcpLinkCopied, setMcpLinkCopied] = useState(false);
 
   // Synthesis state
   const [synthesisContent, setSynthesisContent] = useState("");
@@ -275,16 +276,56 @@ function ResultsContent() {
           {/* Skills CTA */}
           <div className="mb-6 rounded-lg border border-border/50 bg-muted/30 px-4 py-3">
             <p className="text-sm font-medium text-foreground">
-              Want to go deeper?{" "}
+              CLI setup first:
+            </p>
+            <div className="mt-2 flex items-center gap-2">
+              <a
+                href="https://www.lennysdata.com/access/mcp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-primary underline underline-offset-4"
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    localStorage.setItem("lenny-mcp-ready", "1");
+                  }
+                }}
+              >
+                0) Connect Lenny MCP
+              </a>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    "https://www.lennysdata.com/access/mcp"
+                  );
+                  if (typeof window !== "undefined") {
+                    localStorage.setItem("lenny-mcp-ready", "1");
+                  }
+                  setMcpLinkCopied(true);
+                  setTimeout(() => setMcpLinkCopied(false), 2000);
+                }}
+                className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  mcpLinkCopied
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-primary/30 text-primary hover:bg-primary/10"
+                }`}
+              >
+                {mcpLinkCopied ? "Copied!" : "Copy link"}
+              </button>
+            </div>
+
+            <p className="mt-2 text-sm font-medium text-foreground">
+              1) Install Lenny coaching skills:
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              GitHub:{" "}
               <a
                 href="https://github.com/erictisme/lenny-skills"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary underline underline-offset-4"
               >
-                Install Lenny coaching skills
-              </a>{" "}
-              for interactive 1-on-1 sessions with any article.
+                erictisme/lenny-skills
+              </a>
             </p>
             <div className="mt-2 flex items-center gap-2">
               <code className="block flex-1 text-xs text-muted-foreground bg-background/50 rounded px-2 py-1.5 select-all">
@@ -318,6 +359,7 @@ function ResultsContent() {
             loading={synthesisLoading}
             error={synthesisError}
             userInput={userInput}
+            primaryFilename={items[0]?.filename ?? null}
           />
 
           {/* Feed Cards */}
