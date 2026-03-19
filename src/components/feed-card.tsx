@@ -9,10 +9,6 @@ import { RelevanceBadge } from "@/components/relevance-badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { RankedItem } from "@/types";
 
-function getLennySearchUrl(title: string) {
-  return `https://www.lennysnewsletter.com/search?q=${encodeURIComponent(title)}`;
-}
-
 export function FeedCard({
   item,
   onClick,
@@ -43,10 +39,13 @@ export function FeedCard({
     setSummaryError(null);
 
     async function fetchSummary() {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
       try {
         const res = await fetch("/api/batch-summarize", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+          signal: controller.signal,
           body: JSON.stringify({
             userInput,
             filenames: [item.filename],
@@ -66,11 +65,18 @@ export function FeedCard({
         }
       } catch (error) {
         if (!cancelled) {
+          const isAbort =
+            error instanceof Error && error.name === "AbortError";
           setSummaryError(
-            error instanceof Error ? error.message : "Could not load summary"
+            isAbort
+              ? "Summary took too long. Please try again."
+              : error instanceof Error
+                ? error.message
+                : "Could not load summary"
           );
         }
       } finally {
+        clearTimeout(timeoutId);
         if (!cancelled) {
           setSummaryLoading(false);
         }
@@ -83,8 +89,6 @@ export function FeedCard({
       cancelled = true;
     };
   }, [expanded, summaryFetched, userInput, item.filename, apiKey]);
-
-  const articleUrl = getLennySearchUrl(item.title);
 
   return (
     <Card
@@ -107,17 +111,6 @@ export function FeedCard({
           {item.why_this_matters}
         </div>
 
-        <div className="mt-2">
-          <a
-            href={articleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] text-primary/80 hover:text-primary transition-colors"
-          >
-            Open on Lenny&apos;s Newsletter
-          </a>
-        </div>
-
         <div className="mt-3">
           <button
             onClick={(e) => {
@@ -126,7 +119,9 @@ export function FeedCard({
             }}
             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
-            {expanded ? "Hide summary ▲" : "View summary ▼"}
+            {expanded
+              ? "Hide personalized summary ▲"
+              : "View personalized summary ▼"}
           </button>
 
           {expanded && (
@@ -171,8 +166,7 @@ export function FeedCard({
             onClick={(e) => {
               e.stopPropagation();
               const sanitized = userInput
-                ? userInput.replace(/"/g, "'").slice(0, 200) +
-                  (userInput.length > 200 ? "..." : "")
+                ? userInput.replace(/"/g, "'").replace(/\s+/g, " ").trim()
                 : "";
               const copyStr = `/lenny-learn "${item.filename}${sanitized ? ` | ${sanitized}` : ""}"`;
               navigator.clipboard.writeText(copyStr);

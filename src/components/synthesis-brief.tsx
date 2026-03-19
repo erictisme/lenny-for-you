@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -15,6 +16,8 @@ export function SynthesisBrief({
   error: string | null;
   userInput: string;
 }) {
+  const [copied, setCopied] = useState(false);
+
   return (
     <section className="mb-10">
       <h2 className="text-xl font-semibold mb-1">
@@ -61,10 +64,16 @@ export function SynthesisBrief({
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(userInput);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
                 }}
-                className="shrink-0 rounded-md border border-primary/30 px-3 py-2 text-xs font-medium text-primary hover:bg-primary/10 transition-colors"
+                className={`shrink-0 rounded-md border px-3 py-2 text-xs font-medium transition-colors ${
+                  copied
+                    ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-300"
+                    : "border-primary/30 text-primary hover:bg-primary/10"
+                }`}
               >
-                Copy
+                {copied ? "Copied!" : "Copy"}
               </button>
             </div>
             <p className="mt-2 text-[10px] text-muted-foreground">

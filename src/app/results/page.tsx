@@ -29,6 +29,7 @@ function ResultsContent() {
   const [selectedItem, setSelectedItem] = useState<RankedItem | null>(null);
   const [loadingMsgIndex, setLoadingMsgIndex] = useState(0);
   const apiKey = useApiKey();
+  const [skillsInstallCopied, setSkillsInstallCopied] = useState(false);
 
   // Synthesis state
   const [synthesisContent, setSynthesisContent] = useState("");
@@ -285,9 +286,27 @@ function ResultsContent() {
               </a>{" "}
               for interactive 1-on-1 sessions with any article.
             </p>
-            <code className="mt-2 block text-xs text-muted-foreground bg-background/50 rounded px-2 py-1.5 select-all">
-              git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh
-            </code>
+            <div className="mt-2 flex items-center gap-2">
+              <code className="block flex-1 text-xs text-muted-foreground bg-background/50 rounded px-2 py-1.5 select-all">
+                git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh
+              </code>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh"
+                  );
+                  setSkillsInstallCopied(true);
+                  setTimeout(() => setSkillsInstallCopied(false), 2000);
+                }}
+                className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  skillsInstallCopied
+                    ? "border-emerald-500/60 bg-emerald-500/15 text-emerald-300"
+                    : "border-primary/30 text-primary hover:bg-primary/10"
+                }`}
+              >
+                {skillsInstallCopied ? "Copied!" : "Copy"}
+              </button>
+            </div>
           </div>
 
           {/* Synthesis Brief */}

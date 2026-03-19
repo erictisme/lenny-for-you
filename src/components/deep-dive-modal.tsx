@@ -14,10 +14,6 @@ import {
 import { TypeBadge } from "@/components/type-badge";
 import { Loader2 } from "lucide-react";
 
-function getLennySearchUrl(title: string) {
-  return `https://www.lennysnewsletter.com/search?q=${encodeURIComponent(title)}`;
-}
-
 export function DeepDiveModal({
   open,
   onClose,
@@ -43,7 +39,6 @@ export function DeepDiveModal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [cliBtnText, setCliBtnText] = useState("Learn this in your CLI");
-  const articleUrl = getLennySearchUrl(title);
 
   useEffect(() => {
     if (!open || !filename) return;
@@ -118,7 +113,9 @@ export function DeepDiveModal({
           <DialogFooter>
             <button
               onClick={() => {
-                const sanitized = userInput ? userInput.replace(/"/g, "'").slice(0, 200) + (userInput.length > 200 ? "..." : "") : "";
+                const sanitized = userInput
+                  ? userInput.replace(/"/g, "'").replace(/\s+/g, " ").trim()
+                  : "";
                 const copyStr = `/lenny-learn "${filename}${sanitized ? ` | ${sanitized}` : ""}"`;
                 navigator.clipboard.writeText(copyStr);
                 setCliBtnText("Copied!");
@@ -141,14 +138,6 @@ export function DeepDiveModal({
                 Watch on YouTube
               </a>
             )}
-            <a
-              href={articleUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-primary underline underline-offset-4"
-            >
-              Open on Lenny&apos;s Newsletter
-            </a>
           </DialogFooter>
         )}
       </DialogContent>

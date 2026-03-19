@@ -67,7 +67,7 @@ function resolveFilePath(filename: string): string | null {
 }
 
 const MAX_FILES = 10;
-const SUMMARY_EXCERPT_CHARS = 4000;
+const SUMMARY_EXCERPT_CHARS = 1600;
 
 export async function POST(request: Request) {
   try {
@@ -104,6 +104,7 @@ export async function POST(request: Request) {
             model: provider(MODEL_IDS.cardSummary),
             system: CARD_SUMMARY_SYSTEM_PROMPT,
             prompt: `Reader's situation: ${userInput}\n\n---\n\nArticle excerpt:\n\n${content}`,
+            maxOutputTokens: 220,
           });
 
           return { filename: fname, summary: text, error: null };
