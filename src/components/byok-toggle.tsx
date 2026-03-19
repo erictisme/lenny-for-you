@@ -114,9 +114,6 @@ export function BYOKToggle() {
               </Button>
             )}
           </div>
-          <p className="text-[10px] text-muted-foreground">
-            Cost saver mode is on: summaries are generated only when you open a card.
-          </p>
         </div>
       </PopoverContent>
     </Popover>

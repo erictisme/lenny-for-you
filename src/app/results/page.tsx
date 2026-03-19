@@ -274,77 +274,68 @@ function ResultsContent() {
       {!loading && !error && (
         <>
           {/* Skills CTA */}
-          <div id="cli-setup" className="mb-6 rounded-lg border border-border bg-background/70 px-4 py-3">
-            <div className="flex items-center justify-between">
-              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                CLI setup
-              </p>
-              <span className="text-[10px] text-muted-foreground">one-time</span>
-            </div>
-            <div className="mt-2 flex flex-wrap items-center gap-2">
-              <a
-                href="https://www.lennysdata.com/access/mcp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-foreground underline underline-offset-4 hover:text-primary"
-                onClick={() => {
-                  if (typeof window !== "undefined") {
-                    localStorage.setItem("lenny-mcp-ready", "1");
-                  }
-                }}
-              >
-                0) Connect MCP
-              </a>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(
-                    "https://www.lennysdata.com/access/mcp"
-                  );
-                  if (typeof window !== "undefined") {
-                    localStorage.setItem("lenny-mcp-ready", "1");
-                  }
-                  setMcpLinkCopied(true);
-                  setTimeout(() => setMcpLinkCopied(false), 2000);
-                }}
-                className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
-                  mcpLinkCopied
-                    ? "border-foreground/20 bg-foreground text-background"
-                    : "border-border bg-background text-foreground hover:bg-muted"
-                }`}
-              >
-                {mcpLinkCopied ? "Copied!" : "Copy link"}
-              </button>
-              <a
-                href="https://github.com/erictisme/lenny-skills"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-foreground underline underline-offset-4 hover:text-primary"
-              >
-                1) Install skills
-              </a>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(
-                    "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh"
-                  );
-                  if (typeof window !== "undefined") {
-                    localStorage.setItem("lenny-skills-install-copied", "1");
-                  }
-                  setSkillsInstallCopied(true);
-                  setTimeout(() => setSkillsInstallCopied(false), 2000);
-                }}
-                className={`shrink-0 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors ${
-                  skillsInstallCopied
-                    ? "border-foreground/20 bg-foreground text-background"
-                    : "border-border bg-background text-foreground hover:bg-muted"
-                }`}
-              >
-                {skillsInstallCopied ? "Copied!" : "Copy install"}
-              </button>
-            </div>
-            <p className="mt-2 text-[10px] text-muted-foreground">
-              Then click <span className="font-medium text-foreground">Run in CLI</span> on any card.
-            </p>
+          <div id="cli-setup" className="mb-4 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <span>CLI setup:</span>
+            <a
+              href="https://www.lennysdata.com/access/mcp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline underline-offset-4 hover:text-primary"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  localStorage.setItem("lenny-mcp-ready", "1");
+                }
+              }}
+            >
+              Connect MCP
+            </a>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  "https://www.lennysdata.com/access/mcp"
+                );
+                if (typeof window !== "undefined") {
+                  localStorage.setItem("lenny-mcp-ready", "1");
+                }
+                setMcpLinkCopied(true);
+                setTimeout(() => setMcpLinkCopied(false), 2000);
+              }}
+              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
+                mcpLinkCopied
+                  ? "border-foreground/20 bg-foreground text-background"
+                  : "border-border bg-background text-foreground hover:bg-muted"
+              }`}
+            >
+              {mcpLinkCopied ? "Copied!" : "Copy MCP link"}
+            </button>
+            <span className="text-muted-foreground">•</span>
+            <a
+              href="https://github.com/erictisme/lenny-skills"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline underline-offset-4 hover:text-primary"
+            >
+              Install skills
+            </a>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  "git clone https://github.com/erictisme/lenny-skills.git && cd lenny-skills && ./install.sh"
+                );
+                if (typeof window !== "undefined") {
+                  localStorage.setItem("lenny-skills-install-copied", "1");
+                }
+                setSkillsInstallCopied(true);
+                setTimeout(() => setSkillsInstallCopied(false), 2000);
+              }}
+              className={`rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
+                skillsInstallCopied
+                  ? "border-foreground/20 bg-foreground text-background"
+                  : "border-border bg-background text-foreground hover:bg-muted"
+              }`}
+            >
+              {skillsInstallCopied ? "Copied!" : "Copy install"}
+            </button>
           </div>
 
           {/* Synthesis Brief */}
